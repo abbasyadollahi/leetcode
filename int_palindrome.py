@@ -6,14 +6,13 @@ class Solution(object):
         """
 
         if x < 0 or (x == 0 and x%10 == 0):
-        	return False
+            return False
 
         reverse = 0
         initial = x
 
         while x > 0:
-        	reverse = reverse*10 + x%10
-        	x = x//10
+            reverse = reverse*10 + x%10
+            x = x//10
 
         return reverse == initial
-

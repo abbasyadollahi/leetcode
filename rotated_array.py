@@ -5,7 +5,7 @@ class Solution:
         :type target: int
         :rtype: int
         """
-        
+
         lo = 0
         hi = len(nums) - 1
         first = nums[0]
@@ -19,7 +19,7 @@ class Solution:
                 hi = mid - 1
             else:
                 lo = mid + 1
-        
+
         return -1
 
 sol = Solution()

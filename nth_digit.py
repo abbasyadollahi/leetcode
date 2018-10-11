@@ -24,5 +24,3 @@ class Solution(object):
 
                     if n == count:
                         return digit
-
-

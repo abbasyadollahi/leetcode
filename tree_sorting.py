@@ -18,8 +18,3 @@ class tree_sorting(object):
         """
 
         longest = []
-
-        for i in range(1, self.nodes+1):
-            first =
-
-
