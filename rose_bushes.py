@@ -1,7 +1,7 @@
 class Solution(object):
     def latestBushGroup(self, a, k, m):
         """
-        :type a: list
+        :type a: List[int]
         :type k: int
         :type m: int
         :rtype: int

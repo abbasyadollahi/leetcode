@@ -6,6 +6,9 @@ class Solution:
         :rtype: int
         """
 
+        if not nums:
+            return -1
+
         lo = 0
         hi = len(nums) - 1
         first = nums[0]
@@ -15,7 +18,9 @@ class Solution:
 
             if nums[mid] == target:
                 return mid
-            elif first <= target < nums[mid] or target < nums[mid] < first:
+            if nums[lo] == target:
+                return lo
+            elif first <= target < nums[mid] or target < nums[mid] < first or nums[mid] < first <= target:
                 hi = mid - 1
             else:
                 lo = mid + 1
@@ -23,6 +28,7 @@ class Solution:
         return -1
 
 sol = Solution()
+print (sol.search([8,9,2,3,4], 9))
 print (sol.search([4,5,6,7,0,1,2], 0))
 print (sol.search([9,10,0,1,2,3,4,8], 7))
 print (sol.search([9,10,0,1,2,3,4,8], 8))
