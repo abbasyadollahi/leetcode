@@ -12,19 +12,6 @@ class Solution:
         :rtype: ListNode
         """
 
-        # num1 = ""
-        # num2 = ""
-
-        # while l1:
-        #     num1 = str(l1.val) + num1
-        #     l1 = l1.next
-
-        # while l2:
-        #     num2 = str(l2.val) + num2
-        #     l2 = l2.next
-
-        # sum_str = str(int(num1) + int(num2))[::-1]
-
         mult = 1
         sum_int = 0
         while l1 and l2:

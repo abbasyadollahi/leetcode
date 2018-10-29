@@ -5,29 +5,6 @@ class Solution(object):
         :rtype: str
         """
 
-        # if not len(words):
-        #     return ''
-
-        # order = []
-        # for pair in zip(words,words[1:]):
-        #     for x, y in zip(*pair):
-        #         if x != y:
-        #             order.append(x+y)
-        #             break
-
-        # letters = set(''.join(words))
-        # dicts = []
-
-        # while order:
-        #         free_letter = letters - set(list(zip(*order))[1])
-        #         if not free_letter:
-        #             return ''
-        #         dicts += free_letter
-        #         order = filter(free_letter.isdisjoint, order)
-        #         letters -= free_letter
-
-        # return ''.join(dicts + list(letters))
-
         from collections import defaultdict
         pre = defaultdict(set)
         suc = defaultdict(set)

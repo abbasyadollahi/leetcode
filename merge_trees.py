@@ -16,8 +16,8 @@ class Solution(object):
         if t1 and t2:
             merged = TreeNode(t1.val + t2.val)
 
-            merged.left = mergeTrees(t1.left, t2.left)
-            merged.right = mergeTrees(t1.right, t2.right)
+            merged.left = self.mergeTrees(t1.left, t2.left)
+            merged.right = self.mergeTrees(t1.right, t2.right)
 
             return merged
         else:

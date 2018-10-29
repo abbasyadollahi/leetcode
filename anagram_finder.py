@@ -11,11 +11,11 @@ class Solution(object):
         double_char = []
         good = False
 
-        for idx, char in enumerate(anagram):
+        for char in anagram:
             if anagram.count(char) > 1 and char not in chain.from_iterable(double_char):
                 double_char.append([char, anagram.count(char)])
 
-        for i, c in enumerate(words):
+        for i in range(len(words)):
             if i == words_len - ana_len - 1:
                 break
 
