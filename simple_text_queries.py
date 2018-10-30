@@ -1,5 +1,5 @@
 class Solution:
-    def text_queries(self, sentences, queries):
+    def textQueries(self, sentences, queries):
         """
         :type sentences: String
         :type queries: String

@@ -1,7 +1,6 @@
-# Definition for singly-linked list.
 class ListNode:
-    def __init__(self, x):
-        self.val = x
+    def __init__(self, val):
+        self.val = val
         self.next = None
 
 class Solution:
@@ -57,10 +56,10 @@ tc1 = sol.addTwoNumbers(l1, l2)
 while tc1:
     print (tc1.val, end='')
     tc1 = tc1.next
-print ()
+print()
 
 tc2 = sol.addTwoNumbers(l1, l3)
 while tc2:
     print (tc2.val, end='')
     tc2 = tc2.next
-print ()
+print()

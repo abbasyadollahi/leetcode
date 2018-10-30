@@ -1,5 +1,5 @@
 class Solution:
-    def train_rain(self, elevation):
+    def trapRain(self, elevation):
         """
         :type elevation: List[int]
         :rtype: int
@@ -27,4 +27,4 @@ class Solution:
         return rain
 
 sol = Solution()
-print(sol.train_rain([0,1,0,2,1,0,1,3,2,1,2,1]))
+print(sol.trapRain([0,1,0,2,1,0,1,3,2,1,2,1]))

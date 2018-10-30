@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution:
     def latestBushGroup(self, a, k, m):
         """
         :type a: List[int]
@@ -33,7 +33,6 @@ class Solution(object):
         return -1
 
 sol = Solution()
-
 print(sol.latestBushGroup([1,4,3,2,5], 1, 3))
 print(sol.latestBushGroup([1,2,7,6,4,3,5], 2, 2))
 print(sol.latestBushGroup([1,2,3,5,6,7,4], 3, 2))

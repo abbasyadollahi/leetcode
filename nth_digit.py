@@ -1,9 +1,10 @@
-class Solution(object):
+class Solution:
     def findNthDigit(self, n):
         """
         :type n: int
         :rtype: int
         """
+
         digit = 0
         count = 0
 

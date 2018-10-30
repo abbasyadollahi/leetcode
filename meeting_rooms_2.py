@@ -1,7 +1,7 @@
-class Solution(object):
+class Solution:
     def minMeetingRooms(self, intervals):
         """
-        :type intervals: List[Interval]
+        :type intervals: List[List[int]]
         :rtype: int
         """
 
@@ -17,7 +17,7 @@ class Solution(object):
 
         room = 0
         max_room = 0
-        for k, v in timeline:
+        for k in timeline:
             if k == 'start':
                 room += 1
             else:

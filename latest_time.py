@@ -1,5 +1,6 @@
 from itertools import product
-class Solution(object):
+
+class Solution:
     def latestTime(self, time):
         """
         :type time: str

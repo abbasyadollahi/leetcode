@@ -1,5 +1,5 @@
 class Solution:
-    def missing_words(self, s, t):
+    def missingWords(self, s, t):
         """
         :type s: String
         :type t: String
@@ -23,4 +23,4 @@ class Solution:
         return missing
 
 sol = Solution()
-print(sol.missing_words('I am using hackerrank to improve programming', 'am hackerrank to improve'))
+print(sol.missingWords('I am using hackerrank to improve programming', 'am hackerrank to improve'))

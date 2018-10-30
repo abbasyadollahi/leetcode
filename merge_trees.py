@@ -1,20 +1,19 @@
-# Definition for a binary tree node.
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
+class ListNode:
+    def __init__(self, val):
+        self.val = val
         self.left = None
         self.right = None
 
-class Solution(object):
+class Solution:
     def mergeTrees(self, t1, t2):
         """
-        :type t1: TreeNode
-        :type t2: TreeNode
-        :rtype: TreeNode
+        :type t1: ListNode
+        :type t2: ListNode
+        :rtype: ListNode
         """
 
         if t1 and t2:
-            merged = TreeNode(t1.val + t2.val)
+            merged = ListNode(t1.val + t2.val)
 
             merged.left = self.mergeTrees(t1.left, t2.left)
             merged.right = self.mergeTrees(t1.right, t2.right)
