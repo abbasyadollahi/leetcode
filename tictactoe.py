@@ -30,10 +30,10 @@ class TicTacToe(object):
         for i in range(self.size):
             if '_' not in self.board[i] and len(set(self.board[i])) == 1:
                 if self.board[i][0] == 'x':
-                    print("Player 1 won.1")
+                    print('Player 1 won.1')
                     return 1
                 elif self.board[i][0] == 'o':
-                    print("Player 1 won.1")
+                    print('Player 1 won.1')
                     return 2
 
             col_match = []
@@ -43,10 +43,10 @@ class TicTacToe(object):
             if '_' not in col_match and len(set(col_match)) == 1:
                 print(col_match)
                 if col_match[0] == 'x':
-                    print("Player 1 won.1")
+                    print('Player 1 won.1')
                     return 1
                 elif col_match[0] == 'o':
-                    print("Player 1 won.1")
+                    print('Player 1 won.1')
                     return 2
 
             diag_match = []
@@ -54,13 +54,13 @@ class TicTacToe(object):
 
         if '_' not in diag_match and len(set(diag_match)) == 1:
             if diag_match[0] == 'x':
-                print("Player 1 won.1")
+                print('Player 1 won.1')
                 return 1
             elif diag_match[0] == 'o':
-                print("Player 1 won.1")
+                print('Player 1 won.1')
                 return 2
 
-        print("Next turn.")
+        print('Next turn.')
         for i in range(self.size):
             print(self.board[i])
 

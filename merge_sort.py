@@ -1,7 +1,7 @@
 class Solution(object):
     def mergeSort(self, mylist):
         """
-        :type list: List[int]
+        :type mylist: List[int]
         :rtype: List[int]
         """
 

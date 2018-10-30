@@ -29,4 +29,4 @@ class Solution(object):
                         break
 
                 if good:
-                    print("Found one: {}".format(str_list))
+                    print('Found one: {}'.format(str_list))

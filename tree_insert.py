@@ -8,7 +8,7 @@ class TreeNode(object):
 class Solution():
     def get_min_node(self, root):
         """
-        :param root" TreeNode
+        :type root: TreeNode
         """
 
         while root.left:
@@ -17,8 +17,8 @@ class Solution():
 
     def insert_node(self, root, value):
         """
-        :param root: TreeNode
-        :param node: TreeNode
+        :type root: TreeNode
+        :type node: TreeNode
         """
 
         if root is None:
@@ -53,7 +53,7 @@ class Solution():
 
     def inorder_traversal(self, root):
         """
-        :param root" TreeNode
+        :type root: TreeNode
         """
 
         res = []
@@ -65,7 +65,7 @@ class Solution():
 
     def next_traversal(self, root):
         """
-        :param root" TreeNode
+        :type root: TreeNode
         """
 
         res = []

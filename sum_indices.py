@@ -19,4 +19,4 @@ class Solution(object):
                     return [idx, num_list.index(target-value)]
             return [0, 0]
 
-        return "Version 1 or 2?"
+        return 'Version 1 or 2?'
