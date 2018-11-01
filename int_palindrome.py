@@ -7,6 +7,9 @@ class Solution:
         :rtype: bool
         """
 
+        if len(str(x)) == 1:
+            return True
+
         if x < 0 or (x == 0 and x%10 == 0):
             return False
 
