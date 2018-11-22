@@ -1,4 +1,4 @@
-class ListNode:
+class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
@@ -8,7 +8,7 @@ class ListNode:
 class Solution():
     def get_min_node(self, root):
         """
-        :type root: ListNode
+        :type root: Node
         """
 
         while root.left:
@@ -17,12 +17,12 @@ class Solution():
 
     def insert_node(self, root, value):
         """
-        :type root: ListNode
-        :type node: ListNode
+        :type root: Node
+        :type node: Node
         """
 
         if root is None:
-            return ListNode(value)
+            return Node(value)
 
         node = root
         prev = node
@@ -35,11 +35,11 @@ class Solution():
 
 
         if prev.val < value:
-            prev.right = ListNode(value)
+            prev.right = Node(value)
             prev.right.next = prev.next
             prev.next = prev.right
         else:
-            prev.left = ListNode(value)
+            prev.left = Node(value)
             min_node = self.get_min_node(root)
             if min_node is prev.left:
                 min_node.next = prev
@@ -53,7 +53,7 @@ class Solution():
 
     def inorder_traversal(self, root):
         """
-        :type root: ListNode
+        :type root: Node
         """
 
         res = []
@@ -65,7 +65,7 @@ class Solution():
 
     def next_traversal(self, root):
         """
-        :type root: ListNode
+        :type root: Node
         """
 
         res = []
@@ -77,7 +77,7 @@ class Solution():
         return res
 
 sol = Solution()
-root = ListNode(100)
+root = Node(100)
 
 root = sol.insert_node(root, 70)
 print(sol.next_traversal(root))
