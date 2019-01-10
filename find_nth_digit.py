@@ -7,23 +7,19 @@ class Solution:
         :rtype: int
         """
 
-        digit = 0
-        count = 0
+        if n < 10:
+            return n
 
-        for i in range(1, n+1):
-            if i < 10:
-                digit += 1
-                count += 1
+        total = 9
+        digits = 1
+        while n > total:
+            digits += 1
+            total += (9 * digits) * 10 ** (digits - 1)
 
-                if n == count:
-                    return digit
-            else:
-                number = str(i)
-                num_len = len(number)
+        power = 10 ** (digits - 1)
+        diff = n - (total - (9 * digits) * power) - 1
 
-                for x in range(num_len):
-                    digit = number[x]
-                    count += 1
+        return int(str(power + diff//digits)[diff%digits])
 
-                    if n == count:
-                        return digit
+sol = Solution()
+print(sol.findNthDigit(201))

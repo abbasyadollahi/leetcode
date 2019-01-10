@@ -12,17 +12,17 @@ class Solution:
         :rtype: ListNode
         """
 
-        cur = head
-        prev = head
+        if not head:
+            return None
 
-        while (head.next != None):
-            if cur.next == None or cur.next.next == cur:
-                cur.next = prev
-                cur = head
-                prev = None
-            else:
-                prev = cur
-                cur = cur.next
+        prev = None
+        while head != None:
+            nxt = head.next
+            head.next = prev
+            prev = head
+            head = nxt
+
+        return prev
 
     def reverseListV2(self, head):
         """
@@ -30,15 +30,24 @@ class Solution:
         :rtype: ListNode
         """
 
-        current = head
-        prev1 = head
-        prev2 = None
+        if not head:
+            return None
 
-        while (prev1 != None):
-            new_prev = ListNode(prev1.val)
-            new_prev.next = prev1.next
-            current = current.next
+        _, top = self.recursiveReverse(head)
 
-            prev1.next = prev2
-            prev2 = new_prev
-            prev1 = current
+        return top
+
+    def recursiveReverse(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+
+        if not head.next:
+            return head, head
+
+        nxt, top = self.recursiveReverse(head.next)
+        nxt.next = head
+        head.next = None
+
+        return head, top

@@ -7,11 +7,11 @@ class Solution:
         :rtype: bool
         """
 
-        if len(str(x)) == 1:
-            return True
-
-        if x < 0 or (x == 0 and x%10 == 0):
+        if x < 0:
             return False
+
+        if x < 10:
+            return True
 
         reverse = 0
         initial = x
