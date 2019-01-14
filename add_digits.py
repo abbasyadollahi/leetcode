@@ -24,4 +24,3 @@ class Solution(object):
             num //= 10
 
         return out
-

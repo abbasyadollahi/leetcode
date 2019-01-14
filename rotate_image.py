@@ -24,4 +24,3 @@ class Solution:
                 line[r] = temp
                 l += 1
                 r -= 1
-

@@ -14,4 +14,3 @@ class Solution:
             col += (ord(c) - ascii) * 26 ** (l - i - 1)
 
         return col
-
