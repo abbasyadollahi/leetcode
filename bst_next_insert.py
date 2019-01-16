@@ -28,11 +28,7 @@ class Solution():
         prev = node
         while node:
             prev = node
-            if node.val >= value:
-               node = node.left
-            elif node.val < value:
-                node = node.right
-
+            node = node.left if node.val >= value else node.right
 
         if prev.val < value:
             prev.right = Node(value)
