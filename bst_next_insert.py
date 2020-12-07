@@ -1,26 +1,17 @@
 class Node:
-    def __init__(self, val):
+    def __init__(self, val: int):
         self.val = val
         self.next = None
         self.left = None
         self.right = None
 
 class Solution():
-    def get_min_node(self, root):
-        """
-        :type root: Node
-        """
-
+    def get_min_node(self, root: Node):
         while root.left:
             root = root.left
         return root
 
-    def insert_node(self, root, value):
-        """
-        :type root: Node
-        :type node: Node
-        """
-
+    def insert_node(self, root: Node, value: Node):
         if root is None:
             return Node(value)
 
@@ -47,11 +38,7 @@ class Solution():
 
         return root
 
-    def inorder_traversal(self, root):
-        """
-        :type root: Node
-        """
-
+    def inorder_traversal(self, root: Node):
         res = []
         if root:
             res = self.inorder_traversal(root.left)
@@ -59,11 +46,7 @@ class Solution():
             res = res + self.inorder_traversal(root.right)
         return res
 
-    def next_traversal(self, root):
-        """
-        :type root: Node
-        """
-
+    def next_traversal(self, root: Node):
         res = []
         min_node = self.get_min_node(root)
         while min_node.next:
