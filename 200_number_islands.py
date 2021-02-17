@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/number-of-islands/
 
-class Solution:
-    def numIslands(self, grid):
-        """
-        :type grid: List[List[str]]
-        :rtype: int
-        """
+from typing import List
 
+
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
         if not grid or not grid[0]:
             return 0
 
@@ -22,13 +20,7 @@ class Solution:
 
         return islands
 
-    def clearIsland(self, row, col, grid):
-        """
-        :type row: int
-        :type col: int
-        :type grid: List[List[str]]
-        """
-
+    def clearIsland(self, row: int, col: int, grid: List[List[str]]) -> None:
         row_len = len(grid)
         col_len = len(grid[0])
 

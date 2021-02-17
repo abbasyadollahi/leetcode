@@ -3,8 +3,12 @@
 # invalid, the method will raise an appropriate exception.
 
 from typing import Tuple, Union
+
+
+# Custom Typing
 Number = Union[int, float]
 Coords = Tuple[Number, Number]
+
 
 class Solution:
     def overlap(self, l1: Coords, l2: Coords) -> bool:
@@ -13,7 +17,6 @@ class Solution:
         :type l2: tuple - Coordinates of start/end points on line
         :rtype: bool - True if both lines overlap
         """
-
         if isinstance(l1, (list, tuple)) and len(l1) == 2:
             try:
                 x1, x2 = map(float, l1)

@@ -1,23 +1,13 @@
 # https://leetcode.com/problems/missing-ranges/
 
-class Solution:
-    def strRange(self, start, end):
-        """
-        :type start: int
-        :type end: int
-        :rtype: String
-        """
+from typing import List
 
+
+class Solution:
+    def strRange(self, start: int, end: int) -> str:
         return f'{start+1}->{end-1}' if end-start != 2 else str(start + 1)
 
-    def missingRanges(self, nums, lower, upper):
-        """
-        :type nums: List[int]
-        :type lower: int
-        :type upper: int
-        :rtype: List[String]
-        """
-
+    def missingRanges(self, nums: List[int], lower: int, upper: int) -> List[str]:
         if lower == upper:
             return []
         if not nums:

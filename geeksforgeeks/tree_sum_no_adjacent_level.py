@@ -1,29 +1,23 @@
 # https://www.geeksforgeeks.org/maximum-sum-tree-adjacent-levels-not-allowed/
 
 class Node:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self, value: int):
+        self.value = value
         self.left = None
         self.right = None
 
-class Solution:
-    def maxSumWithNoAdjacent(self, root, total):
-        """
-        :type root: Node
-        :type total: int
-        :rtype: int
-        :rtype: int
-        """
 
+class Solution:
+    def maxSumWithNoAdjacent(self, root: Node, total: int) -> int:
         if not root:
             return 0, total
 
         left, total = self.maxSumWithNoAdjacent(root.left, total)
         right, total = self.maxSumWithNoAdjacent(root.right, total)
 
-        if left + right < root.val:
-            total += root.val - left - right
-            return root.val, total
+        if left + right < root.value:
+            total += root.value - left - right
+            return root.value, total
 
         return 0, total
 

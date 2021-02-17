@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/3sum/
 
-class Solution:
-    def threeSum(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+from typing import List
 
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         prev = ''
         combinations = []

@@ -1,12 +1,7 @@
 # https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
 
 class Solution:
-    def longestSubstringKChar(self, s, k):
-        """
-        :type s: String
-        :type k: int
-        """
-
+    def longestSubstringKChar(self, s: str, k: int) -> int:
         if not s or not k:
             return 0
 
@@ -32,12 +27,7 @@ class Solution:
 
         return max(count, max_count)
 
-    def stripOneUniqueChar(self, substring, k):
-        """
-        :type s: String
-        :type k: int
-        """
-
+    def stripOneUniqueChar(self, substring: str, k: int) -> str:
         k -= 1
         chars = set()
         stripped = ''

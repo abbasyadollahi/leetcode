@@ -1,17 +1,21 @@
+from typing import List
+
+
 class Node:
-    def __init__(self, val: int):
-        self.val = val
+    def __init__(self, value: int):
+        self.value = value
         self.next = None
         self.left = None
         self.right = None
 
-class Solution():
-    def get_min_node(self, root: Node):
+
+class Solution:
+    def get_min_node(self, root: Node) -> Node:
         while root.left:
             root = root.left
         return root
 
-    def insert_node(self, root: Node, value: Node):
+    def insert_node(self, root: Node, value: Node) -> Node:
         if root is None:
             return Node(value)
 
@@ -19,9 +23,9 @@ class Solution():
         prev = node
         while node:
             prev = node
-            node = node.left if node.val >= value else node.right
+            node = node.left if node.value >= value else node.right
 
-        if prev.val < value:
+        if prev.value < value:
             prev.right = Node(value)
             prev.right.next = prev.next
             prev.next = prev.right
@@ -38,21 +42,21 @@ class Solution():
 
         return root
 
-    def inorder_traversal(self, root: Node):
+    def inorder_traversal(self, root: Node) -> List[int]:
         res = []
         if root:
             res = self.inorder_traversal(root.left)
-            res.append(root.val)
+            res.append(root.value)
             res = res + self.inorder_traversal(root.right)
         return res
 
-    def next_traversal(self, root: Node):
+    def next_traversal(self, root: Node) -> List[int]:
         res = []
         min_node = self.get_min_node(root)
         while min_node.next:
-            res.append(min_node.val)
+            res.append(min_node.value)
             min_node = min_node.next
-        res.append(min_node.val)
+        res.append(min_node.value)
         return res
 
 sol = Solution()

@@ -3,7 +3,7 @@
 from typing import List
 
 
-class Solution():
+class Solution:
     def groupAnagrams(self, words: List[str]) -> List[List[str]]:
         groupings = {}
         for word in words:
@@ -11,7 +11,6 @@ class Solution():
             groupings[anagram] = groupings.get(anagram, []) + [word]
 
         return list(groupings.values())
-
 
 sol = Solution()
 print(sol.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))

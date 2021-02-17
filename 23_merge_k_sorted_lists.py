@@ -1,17 +1,16 @@
 # https://leetcode.com/problems/merge-k-sorted-lists/
 
+from typing import List
+
+
 class ListNode:
     def __init__(self, val):
         self.val = val
         self.next = None
 
-class Solution:
-    def mergeKLists(self, lists):
-        """
-        :type lists: List[ListNode]
-        :rtype: ListNode
-        """
 
+class Solution:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
         if not lists:
             return None
 

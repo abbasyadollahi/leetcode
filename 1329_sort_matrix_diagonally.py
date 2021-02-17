@@ -21,7 +21,7 @@ class Solution:
 
         return matrix
 
-    def sort(self, matrix: List[List[int]], num_row: int, num_col: int, i: int, j: int):
+    def sort(self, matrix: List[List[int]], num_row: int, num_col: int, i: int, j: int) -> None:
         nums = []
 
         ii, jj = i, j

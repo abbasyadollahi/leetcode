@@ -2,13 +2,9 @@
 
 from itertools import product
 
-class Solution:
-    def latestTime(self, time):
-        """
-        :type time: str
-        :rtype: str
-        """
 
+class Solution:
+    def latestTime(self, time: str) -> str:
         digits = set(time.replace(':', ''))
         hh, mm = time[:2], time[3:]
 
@@ -23,7 +19,6 @@ class Solution:
             hhh = max([num for num in permutations if num < hh]) if hh != '00' else max([num for num in permutations if num < '24'])
 
         return hhh + ':' + mmm
-
 
 sol = Solution()
 print(sol.latestTime('11:01'))

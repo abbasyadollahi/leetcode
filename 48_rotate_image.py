@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/rotate-image/
 
-class Solution:
-    def rotate(self, matrix):
-        """
-        :type matrix: List[List[int]]
-        :rtype: void
-        """
+from typing import List
 
+
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
         n = len(matrix)
 
         for i in range(n):

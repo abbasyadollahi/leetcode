@@ -1,17 +1,16 @@
 # https://leetcode.com/problems/merge-intervals/
 
+from typing import List
+
+
 class Interval:
-    def __init__(self, s=0, e=0):
+    def __init__(self, s: int = 0, e: int = 0):
         self.start = s
         self.end = e
 
-class Solution:
-    def merge(self, intervals):
-        """
-        :type intervals: List[Interval]
-        :rtype: List[Interval]
-        """
 
+class Solution:
+    def merge(self, intervals: List[Interval]) -> List[Interval]:
         if not intervals:
             return []
 

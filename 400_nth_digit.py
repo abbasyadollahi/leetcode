@@ -1,12 +1,7 @@
 # https://leetcode.com/problems/nth-digit/
 
 class Solution:
-    def findNthDigit(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-
+    def findNthDigit(self, n: int) -> int:
         if n < 10:
             return n
 

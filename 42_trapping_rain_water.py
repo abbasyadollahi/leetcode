@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/trapping-rain-water/
 
-class Solution:
-    def trapRain(self, elevation):
-        """
-        :type elevation: List[int]
-        :rtype: int
-        """
+from typing import List
 
+
+class Solution:
+    def trapRain(self, elevation: List[int]) -> int:
         left = 0
         right = len(elevation) - 1
 

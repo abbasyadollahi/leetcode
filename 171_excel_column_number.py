@@ -1,12 +1,7 @@
 # https://leetcode.com/problems/excel-sheet-column-number/
 
 class Solution:
-    def titleToNumber(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-
+    def titleToNumber(self, s: str) -> int:
         col = 0
         ascii = 64
         l = len(s)

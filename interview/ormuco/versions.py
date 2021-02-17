@@ -9,6 +9,7 @@
 
 import re
 
+
 class Solution:
     def versions(self, v1: str, v2: str) -> str:
         """
@@ -16,7 +17,6 @@ class Solution:
         :type v2: str - Version number 2
         :rtype str: Message comparing version 1 and version 2
         """
-
         regex = re.compile('^((\d+)?)$|^(((\d+)\.)+(\d+))$')
 
         if not all([isinstance(v, str) for v in (v1, v2)]):

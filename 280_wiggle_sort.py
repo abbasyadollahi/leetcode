@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/wiggle-sort/
 
-class Solution:
-    def wiggleSort(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
+from typing import List
 
+
+class Solution:
+    def wiggleSort(self, nums: List[int]) -> List[int]:
         max_idx = len(nums) - 2
         for i, num in enumerate(nums):
             if i == max_idx:

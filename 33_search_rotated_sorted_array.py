@@ -1,13 +1,10 @@
 # https://leetcode.com/problems/search-in-rotated-sorted-array/
 
-class Solution:
-    def search(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
+from typing import List
 
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
         if not nums:
             return -1
 

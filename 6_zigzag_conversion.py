@@ -1,24 +1,19 @@
 # https://leetcode.com/problems/zigzag-conversion/
 
 class Solution:
-    def convert(self, s, numRows):
-        """
-        :type s: str
-        :rtype: str
-        """
-
-        if numRows == 1 or numRows >= len(s):
+    def convert(self, s: str, num_rows: int) -> str:
+        if num_rows == 1 or num_rows >= len(s):
             return s
-        elif numRows == 2:
+        elif num_rows == 2:
             return s[::2] + s[1::2]
 
         i = 0
         forward = True
-        rows = [[] for i in range(numRows)]
+        rows = [[] for i in range(num_rows)]
         for c in s:
             rows[i].append(c)
             if forward:
-                if i == numRows - 1:
+                if i == num_rows - 1:
                     i -= 1
                     forward = False
                 else:

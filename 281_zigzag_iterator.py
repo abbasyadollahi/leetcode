@@ -1,19 +1,13 @@
 # https://leetcode.com/problems/zigzag-iterator/
 
+from typing import List, Tuple
+
+
 class Solution:
-    def __init__(self, *args):
-        """
-        :type *args: List[int]
-        """
+    def __init__(self, *args: Tuple[List[int]]):
+        self.values = self.flattenLists(args)
 
-        self.values = self.__flattenLists(args)
-
-    def __flattenLists(self, lists):
-        """
-        :type lists: Tuple[List[int]]
-        :rtype: List[int]
-        """
-
+    def flattenLists(self, lists: Tuple[List[int]]) -> List[int]:
         values = []
         empty = False
         rows = len(lists)
@@ -27,11 +21,10 @@ class Solution:
 
         return values
 
-
-    def next(self):
+    def next(self) -> int:
         return self.values.pop(0) if self.hasNext() else None
 
-    def hasNext(self):
+    def hasNext(self) -> bool:
         return bool(self.values)
 
 sol = Solution([1, 2, 3], [4, 5, 6, 7], [8, 9])

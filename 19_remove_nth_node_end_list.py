@@ -1,18 +1,13 @@
 # https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
 class ListNode:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self, value: int):
+        self.value = value
         self.next = None
 
-class Solution:
-    def removeNthFromEnd(self, head, n):
-        """
-        :type head: ListNode
-        :type n: int
-        :rtype: ListNode
-        """
 
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         if not head:
             return None
 
@@ -51,18 +46,18 @@ sol = Solution()
 
 tc1 = sol.removeNthFromEnd(l1, 4)
 while tc1:
-    print (tc1.val, end=', ')
+    print (tc1.value, end=', ')
     tc1 = tc1.next
 print()
 
 tc2 = sol.removeNthFromEnd(l2, 2)
 while tc2:
-    print (tc2.val, end=', ')
+    print (tc2.value, end=', ')
     tc2 = tc2.next
 print()
 
 tc3 = sol.removeNthFromEnd(l3, 2)
 while tc3:
-    print (tc3.val, end=', ')
+    print (tc3.value, end=', ')
     tc3 = tc3.next
 print()

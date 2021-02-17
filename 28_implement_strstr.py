@@ -1,13 +1,7 @@
 # https://leetcode.com/problems/implement-strstr/
 
 class Solution:
-    def strStr(self, haystack, needle):
-        """
-        :type haystack: str
-        :type needle: str
-        :rtype: int
-        """
-
+    def strStr(self, haystack: str, needle: str) -> int:
         h_len = len(haystack)
         n_len = len(needle)
 

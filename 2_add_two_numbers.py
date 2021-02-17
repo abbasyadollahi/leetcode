@@ -1,33 +1,28 @@
 # https://leetcode.com/problems/add-two-numbers/
 
 class ListNode:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self, value: int):
+        self.value = value
         self.next = None
 
-class Solution:
-    def addTwoNumbers(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
 
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         mult = 1
         sum_int = 0
         while l1 and l2:
-            sum_int += (l1.val + l2.val) * mult
+            sum_int += (l1.value + l2.value) * mult
             mult *= 10
             l1 = l1.next
             l2 = l2.next
 
         while l1:
-            sum_int += l1.val * mult
+            sum_int += l1.value * mult
             mult *= 10
             l1 = l1.next
 
         while l2:
-            sum_int += l2.val * mult
+            sum_int += l2.value * mult
             mult *= 10
             l2 = l2.next
 
@@ -56,12 +51,12 @@ sol = Solution()
 
 tc1 = sol.addTwoNumbers(l1, l2)
 while tc1:
-    print (tc1.val, end='')
+    print (tc1.value, end='')
     tc1 = tc1.next
 print()
 
 tc2 = sol.addTwoNumbers(l1, l3)
 while tc2:
-    print (tc2.val, end='')
+    print (tc2.value, end='')
     tc2 = tc2.next
 print()

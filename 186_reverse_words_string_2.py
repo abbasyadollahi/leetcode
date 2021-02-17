@@ -1,12 +1,7 @@
 # https://leetcode.com/problems/reverse-words-in-a-string-ii/
 
 class Solution:
-    def reverseWords(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-
+    def reverseWords(self, s: str) -> str:
         return ' '.join(s.split(' ')[::-1]) if s else ''
 
 sol = Solution()

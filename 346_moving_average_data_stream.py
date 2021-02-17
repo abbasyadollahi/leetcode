@@ -1,20 +1,11 @@
 # https://leetcode.com/problems/moving-average-from-data-stream/
 
 class Solution:
-    def __init__(self, size):
-        """
-        :type size: int
-        """
-
+    def __init__(self, size: int):
         self.size = size
         self.nums = []
 
-    def next(self, value):
-        """
-        :type value: int
-        :rtype: float
-        """
-
+    def next(self, value: int) -> float:
         self.nums.append(value)
         if len(self.nums) > self.size:
             self.nums.pop(0)

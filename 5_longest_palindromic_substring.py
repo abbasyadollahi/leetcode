@@ -1,12 +1,7 @@
 # https://leetcode.com/problems/longest-palindromic-substring/
 
 class Solution:
-    def longestPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-
+    def longestPalindrome(self, s: str) -> str:
         if not s:
             return ''
         if len(s) == 1:
@@ -22,13 +17,7 @@ class Solution:
 
         return best if len(best) > 1 else s[-1]
 
-    def extend(self, s, i):
-        """
-        :type s: str
-        :type i: int
-        :rtype: str
-        """
-
+    def extend(self, s: str, i: int) -> str:
         l = i - 1
         r = i + 1
         best = s[i]

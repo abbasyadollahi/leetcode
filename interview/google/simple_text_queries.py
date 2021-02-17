@@ -1,10 +1,5 @@
 class Solution:
-    def textQueries(self, sentences, queries):
-        """
-        :type sentences: String
-        :type queries: String
-        """
-
+    def textQueries(self, sentences: str, queries: str) -> None:
         all_words = []
         for sentence in sentences:
             all_words.append(set(sentence.split(' ')))

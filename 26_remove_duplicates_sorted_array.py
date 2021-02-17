@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 
-class Solution:
-    def removeDuplicates(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+from typing import List
 
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
         if not nums:
             return None
 

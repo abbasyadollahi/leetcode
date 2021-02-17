@@ -3,7 +3,8 @@
 
 import sys
 import unittest
-from versions import Solution
+from .versions import Solution
+
 
 class QuestionBTest(unittest.TestCase):
     def setUp(self):

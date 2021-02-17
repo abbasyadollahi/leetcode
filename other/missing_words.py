@@ -1,11 +1,8 @@
-class Solution:
-    def missingWords(self, s, t):
-        """
-        :type s: String
-        :type t: String
-        :rtype: List[String]
-        """
+from typing import List
 
+
+class Solution:
+    def missingWords(self, s: str, t: str) -> List[str]:
         s = s.split(' ')
         t = t.split(' ')
         missing = []

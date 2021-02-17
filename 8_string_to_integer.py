@@ -1,12 +1,7 @@
 # https://leetcode.com/problems/string-to-integer-atoi/
 
 class Solution:
-    def myAtoi(self, string):
-        """
-        :type string: str
-        :rtype: int
-        """
-
+    def myAtoi(self, string: str) -> int:
         string = string.strip()
         polarity = 1
 

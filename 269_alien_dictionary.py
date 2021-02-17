@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/alien-dictionary/
 
-class Solution:
-    def alienOrder(self, words):
-        """
-        :type words: List[str]
-        :rtype: str
-        """
+from typing import List
 
+
+class Solution:
+    def alienOrder(self, words: List[str]) -> str:
         from collections import defaultdict
         pre = defaultdict(set)
         suc = defaultdict(set)
@@ -16,6 +14,7 @@ class Solution:
                     suc[a].add(b)
                     pre[b].add(a)
                     break
+
         chars = set(''.join(words))
         charToProcess = chars - set(pre)
         order = ''

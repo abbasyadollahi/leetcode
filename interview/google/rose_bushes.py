@@ -1,12 +1,8 @@
-class Solution:
-    def latestBushGroup(self, a, k, m):
-        """
-        :type a: List[int]
-        :type k: int
-        :type m: int
-        :rtype: int
-        """
+from typing import List
 
+
+class Solution:
+    def latestBushGroup(self, a: List[int], k: int, m: int) -> int:
         a_len = len(a)
         days = [1] * a_len
 

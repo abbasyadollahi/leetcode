@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/permutations/
 
-class Solution:
-    def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+from typing import List
 
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
         if not nums or len(nums) == 1:
             return [nums]
 
@@ -22,4 +20,3 @@ class Solution:
             [permutations.append(p) for p in perms]
 
         return permutations
-

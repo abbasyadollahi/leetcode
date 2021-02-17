@@ -1,17 +1,14 @@
 # https://leetcode.com/problems/binary-search-tree-iterator/
 
 class Node:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self, value: int):
+        self.value = value
         self.left = None
         self.right = None
 
-class BSTIterator:
-    def __init__(self, root):
-        """
-        :type root: Node
-        """
 
+class BSTIterator:
+    def __init__(self, root: Node) -> None:
         self.root = root
         self.parents = []
 
@@ -21,11 +18,7 @@ class BSTIterator:
                 root = root.left
         self.node = root
 
-    def next(self):
-        """
-        :rtype: int
-        """
-
+    def next(self) -> int:
         nxt = self.node
         if self.node.right:
             self.node = self.node.right
@@ -35,11 +28,7 @@ class BSTIterator:
         else:
             self.node = self.parents.pop() if self.parents else None
 
-        return nxt.val
+        return nxt.value
 
-    def hasNext(self):
-        """
-        :rtype: bool
-        """
-
+    def hasNext(self) -> bool:
         return bool(self.node)

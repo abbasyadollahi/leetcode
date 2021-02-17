@@ -1,13 +1,10 @@
 # https://leetcode.com/problems/two-sum/
 
-class Solution:
-    def twoSumSorted(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
+from typing import List
 
+
+class Solution:
+    def twoSumSorted(self, nums: List[int], target: int) -> List[int]:
         l = 0
         r = len(nums) - 1
 
@@ -23,13 +20,7 @@ class Solution:
 
         return None
 
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         prev = set()
         for i, n in enumerate(nums):
             if target - n in prev:

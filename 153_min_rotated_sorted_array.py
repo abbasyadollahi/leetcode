@@ -1,16 +1,15 @@
 # https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 
-class Solution:
-    def findMin(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+from typing import List
 
+
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
         if not nums:
             return None
         if len(nums) == 1:
             return nums[0]
+
         l = 0
         r = len(nums) - 1
         m = (l + r) // 2

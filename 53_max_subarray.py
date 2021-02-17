@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/maximum-subarray/
 
-class Solution:
-    def maxSubArray(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+from typing import List
 
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
         if not nums:
             return None
 

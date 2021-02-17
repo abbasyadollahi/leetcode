@@ -3,7 +3,7 @@ import sys
 import types
 import random
 from warnings import warn
-from threading import Thread, Timer
+from threading import Thread
 from collections import defaultdict
 
 
@@ -205,21 +205,6 @@ class DLLNode:
 # only accessed by the server for non cached requests or by the LRU caches when the resource
 # isn't found in storage.
 
-@Singleton
-class Database:
-    def __init__(self):
-        self.db = {}
-
-    def getItem(self, key: str) -> int:
-        return self.db[key] if key in self.db else None
-
-    def addItem(self, key: str, value: int):
-        self.db[key] = value
-
-    def removeItem(self, key: str):
-        del self.db[key]
-
-
 class Singleton:
     def __init__(self, decorated):
         self._decorated = decorated
@@ -236,3 +221,18 @@ class Singleton:
 
     def __instancecheck__(self, inst):
         return isinstance(inst, self._decorated)
+
+
+@Singleton
+class Database:
+    def __init__(self):
+        self.db = {}
+
+    def getItem(self, key: str) -> int:
+        return self.db[key] if key in self.db else None
+
+    def addItem(self, key: str, value: int):
+        self.db[key] = value
+
+    def removeItem(self, key: str):
+        del self.db[key]

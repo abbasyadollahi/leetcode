@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/meeting-rooms-ii/
 
-class Solution:
-    def minMeetingRooms(self, intervals):
-        """
-        :type intervals: List[List[int]]
-        :rtype: int
-        """
+from typing import List
 
+
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         if not intervals:
             return 0
 

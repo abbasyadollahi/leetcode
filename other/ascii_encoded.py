@@ -1,10 +1,5 @@
 class Solution:
-    def decode(self, encoded):
-        """
-        :type encoded: String
-        :rtype: String
-        """
-
+    def decode(self, encoded: str) -> str:
         if not encoded:
             return ''
 

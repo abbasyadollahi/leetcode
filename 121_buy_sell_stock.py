@@ -1,12 +1,10 @@
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
-class Solution:
-    def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
+from typing import List
 
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
         if not prices or len(prices) == 1:
             return 0
 

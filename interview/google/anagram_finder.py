@@ -1,12 +1,8 @@
 from itertools import chain
 
-class Solution:
-    def anagramFinder(self, words, anagram):
-        """
-        :type words: string
-        :type anagram: string
-        """
 
+class Solution:
+    def anagramFinder(self, words: str, anagram: str) -> None:
         ana_len = len(anagram)
         words_len = len(words)
         double_char = []

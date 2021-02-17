@@ -1,17 +1,13 @@
 # https://leetcode.com/problems/reverse-linked-list/
 
 class ListNode:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self, value: int):
+        self.value = value
         self.next = None
 
-class Solution:
-    def reverseListV1(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
 
+class Solution:
+    def reverseListV1(self, head: ListNode) -> ListNode:
         if not head:
             return None
 
@@ -24,12 +20,7 @@ class Solution:
 
         return prev
 
-    def reverseListV2(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-
+    def reverseListV2(self, head: ListNode) -> ListNode:
         if not head:
             return None
 
@@ -37,12 +28,7 @@ class Solution:
 
         return top
 
-    def recursiveReverse(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-
+    def recursiveReverse(self, head: ListNode) -> ListNode:
         if not head.next:
             return head, head
 

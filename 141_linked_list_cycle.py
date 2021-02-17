@@ -1,17 +1,13 @@
 # https://leetcode.com/problems/linked-list-cycle/
 
 class ListNode:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self, value: int):
+        self.value = value
         self.next = None
 
-class Solution:
-    def hasCycle(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
 
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
         if not head:
             return False
 
