@@ -1,17 +1,19 @@
+# https://leetcode.com/problems/sort-an-array/submissions/
+
 class Solution:
-    def mergeSort(self, mylist):
+    def mergeSort(self, nums):
         """
-        :type mylist: List[int]
+        :type nums: List[int]
         :rtype: List[int]
         """
 
-        list_length = len(mylist)
+        list_length = len(nums)
 
         if list_length == 1:
-            return mylist
+            return nums
 
-        list1 = mylist[:list_length//2]
-        list2 = mylist[list_length//2:]
+        list1 = nums[:list_length//2]
+        list2 = nums[list_length//2:]
 
         list1 = self.mergeSort(list1)
         list2 = self.mergeSort(list2)

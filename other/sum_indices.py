@@ -24,3 +24,7 @@ class Solution:
             if (target - value) in num_set:
                 return [idx, num_list.index(target-value)]
         return [0, 0]
+
+sol = Solution()
+
+print(sol.sumIndicesV1([1,2,3,4,5,6], 5))
