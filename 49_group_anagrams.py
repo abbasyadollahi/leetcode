@@ -13,5 +13,5 @@ class Solution:
         return list(groupings.values())
 
 sol = Solution()
-print(sol.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
-print([["bat"], ["nat","tan"], ["ate","eat","tea"]])
+print(sol.groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat']))
+print([['bat'], ['nat','tan'], ['ate','eat','tea']])
