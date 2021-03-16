@@ -6,12 +6,13 @@ from typing import List
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
-        prev = ''
+        prev = None
         combinations = []
         length = len(nums) - 1
 
         for i, c in enumerate(nums):
-            if c == prev: continue
+            if c == prev:
+                continue
 
             prev = c
             l = i + 1
@@ -20,13 +21,14 @@ class Solution:
             while l < r:
                 nl, nr = nums[l], nums[r]
 
-                if l == i: l += 1
-                elif r == i: r -= 1
-                elif nl + nr < -c: l += 1
-                elif nl + nr > -c: r -= 1
+                if nl + nr + c < 0:
+                    l += 1
+                elif nl + nr + c > 0:
+                    r -= 1
                 else:
-                    combinations.append(sorted([c, nl, nr]))
-                    while nl == nums[l] and l < length: l += 1
-                    while nr == nums[r] and r > i: r -= 1
-
+                    combinations.append([c, nl, nr])
+                    while nl == nums[l] and l < length:
+                        l += 1
+                    while nr == nums[r] and r > i:
+                        r -= 1
         return combinations
