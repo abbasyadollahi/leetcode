@@ -5,9 +5,6 @@ from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        if not nums:
-            return None
-
         mx = nums[0]
         sub = nums[0:1]
 

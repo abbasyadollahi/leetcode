@@ -26,6 +26,13 @@ class Solution:
 
         return -1
 
+    def search(self, nums: List[int], target: int) -> int:
+        l = 0
+        r = len(nums) - 1
+        m = (l + r) // 2
+
+        return nums[l]
+
 sol = Solution()
 print (sol.search([8,9,2,3,4], 9))
 print (sol.search([4,5,6,7,0,1,2], 0))

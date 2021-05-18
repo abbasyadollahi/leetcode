@@ -22,3 +22,22 @@ class Solution:
             m = (l + r) // 2
 
         return nums[l]
+
+    def findMin(self, nums: List[int]) -> int:
+        l = 0
+        r = len(nums) - 1
+        m = (l + r) // 2
+
+        while l < r:
+            if nums[l] > nums[r] and nums[l] > nums[m]:
+                r = m
+                m = (l + r) // 2
+            elif nums[l] > nums[r] and nums[l] < nums[m]:
+                l = m
+                m = (l + r) // 2
+            elif nums[l] > nums[r] and nums[l] == nums[m]:
+                return nums[l+1]
+            else:
+                return nums[l]
+
+        return nums[l]

@@ -4,8 +4,8 @@ from typing import List
 
 
 class ListNode:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self, value):
+        self.value = value
         self.next = None
 
 
@@ -17,7 +17,7 @@ class Solution:
         nums = []
         for l in lists:
             while l:
-                nums.append(l.val)
+                nums.append(l.value)
                 l = l.next
 
         head = current = ListNode(0)

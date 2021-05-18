@@ -7,7 +7,7 @@ class ListNode:
 
 
 class Solution:
-    def reverseListV1(self, head: ListNode) -> ListNode:
+    def reverseList(self, head: ListNode) -> ListNode:
         if not head:
             return None
 
@@ -20,7 +20,7 @@ class Solution:
 
         return prev
 
-    def reverseListV2(self, head: ListNode) -> ListNode:
+    def reverseList(self, head: ListNode) -> ListNode:
         if not head:
             return None
 

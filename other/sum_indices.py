@@ -2,14 +2,14 @@ from typing import List
 
 
 class Solution:
-    def sumIndicesV1(self, num_list: List[int], target: int) -> List[int]:
+    def sumIndices(self, num_list: List[int], target: int) -> List[int]:
         for idx, value in enumerate(num_list):
             for j in range(idx+1, len(num_list)):
                 if (value + num_list[j]) == target:
                     return [idx, j]
         return [0, 0]
 
-    def sumIndicesV2(self, num_list: List[int], target: int) -> List[int]:
+    def sumIndices(self, num_list: List[int], target: int) -> List[int]:
         num_set = set(num_list)
         for idx, value in enumerate(num_list):
             if (target - value) in num_set:
@@ -18,4 +18,4 @@ class Solution:
 
 sol = Solution()
 
-print(sol.sumIndicesV1([1,2,3,4,5,6], 5))
+print(sol.sumIndices([1,2,3,4,5,6], 5))
