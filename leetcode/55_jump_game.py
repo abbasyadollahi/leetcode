@@ -23,3 +23,11 @@ class Solution:
                 jump = i
                 best = nums[i] + bonus
         return jump
+
+    def canJump(self, nums: List[int]) -> bool:
+        jumps = nums[0]
+        for i in range(1, len(nums)):
+            if not jumps:
+                return False
+            jumps = max(nums[i], jumps - 1)
+        return True

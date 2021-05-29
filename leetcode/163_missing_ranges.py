@@ -11,13 +11,13 @@ class Solution:
         if lower == upper:
             return []
         if not nums:
-            return [self.strRange(lower-1, upper+1)]
+            return [self.strRange(lower - 1, upper + 1)]
 
         ranges = []
         prev = lower
 
         if prev < nums[0]:
-            ranges.append(self.strRange(prev-1, nums[0]))
+            ranges.append(self.strRange(prev - 1, nums[0]))
             prev = nums[0]
 
         for num in nums[1:]:
@@ -26,7 +26,7 @@ class Solution:
             prev = num
 
         if prev < upper:
-            ranges.append(self.strRange(prev, upper+1))
+            ranges.append(self.strRange(prev, upper + 1))
 
         return ranges
 

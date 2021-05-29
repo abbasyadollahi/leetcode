@@ -11,11 +11,12 @@ class Solution:
         return combinations
 
 
-    def recurse(self, candidates: List[int], target: int, path: List[int], combinations: List[List[int]]):
+    def recurse(self, candidates: List[int], target: int, path: List[int], combinations: List[List[int]]) -> None:
         if target < 0:
             return
         if target == 0:
-            return combinations.append(path)
+            combinations.append(path)
+            return
 
         for i, candidate in enumerate(candidates):
             new_target = target - candidate

@@ -10,7 +10,7 @@ class Solution:
             return s if s[0] == s[1] else s[1]
 
         best = s[:2] if s[0] == s[1] else s[0]
-        for i in range(len(s)-1):
+        for i in range(len(s) - 1):
             b = self.extend(s, i)
             if len(b) >= len(best):
                 best = b
