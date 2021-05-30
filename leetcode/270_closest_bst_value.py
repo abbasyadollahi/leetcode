@@ -1,29 +1,29 @@
-# https://leetcode.com/problems/closest-binary-search-tree-value/
+# https://leetcode.com/problems/closest-binary-search-tree-val/
 
 class Node:
-    def __init__(self, value: float):
-        self.value = value
-        self.left = None
-        self.right = None
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 
 class Solution:
-    def closestValueBST(self, root: Node, value: float, lo: float = float('-inf'), hi: float = float('inf')) -> float:
+    def closestValueBST(self, root: Node, val: float, lo: float = float('-inf'), hi: float = float('inf')) -> float:
         if not root:
             return None
 
-        if root.value == value:
-            return value
-        elif root.value < value:
-            lo = root.value
+        if root.val == val:
+            return val
+        elif root.val < val:
+            lo = root.val
             if root.right:
-                return self.closestValueBST(root.right, value, lo, hi)
+                return self.closestValueBST(root.right, val, lo, hi)
         else:
-            hi = root.value
+            hi = root.val
             if root.left:
-                return self.closestValueBST(root.left, value, lo, hi)
+                return self.closestValueBST(root.left, val, lo, hi)
 
-        return min([lo, hi], key=lambda x: abs(x - value))
+        return min([lo, hi], key=lambda x: abs(x - val))
 
 sol = Solution()
 

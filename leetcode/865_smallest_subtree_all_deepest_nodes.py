@@ -4,10 +4,10 @@ from typing import Union
 
 
 class Node:
-    def __init__(self, value: int = 0):
-        self.value  = value
-        self.left = None
-        self.right = None
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 
 class Solution:

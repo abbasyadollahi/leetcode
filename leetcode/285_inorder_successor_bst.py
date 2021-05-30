@@ -1,10 +1,10 @@
 # https://leetcode.com/problems/inorder-successor-in-bst/
 
 class Node:
-    def __init__(self, value: int):
-        self.value = value
-        self.left = None
-        self.right = None
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 
 class Solution:
@@ -24,7 +24,7 @@ class Solution:
             return root
         elif isinstance(found, Node):
             return found
-        found = root.value == node.value
+        found = root.val == node.val
 
         if root.right:
             found = self.search(root.right, node, found)
@@ -44,10 +44,10 @@ root.right.left = Node(21)
 root.right.right = Node(30)
 
 print(sol.inorderSuccessorBST(root, Node(5)))
-print(sol.inorderSuccessorBST(root, Node(8)).value)
-print(sol.inorderSuccessorBST(root, Node(10)).value)
-print(sol.inorderSuccessorBST(root, Node(14)).value)
-print(sol.inorderSuccessorBST(root, Node(20)).value)
-print(sol.inorderSuccessorBST(root, Node(21)).value)
-print(sol.inorderSuccessorBST(root, Node(22)).value)
+print(sol.inorderSuccessorBST(root, Node(8)).val)
+print(sol.inorderSuccessorBST(root, Node(10)).val)
+print(sol.inorderSuccessorBST(root, Node(14)).val)
+print(sol.inorderSuccessorBST(root, Node(20)).val)
+print(sol.inorderSuccessorBST(root, Node(21)).val)
+print(sol.inorderSuccessorBST(root, Node(22)).val)
 print(sol.inorderSuccessorBST(root, Node(30)))

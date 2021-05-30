@@ -1,10 +1,10 @@
 # https://leetcode.com/problems/binary-search-tree-iterator/
 
 class Node:
-    def __init__(self, value: int):
-        self.value = value
-        self.left = None
-        self.right = None
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 
 class BSTIterator:
@@ -28,7 +28,7 @@ class BSTIterator:
         else:
             self.node = self.parents.pop() if self.parents else None
 
-        return nxt.value
+        return nxt.val
 
     def hasNext(self) -> bool:
         return bool(self.node)

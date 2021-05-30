@@ -4,9 +4,9 @@ from collections import deque
 
 
 class ListNode:
-    def __init__(self, value: int):
-        self.value = value
-        self.next = None
+    def __init__(self, val: int = 0, next: 'ListNode' = None):
+        self.val = val
+        self.next = next
 
 
 class Solution:
@@ -25,5 +25,5 @@ class Solution:
             node = node.next
 
         r = temp.popleft()
-        l.value, r.value = r.value, l.value
+        l.val, r.val = r.val, l.val
         return head
