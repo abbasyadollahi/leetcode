@@ -31,6 +31,39 @@ class Solution:
 
         return found
 
+    def inorderSuccessorBST(self, root: Node, node: Node) -> Node:
+        stack = []
+        if root is None:
+            return None
+
+        while root is not None and root.val != node.val:
+            stack.append(root)
+            if root.val > node.val:
+                root = root.left
+            else:
+                root = root.right
+
+        if root is None:
+            return None
+
+        stack.append(root)
+        if root.right:
+            top_sub_tree = root.right
+            while root.right:
+                root = root.right
+                if root.left:
+                    while root.left:
+                        root = root.left
+                    return root
+            return top_sub_tree
+        else:
+            while len(stack):
+                parent = stack.pop()
+                if parent.val > node.val:
+                    return parent
+
+        return None
+
 sol = Solution()
 
 root = Node(20)

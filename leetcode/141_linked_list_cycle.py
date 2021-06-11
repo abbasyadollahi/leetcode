@@ -20,3 +20,17 @@ class Solution:
             first = first.next.next
 
         return True
+
+    def hasCycle(self, head: ListNode) -> bool:
+        last = first = head
+
+        while first is not None and first.next is not None:
+            first = first.next
+            if first.next is None:
+                return False
+            first = first.next
+            last = last.next
+            if first is last:
+                return True
+
+        return False

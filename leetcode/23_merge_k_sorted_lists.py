@@ -26,3 +26,35 @@ class Solution:
             current = current.next
 
         return head.next
+
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        k = len(lists)
+        if k == 0:
+            return None
+        if k == 1:
+            return lists[0]
+
+        l1 = self.mergeKLists(lists[:k//2])
+        l2 = self.mergeKLists(lists[k//2:])
+
+        return self.mergeTwoLists(l1, l2)
+
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        l = ListNode(None)
+        head = l
+        while l1 and l2:
+            if l1.val < l2.val:
+                head.next = l1
+                l1 = l1.next
+            else:
+                head.next = l2
+                l2 = l2.next
+            head = head.next
+
+        leftover = l1 or l2
+        while leftover:
+            head.next = leftover
+            leftover = leftover.next
+            head = head.next
+
+        return l.next

@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/closest-binary-search-tree-val/
+# https://leetcode.com/problems/closest-binary-search-tree-value/
 
 class Node:
     def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None):

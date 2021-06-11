@@ -18,7 +18,7 @@ class Solution:
         room = 0
         max_room = 0
         for k in timeline:
-            if k == 'start':
+            if k == 's':
                 room += 1
             else:
                 room -= 1
