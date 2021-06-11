@@ -3,19 +3,19 @@
 from typing import Union
 
 
-class Node:
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None):
+class TreeNode:
+    def __init__(self, val: int = 0, left: 'TreeNode' = None, right: 'TreeNode' = None):
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def subtreeWithAllDeepest(self, root: Node) -> Node:
+    def subtreeWithAllDeepest(self, root: TreeNode) -> TreeNode:
         node, _ = self.traverse(root, 0)
         return node
 
-    def traverse(self, root: Node, level: int) -> Union[Node, int]:
+    def traverse(self, root: TreeNode, level: int) -> Union[TreeNode, int]:
         if root is None:
             return None, level
 

@@ -1,28 +1,28 @@
 # https://leetcode.com/problems/inorder-successor-in-bst/
 
-class Node:
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None):
+class TreeNode:
+    def __init__(self, val: int = 0, left: 'TreeNode' = None, right: 'TreeNode' = None):
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def inorderSuccessorBST(self, root: Node, node: Node) -> Node:
+    def inorderSuccessorBST(self, root: TreeNode, node: TreeNode) -> TreeNode:
         if root is None:
             return None
 
         n = self.search(root, node)
 
-        return n if isinstance(n, Node) else None
+        return n if isinstance(n, TreeNode) else None
 
-    def search(self, root: Node, node: Node, found: bool = False) -> Node:
+    def search(self, root: TreeNode, node: TreeNode, found: bool = False) -> TreeNode:
         if root.left:
             found = self.search(root.left, node, found)
 
         if found is True:
             return root
-        elif isinstance(found, Node):
+        elif isinstance(found, TreeNode):
             return found
         found = root.val == node.val
 
@@ -31,7 +31,7 @@ class Solution:
 
         return found
 
-    def inorderSuccessorBST(self, root: Node, node: Node) -> Node:
+    def inorderSuccessorBST(self, root: TreeNode, node: TreeNode) -> TreeNode:
         stack = []
         if root is None:
             return None
@@ -66,21 +66,21 @@ class Solution:
 
 sol = Solution()
 
-root = Node(20)
-root.left = Node(8)
-root.left.left = Node(4)
-root.left.right = Node(12)
-root.left.right.left = Node(10)
-root.left.right.right = Node(14)
-root.right = Node(22)
-root.right.left = Node(21)
-root.right.right = Node(30)
+root = TreeNode(20)
+root.left = TreeNode(8)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(12)
+root.left.right.left = TreeNode(10)
+root.left.right.right = TreeNode(14)
+root.right = TreeNode(22)
+root.right.left = TreeNode(21)
+root.right.right = TreeNode(30)
 
-print(sol.inorderSuccessorBST(root, Node(5)))
-print(sol.inorderSuccessorBST(root, Node(8)).val)
-print(sol.inorderSuccessorBST(root, Node(10)).val)
-print(sol.inorderSuccessorBST(root, Node(14)).val)
-print(sol.inorderSuccessorBST(root, Node(20)).val)
-print(sol.inorderSuccessorBST(root, Node(21)).val)
-print(sol.inorderSuccessorBST(root, Node(22)).val)
-print(sol.inorderSuccessorBST(root, Node(30)))
+print(sol.inorderSuccessorBST(root, TreeNode(5)))
+print(sol.inorderSuccessorBST(root, TreeNode(8)).val)
+print(sol.inorderSuccessorBST(root, TreeNode(10)).val)
+print(sol.inorderSuccessorBST(root, TreeNode(14)).val)
+print(sol.inorderSuccessorBST(root, TreeNode(20)).val)
+print(sol.inorderSuccessorBST(root, TreeNode(21)).val)
+print(sol.inorderSuccessorBST(root, TreeNode(22)).val)
+print(sol.inorderSuccessorBST(root, TreeNode(30)))

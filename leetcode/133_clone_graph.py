@@ -8,6 +8,7 @@ class GraphNode:
         self.val = val
         self.neighbors = neighbors or []
 
+
 class Solution:
     def cloneGraph(self, node: 'GraphNode') -> 'GraphNode':
         if not node:
