@@ -14,7 +14,6 @@ class Solution:
                         not self.is_valid_grid(board, field, i, j)
                     )
                 ):
-                    print(i, j, field)
                     return False
 
         return True

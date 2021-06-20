@@ -37,6 +37,26 @@ class Solution:
 
         return best + s[r] if pair and r < len(s) and best[0] == s[r] else best
 
+    def longestPalindrome(self, s: str) -> str:
+        self.n = len(s)
+
+        longest = ''
+        for i in range(self.n):
+            longest = max(
+                longest,
+                self.expand(s, i, i),
+                self.expand(s, i, i + 1),
+                key=len
+            )
+
+        return longest
+
+    def expand(self, s: str, l: int, r: int) -> str:
+        while l >= 0 and r < self.n and s[l] == s[r]:
+            l -= 1
+            r += 1
+        return s[l+1:r]
+
 sol = Solution()
 print(sol.longestPalindrome('babad'))
 print(sol.longestPalindrome('a'))
