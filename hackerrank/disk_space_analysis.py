@@ -1,5 +1,5 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/716477/view
-#
+
 import collections
 from typing import List
 

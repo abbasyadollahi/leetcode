@@ -25,10 +25,7 @@ class Solution:
         last = first = head
 
         while first is not None and first.next is not None:
-            first = first.next
-            if first.next is None:
-                return False
-            first = first.next
+            first = first.next.next
             last = last.next
             if first is last:
                 return True
