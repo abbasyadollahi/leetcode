@@ -4,7 +4,7 @@ from typing import List
 
 
 class Solution:
-    def jump(self, nums: List[int]) -> bool:
+    def jump(self, nums: List[int]) -> int:
         i = 0
         length = len(nums) - 1
 
@@ -23,3 +23,16 @@ class Solution:
                 jump = i
                 best = nums[i] + bonus
         return jump
+
+    def jump(self, nums: List[int]) -> int:
+        count = 0
+        l = r = best = 0
+        length = len(nums) - 1
+        while r < length:
+            best = max(best, l + nums[l])
+            if l == r:
+                count += 1
+                r = best
+                best = 0
+            l += 1
+        return count
