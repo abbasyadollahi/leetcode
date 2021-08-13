@@ -33,9 +33,10 @@ class Solution:
 
         return nums[l]
 
+
 sol = Solution()
-print (sol.search([8,9,2,3,4], 9))
-print (sol.search([4,5,6,7,0,1,2], 0))
-print (sol.search([9,10,0,1,2,3,4,8], 7))
-print (sol.search([9,10,0,1,2,3,4,8], 8))
-print (sol.search([0,1,2,3,4,8,9,10,11,12], 0))
+print(sol.search([8,9,2,3,4], 9))
+print(sol.search([4,5,6,7,0,1,2], 0))
+print(sol.search([9,10,0,1,2,3,4,8], 7))
+print(sol.search([9,10,0,1,2,3,4,8], 8))
+print(sol.search([0,1,2,3,4,8,9,10,11,12], 0))

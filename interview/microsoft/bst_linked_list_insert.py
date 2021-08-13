@@ -59,6 +59,7 @@ class Solution:
         res.append(min_node.value)
         return res
 
+
 sol = Solution()
 root = Node(100)
 

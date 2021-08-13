@@ -11,8 +11,9 @@ class Solution:
 
         return -1
 
+
 sol = Solution()
-print (sol.strStr('hello', 'll'))
-print (sol.strStr('hello', 'hell'))
-print (sol.strStr('abdullah abu butata', 'bu'))
-print (sol.strStr('snakes', ''))
+print(sol.strStr('hello', 'll'))
+print(sol.strStr('hello', 'hell'))
+print(sol.strStr('abdullah abu butata', 'bu'))
+print(sol.strStr('snakes', ''))

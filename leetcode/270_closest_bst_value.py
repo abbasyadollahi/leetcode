@@ -25,6 +25,7 @@ class Solution:
 
         return min([lo, hi], key=lambda x: abs(x - val))
 
+
 sol = Solution()
 
 root = TreeNode(20)

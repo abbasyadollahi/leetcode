@@ -35,6 +35,7 @@ class Solution:
 
         return x1 <= x4 and x2 >= x3
 
+
 sol = Solution()
 print(sol.overlap((1,5), (4,6)))
 print(sol.overlap((1,10), (4,6)))

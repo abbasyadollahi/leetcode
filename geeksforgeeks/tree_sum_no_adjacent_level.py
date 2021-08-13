@@ -21,6 +21,7 @@ class Solution:
 
         return 0, total
 
+
 sol = Solution()
 
 root = Node(10)

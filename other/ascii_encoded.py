@@ -25,5 +25,6 @@ class Solution:
 
         return msg
 
+
 sol = Solution()
 print(sol.decode('23511011501782351112179911801562340161171141148'))

@@ -27,6 +27,7 @@ class Solution:
 
         return head
 
+
 l1 = ListNode(2)
 l1.next = ListNode(4)
 l1.next.next = ListNode(3)
@@ -46,18 +47,18 @@ sol = Solution()
 
 tc1 = sol.removeNthFromEnd(l1, 4)
 while tc1:
-    print (tc1.val, end=', ')
+    print(tc1.val, end=', ')
     tc1 = tc1.next
 print()
 
 tc2 = sol.removeNthFromEnd(l2, 2)
 while tc2:
-    print (tc2.val, end=', ')
+    print(tc2.val, end=', ')
     tc2 = tc2.next
 print()
 
 tc3 = sol.removeNthFromEnd(l3, 2)
 while tc3:
-    print (tc3.val, end=', ')
+    print(tc3.val, end=', ')
     tc3 = tc3.next
 print()

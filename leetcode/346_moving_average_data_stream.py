@@ -12,6 +12,7 @@ class Solution:
 
         return sum(self.nums) / len(self.nums)
 
+
 sol = Solution(3)
 print(sol.next(1))
 print(sol.next(10))

@@ -27,6 +27,7 @@ class Solution:
                     charToProcess.add(b)
         return order * (set(order) == chars)
 
+
 sol = Solution()
 print(sol.alienOrder([
   'wrt',

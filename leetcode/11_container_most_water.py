@@ -42,8 +42,9 @@ class Solution:
 
         return max_area
 
+
 sol = Solution()
-print (sol.maxArea([1,8,6,2,5,4,8,3,7]))
-print (sol.maxArea([1,2,2,2,2,2,2,2,2,2,2,2,1]))
-print (sol.maxArea([6,10,3,3,4,5,4,1]))
-print (sol.maxArea([1,3,1,6,4,10,3,5,6,9]))
+print(sol.maxArea([1,8,6,2,5,4,8,3,7]))
+print(sol.maxArea([1,2,2,2,2,2,2,2,2,2,2,2,1]))
+print(sol.maxArea([6,10,3,3,4,5,4,1]))
+print(sol.maxArea([1,3,1,6,4,10,3,5,6,9]))

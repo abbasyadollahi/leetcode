@@ -22,6 +22,7 @@ class Solution:
             new_target = target - candidate
             self.recurse(candidates[i:], new_target, [*path, candidate], combinations)
 
+
 sol = Solution()
 print(sol.combinationSum([2, 3, 6, 7], 7))
 print(sol.combinationSum([2, 3, 5], 7))

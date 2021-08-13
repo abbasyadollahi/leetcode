@@ -15,5 +15,6 @@ class Solution:
 
         return nums
 
+
 sol = Solution()
 print(sol.wiggleSort([3, 5, 2, 1, 6, 4]))

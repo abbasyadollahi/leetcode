@@ -16,6 +16,6 @@ class Solution:
                 return [idx, num_list.index(target-value)]
         return [0, 0]
 
-sol = Solution()
 
+sol = Solution()
 print(sol.sumIndices([1,2,3,4,5,6], 5))

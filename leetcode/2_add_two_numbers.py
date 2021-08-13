@@ -35,6 +35,7 @@ class Solution:
 
         return sum_l
 
+
 l1 = ListNode(2)
 l1.next = ListNode(4)
 l1.next.next = ListNode(3)
@@ -51,12 +52,12 @@ sol = Solution()
 
 tc1 = sol.addTwoNumbers(l1, l2)
 while tc1:
-    print (tc1.val, end='')
+    print(tc1.val, end='')
     tc1 = tc1.next
 print()
 
 tc2 = sol.addTwoNumbers(l1, l3)
 while tc2:
-    print (tc2.val, end='')
+    print(tc2.val, end='')
     tc2 = tc2.next
 print()

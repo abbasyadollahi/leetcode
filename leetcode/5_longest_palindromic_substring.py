@@ -57,6 +57,7 @@ class Solution:
             r += 1
         return s[l+1:r]
 
+
 sol = Solution()
 print(sol.longestPalindrome('babad'))
 print(sol.longestPalindrome('a'))

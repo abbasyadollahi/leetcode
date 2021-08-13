@@ -38,5 +38,6 @@ class Solution:
     def is_prime(self, num: int) -> bool:
         return next((False for mod in range(2, num) if num % mod == 0), True)
 
+
 sol = Solution()
 print(sol.prime_permutations(133))

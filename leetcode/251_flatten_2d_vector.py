@@ -20,6 +20,7 @@ class Solution:
     def hasNext(self) -> bool:
         return bool(self.values)
 
+
 sol = Solution([[1, 2, 3], [4, 5, 6, 7], [8, 9]])
 sol = Solution([[1,2], [3], [4,5,6]])
 sol = Solution([])

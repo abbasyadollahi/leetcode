@@ -14,6 +14,7 @@ class Solution:
 
         return None
 
+
 sol = Solution()
-print(sol.twoSumSorted([2, 7, 11, 15], 23))
-print(sol.twoSumSorted([2, 7, 11, 15], 22))
+print(sol.twoSum([2, 7, 11, 15], 23))
+print(sol.twoSum([2, 7, 11, 15], 22))

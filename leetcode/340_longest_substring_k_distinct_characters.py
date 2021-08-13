@@ -40,6 +40,7 @@ class Solution:
 
         return stripped[::-1]
 
+
 sol = Solution()
 print(sol.longestSubstringKChar('eceba', 0))
 print(sol.longestSubstringKChar('eceba', 2))

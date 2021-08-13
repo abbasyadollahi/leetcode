@@ -30,5 +30,6 @@ class Solution:
 
         return ranges
 
+
 sol = Solution()
 print(sol.missingRanges([0, 1, 3, 50, 75], 0, 99))

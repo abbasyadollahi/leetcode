@@ -28,6 +28,7 @@ class Solution:
 
         return -1
 
+
 sol = Solution()
 print(sol.latestBushGroup([1,4,3,2,5], 1, 3))
 print(sol.latestBushGroup([1,2,7,6,4,3,5], 2, 2))

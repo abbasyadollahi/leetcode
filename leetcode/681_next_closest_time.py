@@ -20,6 +20,7 @@ class Solution:
 
         return hhh + ':' + mmm
 
+
 sol = Solution()
 print(sol.latestTime('11:01'))
 print(sol.latestTime('10:00'))

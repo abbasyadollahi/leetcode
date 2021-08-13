@@ -27,6 +27,7 @@ class Solution:
 
         return ''.join(''.join(r) for r in rows)
 
+
 sol = Solution()
 print(sol.convert('ABCD', 3))
 print(sol.convert('PAYPALISHIRING', 3))

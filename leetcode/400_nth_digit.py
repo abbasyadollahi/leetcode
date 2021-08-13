@@ -14,7 +14,8 @@ class Solution:
         power = 10 ** (digits - 1)
         diff = n - (total - (9 * digits) * power) - 1
 
-        return int(str(power + diff//digits)[diff%digits])
+        return int(str(power + diff // digits)[diff%digits])
+
 
 sol = Solution()
 print(sol.findNthDigit(201))

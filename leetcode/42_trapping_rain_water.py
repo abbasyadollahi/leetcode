@@ -26,5 +26,6 @@ class Solution:
                 right -= 1
         return rain
 
+
 sol = Solution()
 print(sol.trapRain([0,1,0,2,1,0,1,3,2,1,2,1]))

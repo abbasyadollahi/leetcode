@@ -42,6 +42,7 @@ class Solution:
         if c < col_len and grid[row][c] == '1':
             self.clearIsland(row, c, grid)
 
+
 sol = Solution()
 
 islands = [

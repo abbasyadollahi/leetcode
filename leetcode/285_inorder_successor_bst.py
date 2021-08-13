@@ -64,6 +64,7 @@ class Solution:
 
         return None
 
+
 sol = Solution()
 
 root = TreeNode(20)

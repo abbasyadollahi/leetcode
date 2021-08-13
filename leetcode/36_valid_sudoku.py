@@ -31,6 +31,7 @@ class Solution:
         j_end = j_start + 3
         return [col for row in board[i_start:i_end] for col in row[j_start:j_end]].count(field) == 1
 
+
 board1 = [
     ['5','3','.','.','7','.','.','.','.'],
     ['6','.','.','1','9','5','.','.','.'],
