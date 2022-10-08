@@ -15,49 +15,51 @@ class Solution:
             root = root.left
         return root
 
-    def insert_node(self, root: Node, value: Node) -> Node:
+    def insert_node(self, root: Node, value: int) -> Node:
+        node = Node(value)
         if root is None:
-            return Node(value)
+            return node
 
-        node = root
-        prev = node
-        while node:
-            prev = node
-            node = node.left if node.value >= value else node.right
-
-        if prev.value < value:
-            prev.right = Node(value)
-            prev.right.next = prev.next
-            prev.next = prev.right
-        else:
-            prev.left = Node(value)
-            min_node = self.get_min_node(root)
-            if min_node is prev.left:
-                min_node.next = prev
+        smaller = None
+        bigger = None
+        parent = None
+        current = root
+        while current:
+            parent = current
+            if current.value > value:
+                bigger = current
+                current = current.left
             else:
-                while min_node.next is not prev:
-                    min_node = min_node.next
-                min_node.next = prev.left
-                prev.left.next = prev
+                smaller = current
+                current = current.right
+
+        if parent.value > value:
+            parent.left = node
+        else:
+            parent.right = node
+
+        if smaller:
+            smaller.next = node
+        if bigger:
+            node.next = bigger
 
         return root
 
     def inorder_traversal(self, root: Node) -> List[int]:
-        res = []
+        values = []
         if root:
-            res = self.inorder_traversal(root.left)
-            res.append(root.value)
-            res = res + self.inorder_traversal(root.right)
-        return res
+            values = self.inorder_traversal(root.left)
+            values.append(root.value)
+            values = values + self.inorder_traversal(root.right)
+        return values
 
     def next_traversal(self, root: Node) -> List[int]:
-        res = []
+        values = []
         min_node = self.get_min_node(root)
-        while min_node.next:
-            res.append(min_node.value)
+        while min_node:
+            values.append(min_node.value)
             min_node = min_node.next
-        res.append(min_node.value)
-        return res
+        return values
 
 
 sol = Solution()
