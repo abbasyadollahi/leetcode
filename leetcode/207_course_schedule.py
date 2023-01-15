@@ -1,34 +1,60 @@
 # https://leetcode.com/problems/course-schedule/
 
+from collections import defaultdict
 from typing import List, Set
 
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        # Course i is prereq for courses in graph[i]
+        # Course i is prerequisite for courses in graph[i]
         graph = [[] for _ in range(numCourses)]
-        for course, prereq in prerequisites:
-            graph[prereq].append(course)
+        for course, prerequisite in prerequisites:
+            graph[prerequisite].append(course)
 
         done = [False] * numCourses
+        def cyclic(course: int, seen: Set[int]) -> bool:
+            if course in seen:
+                seen.remove(course)
+                return True
+            elif done[course]:
+                return False
+            else:
+                done[course] = True
+                seen.add(course)
+
+            for dep in graph[course]:
+                if cyclic(dep, seen):
+                    return True
+            seen.remove(course)
+            return False
+
         for course in range(numCourses):
             if not done[course]:
-                if self.cyclic(course, done, set(), graph):
+                if cyclic(course, set()):
                     return False
         return True
 
-    def cyclic(self, course: int, done: List[bool], seen: Set[int], graph: List[List[int]]) -> bool:
-        if course in seen:
-            seen.remove(course)
-            return True
-        elif done[course]:
-            return False
-        else:
-            done[course] = True
-            seen.add(course)
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        course_prerequisites = defaultdict(set)
+        for course, prerequisite in prerequisites:
+            course_prerequisites[course].add(prerequisite)
 
-        for dep in graph[course]:
-            if self.cyclic(dep, done, seen, graph):
+        visited = [False] * numCourses
+        def cyclic(course: int, seen: Set[int]) -> bool:
+            if visited[course]:
+                return False
+            if course in seen:
                 return True
-        seen.remove(course)
-        return False
+
+            seen.add(course)
+            if course in course_prerequisites and any(
+                cyclic(prerequisite, seen)
+                for prerequisite in course_prerequisites[course]
+            ):
+                return True
+            else:
+                seen.remove(course)
+                visited[course] = True
+                return False
+
+        return not any(cyclic(course, set()) for course in course_prerequisites)

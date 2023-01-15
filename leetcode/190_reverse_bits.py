@@ -2,6 +2,7 @@
 
 import math
 
+
 class Solution:
     def reverseBits(self, n: int) -> int:
         power = 2 ** math.floor(math.log2(max(n, 1)))
@@ -14,5 +15,5 @@ class Solution:
                 bits.append(0)
             power //= 2
 
-        bits = [0] * (32-len(bits)) + bits
+        bits = [0] * (32 - len(bits)) + bits
         return sum(bit * 2 ** i for i, bit in enumerate(bits))

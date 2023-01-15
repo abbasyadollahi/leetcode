@@ -1,7 +1,6 @@
 import random
 from typing import Dict, List, Tuple
 
-
 ORIGINAL_CLICKS = [
     ('A', 'B'),
     ('B', 'C'),

@@ -2,6 +2,7 @@
 
 from collections import Counter, deque
 
+
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         seen = deque()

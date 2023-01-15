@@ -30,7 +30,6 @@ class Solution:
                 if col is None:
                     matrix[i][j] = 0
 
-
     def recurse(self, i: int, j: int, matrix: List[List[int]]) -> None:
         matrix[i][j] = None
         for jj in range(len(matrix[0])):

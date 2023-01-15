@@ -10,31 +10,36 @@ A notification is more than just mobile push notification.
 Three types of notification formats are: mobile push
 notification, SMS message, and Email. Figure 10-1 shows an
 example of each of these notifications.
+
+Functional requirements
+-----------------------
+
+Supports:
+- mobile push notifications
+- sms
+- email
+
+As a user:
+  - subscribe to an event and be notified when it happens
+
+How are notifications triggered?
+Events get sent to a message queue (e.g. kafka), which gets sent to all subscribers (subscribers consume from the message queue, and publish to users)
+
+https://en.wikipedia.org/wiki/Push_technology#Long_polling
+https://systeminterview.com/scale-from-zero-to-millions-of-users.php
+
+Non-functional requirements
+---------------------------
+
+API
+---
+
+Data model
+----------
+
+High level design of components
+-------------------------------
+
+Low level design of components
+------------------------------
 """
-
-# 1.Functional requirements
-
-# Supports:
-# - mobile push notifications
-# - sms
-# - email
-
-# As a user:
-#   - subcribe to an event and be notified when it happens
-
-# How are notifications triggered?
-# Events get sent to a message queue (e.g. kafka),
-# which gets sent to all subscribers (subscribers consume from the messagee queue, and publish to users)
-
-# https://en.wikipedia.org/wiki/Push_technology#Long_polling
-# https://systeminterview.com/scale-from-zero-to-millions-of-users.php
-
-# 2. Non-functional requirements
-
-# 3. API
-
-# 4. Data model
-
-# 5. High level design & components
-
-# 6. Dig deeper into each component

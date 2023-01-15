@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/3sum-closest/
 
-import sys
 from typing import List
 
 
@@ -8,7 +7,7 @@ class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums.sort()
         prev = None
-        closest = sys.maxsize
+        closest = float('inf')
         length = len(nums) - 1
 
         for i, c in enumerate(nums):

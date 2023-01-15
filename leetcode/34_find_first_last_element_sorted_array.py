@@ -1,48 +1,45 @@
 # https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
+import math
 from typing import List
 
 
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
-        if len(nums) == 1 and nums[0] == target:
-            return [0, 0]
-
         l = 0
         r = len(nums) - 1
-        while l <= r and nums[(l+r)//2] != target:
-            mid = (l + r) // 2
-            num = nums[mid]
-            if num > target:
-                r = mid - 1
-            elif num < target:
-                l = mid + 1
+        while l < r:
+            m = (l + r) // 2
+            if nums[m] > target:
+                r = m - 1
+            elif nums[m] < target:
+                l = m + 1
+            else:
+                break
 
-        if l >= r:
+        if not nums or (nums[(l + r) // 2] != target):
             return [-1, -1]
 
-        mid = (l + r) // 2
-
-        ll = 0
-        rr = mid
-        while ll != rr:
+        # Left half
+        ll = l
+        rr = (l + r) // 2
+        while ll <= rr:
             mm = (ll + rr) // 2
-            num = nums[mm]
-            if num == target:
+            if nums[mm] == target:
                 rr = mm - 1
-            else:
-                ll = mm
-        first = ll if nums[ll] == target else ll + 1
-
-        ll = mid
-        rr = len(nums) - 1
-        while ll != rr:
-            mm = (ll + rr) // 2
-            num = nums[mm]
-            if num == target:
+            elif nums[mm] < target:
                 ll = mm + 1
-            else:
-                rr = mm
-        last = ll if nums[ll] == target else ll - 1
+        start = (ll + rr) // 2
 
-        return [first, last]
+        # Right half
+        ll = (l + r) // 2
+        rr = r
+        while ll < rr:
+            mm = math.ceil((ll + rr) / 2)
+            if nums[mm] == target:
+                ll = mm
+            elif nums[mm] > target:
+                rr = mm - 1
+        end = (ll + rr) // 2
+
+        return [start + 1, end]

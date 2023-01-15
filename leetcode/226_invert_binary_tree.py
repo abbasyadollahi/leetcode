@@ -1,5 +1,8 @@
 # https://leetcode.com/problems/invert-binary-tree/
 
+from typing import Optional
+
+
 class TreeNode:
     def __init__(self, val: int = 0, left: 'TreeNode' = None, right: 'TreeNode' = None):
         self.val = val
@@ -8,7 +11,7 @@ class TreeNode:
 
 
 class Solution:
-    def invertTree(self, root: TreeNode) -> TreeNode:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if root is None:
             return root
 

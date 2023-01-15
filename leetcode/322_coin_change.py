@@ -7,9 +7,9 @@ class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         dp = [0] + [float('inf')] * amount
 
-        for coin in coins:
-            for a in range(amount + 1):
-                if coin <= a:
-                    dp[a] = min(dp[a], 1 + dp[a-coin])
+        for total in range(amount + 1):
+            for coin in coins:
+                if coin <= total:
+                    dp[total] = min(dp[total], 1 + dp[total-coin])
 
-        return dp[amount] if dp[amount] < float('inf') else -1
+        return dp[amount] if dp[amount] != float('inf') else -1

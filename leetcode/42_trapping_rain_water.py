@@ -16,13 +16,13 @@ class Solution:
                 if elevation[left] >= left_lvl:
                     left_lvl = elevation[left]
                 else:
-                    rain += (left_lvl - elevation[left])
+                    rain += left_lvl - elevation[left]
                 left += 1
             else:
                 if elevation[right] >= right_lvl:
                     right_lvl = elevation[right]
                 else:
-                    rain += (right_lvl - elevation[right])
+                    rain += right_lvl - elevation[right]
                 right -= 1
         return rain
 

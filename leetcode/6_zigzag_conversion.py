@@ -1,34 +1,34 @@
 # https://leetcode.com/problems/zigzag-conversion/
 
+from itertools import zip_longest
+
+
 class Solution:
-    def convert(self, s: str, num_rows: int) -> str:
-        if num_rows == 1 or num_rows >= len(s):
+    def convert(self, s: str, numRows: int) -> str:
+        if numRows == 1:
             return s
-        elif num_rows == 2:
-            return s[::2] + s[1::2]
 
         i = 0
-        forward = True
-        rows = [[] for i in range(num_rows)]
+        step = 1
+        rows = [''] * numRows
         for c in s:
-            rows[i].append(c)
-            if forward:
-                if i == num_rows - 1:
-                    i -= 1
-                    forward = False
-                else:
-                    i += 1
+            rows[i] += c
+            if (step < 0 and i == 0) or (step > 0 and i == numRows - 1):
+                step = -step
+            i += step
+
+        return ''.join(rows)
+
+    def convert(self, s: str, numRows: int) -> str:
+        rows = [None] * numRows
+        step = 2 * (numRows - 1)
+
+        for i in range(numRows):
+            first_slice = slice(i, None, step)
+            if 0 < i < numRows - 1:
+                second_slice = slice(i + step - (2 * i), None, step)
+                rows[i] = ''.join(map(''.join, zip_longest(s[first_slice], s[second_slice], fillvalue='')))
             else:
-                if i == 0:
-                    i += 1
-                    forward = True
-                else:
-                    i -= 1
+                rows[i] = s[first_slice]
 
-        return ''.join(''.join(r) for r in rows)
-
-
-sol = Solution()
-print(sol.convert('ABCD', 3))
-print(sol.convert('PAYPALISHIRING', 3))
-print(sol.convert('ABCDEFGHIJKLMNOPQRS', 5))
+        return ''.join(rows)

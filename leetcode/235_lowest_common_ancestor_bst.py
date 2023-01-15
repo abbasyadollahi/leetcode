@@ -6,20 +6,36 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        def traverse(node: TreeNode) -> bool:
+            if node is None:
+                return False
+
+            left = traverse(node.left)
+            right = traverse(node.right)
+
+            if (left and right) or ((left or right) and node in [p, q]):
+                self.lca = node
+
+            return left or right or node in [p, q]
+
         self.lca = None
-        self.p = p
-        self.q = q
-        self.traverse(root)
+        traverse(root)
         return self.lca
 
-    def traverse(self, node: TreeNode) -> bool:
-        if self.lca is None and node:
-            left = self.traverse(node.left)
-            right = self.traverse(node.right)
-            current = node in [self.p, self.q]
-            if (left or current) and (right or current) and (left or right):
-                self.lca = node
-            return left or right or current
-        return False
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        def traverse(node: TreeNode) -> TreeNode:
+            if node is None:
+                return None
+            if node in [p, q]:
+                return node
+
+            children = (traverse(node.left), traverse(node.right))
+            if p in children and q in children:
+                return node
+
+            return next(filter(None, children), None)
+
+        return traverse(root)

@@ -6,7 +6,7 @@ from typing import List
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         for num in nums:
-            idx = abs(num) - 1
-            nums[idx] = -abs(nums[idx])
+            index = abs(num) - 1
+            nums[index] = -abs(nums[index])
 
         return [i for i, num in enumerate(nums, 1) if num > 0]

@@ -5,8 +5,8 @@ class Solution:
         col = ''
         ascii = 65
         while n > 0:
-            c = chr((n-1) % 26 + ascii)
+            c = chr((n - 1) % 26 + ascii)
             col = c + col
-            n = (n-1) // 26
+            n = (n - 1) // 26
 
         return col

@@ -1,11 +1,11 @@
 # https://leetcode.com/problems/alien-dictionary/
 
+from collections import defaultdict
 from typing import List
 
 
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
-        from collections import defaultdict
         pre = defaultdict(set)
         suc = defaultdict(set)
         for pair in zip(words, words[1:]):

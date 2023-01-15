@@ -5,7 +5,7 @@ class Solution:
         self.i = 0
         self.s = s
         self.n = len(s)
-        self.operators = {
+        self.operations = {
             '-': lambda x, y: x - y,
             '+': lambda x, y: x + y,
         }
@@ -24,16 +24,16 @@ class Solution:
                     num_start = self.i - 1
                 num_end = self.i
             elif value == '(':
-                group = self.operators[op](group, self.calculate_group())
+                group = self.operations[op](group, self.calculate_group())
                 op = '+'
             elif value == ')':
                 if num_start is None:
                     return group
                 else:
-                    return self.operators[op](group, int(self.s[num_start:num_end]))
-            elif value in self.operators:
+                    return self.operations[op](group, int(self.s[num_start:num_end]))
+            elif value in self.operations:
                 if num_start is not None:
-                    group = self.operators[op](group, int(self.s[num_start:num_end]))
+                    group = self.operations[op](group, int(self.s[num_start:num_end]))
                     op = '+'
                     num_start = num_end = None
 
@@ -43,6 +43,6 @@ class Solution:
                     op = '-'
 
         if num_start is not None:
-            group = self.operators[op](group, int(self.s[num_start:num_end]))
+            group = self.operations[op](group, int(self.s[num_start:num_end]))
 
         return group

@@ -8,11 +8,11 @@ def minimumDivisor(arr: List[int], threshold: int) -> int:
     l = 1
     r = len(arr) * 10 ** 9
     while l <= r:
-        mid = (l + r) // 2
-        total = sum(math.ceil(num / mid) for num in arr)
+        m = (l + r) // 2
+        total = sum(math.ceil(num / m) for num in arr)
         if total > threshold:
-            l = mid + 1
+            l = m + 1
         else:
-            r = mid - 1
+            r = m - 1
 
     return r + 1

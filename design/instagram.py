@@ -72,7 +72,8 @@ Database (SQL)
 CDN (Cloudflare)
     - Cache the images to speed up feed view times
 
-Filestore (S3)
+File store (S3)
+    - Store documents
 
 Advertisement service:
     - Based on telemetry data, makes suggestions on the posts to show to the user

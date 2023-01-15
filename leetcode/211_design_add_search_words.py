@@ -2,27 +2,20 @@
 
 class WordDictionary:
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
+        """Initialize your data structure here."""
         self.any = '.'
         self.eof = '#'
         self.letters = {}
 
-
     def addWord(self, word: str) -> None:
-        """
-        Inserts a word into the trie.
-        """
+        """Inserts a word into the trie."""
         level = self.letters
         for letter in word:
             level = level.setdefault(letter, {})
         level[self.eof] = None
 
     def search(self, word: str) -> bool:
-        """
-        Returns if the word is in the trie.
-        """
+        """Returns if the word is in the trie."""
         found = False
         num_letters = len(word)
         frames = [(0, self.letters)]

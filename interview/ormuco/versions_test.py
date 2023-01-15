@@ -3,6 +3,7 @@
 
 import sys
 import unittest
+
 from .versions import Solution
 
 

@@ -16,30 +16,29 @@ class Solution:
                 if self.recurse(i, j, 0):
                     return True
 
-
-    def recurse(self, i: int, j: int, idx: int) -> bool:
+    def recurse(self, i: int, j: int, index: int) -> bool:
         if self.board[i][j] is None:
             return False
-        if self.board[i][j] != self.word[idx]:
+        if self.board[i][j] != self.word[index]:
             return False
 
-        if idx == self.length - 1:
+        if index == self.length - 1:
             return True
 
-        next_idx = idx + 1
+        next_index = index + 1
         tmp = self.board[i][j]
         self.board[i][j] = None
         # Up
-        if i > 0 and self.recurse(i - 1, j, next_idx):
+        if i > 0 and self.recurse(i - 1, j, next_index):
             return True
         # Down
-        if i < self.m - 1 and self.recurse(i + 1, j, next_idx):
+        if i < self.m - 1 and self.recurse(i + 1, j, next_index):
             return True
         # Left
-        if j > 0 and self.recurse(i, j - 1, next_idx):
+        if j > 0 and self.recurse(i, j - 1, next_index):
             return True
         # Right
-        if j < self.n - 1 and self.recurse(i, j + 1, next_idx):
+        if j < self.n - 1 and self.recurse(i, j + 1, next_index):
             return True
 
         # No successul word search so revert

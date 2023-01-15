@@ -4,7 +4,7 @@ from typing import List
 
 
 class Solution:
-    def getModifiedArray(length: int, updates: List[int]) -> int:
+    def getModifiedArray(self, length: int, updates: List[int]) -> int:
         array = [0] * length
 
         for left, right, amount in updates:

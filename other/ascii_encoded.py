@@ -1,30 +1,22 @@
 class Solution:
     def decode(self, encoded: str) -> str:
-        if not encoded:
-            return ''
-
         space = 32
-        a_z = range(97, 123)
-        A_Z = range(65, 91)
+        uppercase = list(range(65, 91))
+        lowercase = list(range(97, 123))
+        characters = {space, *uppercase, *lowercase}
 
         code = ''
-        msg = ''
+        message = ''
         for digit in encoded[::-1]:
             code += digit
             int_code = int(code)
 
-            if int_code == space:
-                msg += ' '
-                code = ''
-            elif int_code in a_z:
-                msg += chr(int_code)
-                code = ''
-            elif int_code in A_Z:
-                msg += chr(int(int_code))
+            if int_code in characters:
+                message += chr(int_code)
                 code = ''
 
-        return msg
+        return message
 
 
 sol = Solution()
-print(sol.decode('23511011501782351112179911801562340161171141148'))
+assert sol.decode('511011501782351112179911801562340161171141148') == 'Truth Always Wins'

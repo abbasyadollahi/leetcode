@@ -5,8 +5,8 @@ class Solution:
         self.size = size
         self.nums = []
 
-    def next(self, value: int) -> float:
-        self.nums.append(value)
+    def next(self, val: int) -> float:
+        self.nums.append(val)
         if len(self.nums) > self.size:
             self.nums.pop(0)
 

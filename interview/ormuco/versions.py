@@ -13,9 +13,9 @@ import re
 class Solution:
     def versions(self, v1: str, v2: str) -> str:
         """
-        :type v1: str - Version number 1
-        :type v2: str - Version number 2
-        :rtype str: Message comparing version 1 and version 2
+        :param v1: Version number 1
+        :param v2: Version number 2
+        :return: Message comparing version 1 and version 2
         """
         regex = re.compile('^((\d+)?)$|^(((\d+)\.)+(\d+))$')
 

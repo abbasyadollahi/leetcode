@@ -4,7 +4,6 @@
 
 from typing import Tuple, Union
 
-
 # Custom Typing
 Number = Union[int, float]
 Coords = Tuple[Number, Number]
@@ -13,9 +12,9 @@ Coords = Tuple[Number, Number]
 class Solution:
     def overlap(self, l1: Coords, l2: Coords) -> bool:
         """
-        :type l1: tuple - Coordinates of start/end points on line
-        :type l2: tuple - Coordinates of start/end points on line
-        :rtype: bool - True if both lines overlap
+        :param l1: Coordinates of start/end points on line
+        :param l2: Coordinates of start/end points on line
+        :return: Whether both lines overlap
         """
         if isinstance(l1, (list, tuple)) and len(l1) == 2:
             try:

@@ -8,22 +8,22 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        mult = 1
+        multiplier = 1
         sum_int = 0
         while l1 and l2:
-            sum_int += (l1.val + l2.val) * mult
-            mult *= 10
+            sum_int += (l1.val + l2.val) * multiplier
+            multiplier *= 10
             l1 = l1.next
             l2 = l2.next
 
         while l1:
-            sum_int += l1.val * mult
-            mult *= 10
+            sum_int += l1.val * multiplier
+            multiplier *= 10
             l1 = l1.next
 
         while l2:
-            sum_int += l2.val * mult
-            mult *= 10
+            sum_int += l2.val * multiplier
+            multiplier *= 10
             l2 = l2.next
 
         sum_str = str(sum_int)[::-1]
@@ -34,30 +34,3 @@ class Solution:
             sum_l_node = sum_l_node.next
 
         return sum_l
-
-
-l1 = ListNode(2)
-l1.next = ListNode(4)
-l1.next.next = ListNode(3)
-l1.next.next.next = ListNode(2)
-
-l2 = ListNode(5)
-l2.next = ListNode(6)
-l2.next.next = ListNode(4)
-l2.next.next.next = ListNode(9)
-
-l3 = ListNode(0)
-
-sol = Solution()
-
-tc1 = sol.addTwoNumbers(l1, l2)
-while tc1:
-    print(tc1.val, end='')
-    tc1 = tc1.next
-print()
-
-tc2 = sol.addTwoNumbers(l1, l3)
-while tc2:
-    print(tc2.val, end='')
-    tc2 = tc2.next
-print()

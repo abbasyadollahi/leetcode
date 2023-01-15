@@ -48,9 +48,9 @@ def split_into_table(words: List[str], n: int) -> List[str]:
 
     for i in range(m):
         for j in range(n):
-            idx = i + (j * n) + min(j, r)
-            if idx < w:
-                table[i][j] = words[idx]
+            index = i + (j * n) + min(j, r)
+            if index < w:
+                table[i][j] = words[index]
     return table
 
 

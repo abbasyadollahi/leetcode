@@ -18,6 +18,6 @@ class Solution:
         for bracket in s:
             if bracket in brackets:
                 opened.append(bracket)
-            elif not opened or brackets[opened.pop()] != bracket:
+            elif not opened or bracket != brackets[opened.pop()]:
                 return False
         return not opened

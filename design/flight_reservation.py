@@ -1,8 +1,5 @@
-import datetime
-from typing import List
-
 """
-Book a flight reservation service
+Book a flight reservation service.
 
 A user can:
 - view flights
@@ -14,7 +11,9 @@ Notes:
 - Single type of plane with 100 seat configuration
 - Worldwide users but only Air Canada
 
-Criterias:
+Criteria
+--------
+
 - Consistent
 - Acceptable delay
 - Accessibility
@@ -33,7 +32,13 @@ Servers Endpoints
     -x Flight cancelled (410)
 """
 
+
+import datetime
+from typing import List
+
+
 class User:
+
     id: int
     first_name: str
     last_name: str
@@ -42,6 +47,7 @@ class User:
     address: str
 
 class Flight:
+
     id: int
     plane_id: int
     departure_time: datetime.datetime
@@ -51,12 +57,14 @@ class Flight:
     seat_states: List['SeatState']
 
 class Plane:
+
     id: int
     seats: List['Seat']
     accessibility: dict
 
 
 class Seat:
+
     id: int
     plane_id: int
     type: str # {window, isle, middle, other}
@@ -64,12 +72,14 @@ class Seat:
     column: str
 
 class SeatState:
+
     id: int
     flight_id: int
     seat_id: int
     state: str # {unavailable, available, pending, taken}
 
 class Booking:
+
     id: int
     user_id: int
     flight_id: int

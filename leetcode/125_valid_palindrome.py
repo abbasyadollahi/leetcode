@@ -21,3 +21,7 @@ class Solution:
             r -= 1
 
         return True
+
+    def isPalindrome(self, s: str) -> bool:
+        s = list(filter(str.isalnum, s.casefold()))
+        return s == s[::-1]

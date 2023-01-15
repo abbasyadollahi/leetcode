@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/maximum-product-subarray/
 
-import sys
 from typing import List
 
 

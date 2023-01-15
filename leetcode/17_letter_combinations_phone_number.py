@@ -18,4 +18,8 @@ class Solution:
         }
         if len(digits) in [0, 1]:
             return num_letters[digits]
-        return [letter + combination for combination in self.letterCombinations(digits[1:]) for letter in num_letters[digits[0]]]
+        return [
+            letter + combination
+            for combination in self.letterCombinations(digits[1:])
+            for letter in num_letters[digits[0]]
+        ]

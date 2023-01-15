@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/3sum/
 
-from typing import List
+from typing import List, Set, Tuple
 
 
 class Solution:
@@ -32,3 +32,21 @@ class Solution:
                     while nr == nums[r] and r > i:
                         r -= 1
         return combinations
+
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        def two_sum(nums: List[int], target: int) -> Set[Tuple[int, int]]:
+            seen = set()
+            doubles = set()
+            for num in nums:
+                if target - num in seen:
+                    doubles.add((num, target - num))
+                else:
+                    seen.add(num)
+
+            return doubles
+
+        return {
+            tuple(sorted([num, *combo]))
+            for i, num in enumerate(nums[:-2])
+            for combo in two_sum(nums[i+1:], -num)
+        }

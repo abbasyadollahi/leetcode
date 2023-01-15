@@ -9,14 +9,14 @@ class Solution:
         r = len(nums) - 1
 
         while l < r:
-            mid = (l + r) // 2
-            num = nums[mid]
+            m = (l + r) // 2
+            num = nums[m]
             if num > target:
-                r = mid
+                r = m
             elif num < target:
-                l = mid + 1
+                l = m + 1
             else:
-                return mid
+                return m
 
         return l + (nums[l] < target)
 

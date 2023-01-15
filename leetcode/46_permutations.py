@@ -22,12 +22,12 @@ class Solution:
         return permutations
 
     def permute(self, nums: List[int]) -> List[List[int]]:
-        self.perms = []
-        self.permutations([], nums)
-        return self.perms
+        def generate_permutations(permutation: List[int], choices: List[int]) -> List[List[int]]:
+            permutations = []
+            for i, choice in enumerate(choices):
+                permutations.extend(generate_permutations([*permutation, choice], [*choices[:i], *choices[i+1:]]))
+            if not choices:
+                permutations.append(permutation)
+            return permutations
 
-    def permutations(self, perm: List[int], choices: List[int]) -> None:
-        for i, choice in enumerate(choices):
-            self.permutations([*perm, choice], [*choices[:i], *choices[i+1:]])
-        if not choices:
-            self.perms.append(perm)
+        return generate_permutations([], nums)

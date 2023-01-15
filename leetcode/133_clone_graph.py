@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/clone-graph/
 
-from typing import Dict, List
+from typing import List, Optional
 
 
 class GraphNode:
@@ -10,19 +10,21 @@ class GraphNode:
 
 
 class Solution:
-    def cloneGraph(self, node: 'GraphNode') -> 'GraphNode':
+    def cloneGraph(self, node: Optional[GraphNode]) -> Optional[GraphNode]:
         if not node:
             return None
-        return self.traverse(node, {})
 
-    def traverse(self, node: 'GraphNode', seen: Dict[int, 'GraphNode']) -> 'GraphNode':
-        new_node = GraphNode(node.val)
-        seen[new_node.val] = new_node
+        seen = {}
+        def traverse(n: GraphNode) -> GraphNode:
+            new_node = GraphNode(n.val)
+            seen[new_node.val] = new_node
 
-        for neighbor in node.neighbors:
-            if neighbor.val in seen:
-                new_node.neighbors.append(seen[neighbor.val])
-            else:
-                new_neighbor = self.traverse(neighbor, seen)
-                new_node.neighbors.append(new_neighbor)
-        return new_node
+            for neighbor in n.neighbors:
+                if neighbor.val in seen:
+                    new_node.neighbors.append(seen[neighbor.val])
+                else:
+                    new_neighbor = traverse(neighbor)
+                    new_node.neighbors.append(new_neighbor)
+            return new_node
+
+        return traverse(node)

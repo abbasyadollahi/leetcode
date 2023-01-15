@@ -18,7 +18,6 @@ class Solution:
         else:
             return 2 ** (height - 2) + self.countNodes(root.left)
 
-
     def height(self, root: TreeNode) -> int:
         if root is None:
             return 0

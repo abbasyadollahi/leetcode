@@ -20,8 +20,10 @@ class Solution:
             if node.val == subRoot.val and self.verify_trees(node, subRoot):
                 return True
             else:
-                if node.left: queue.append(node.left)
-                if node.right: queue.append(node.right)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
 
         return False
 

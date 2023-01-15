@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/binary-tree-level-order-traversal/
 
-from typing import List
+from collections import defaultdict
+from typing import List, Optional
 
 
 class TreeNode:
@@ -11,20 +12,20 @@ class TreeNode:
 
 
 class Solution:
-    def levelOrder(self, root: TreeNode) -> List[List[int]]:
-        self.nodes = {}
-        self.recurse(root, 0)
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        nodes = defaultdict(list)
 
-        return [self.nodes[i] for i in range(len(self.nodes))]
+        def recurse(node: Optional[TreeNode], level: int) -> None:
+            if node is None:
+                return
 
-    def recurse(self, root: TreeNode, level: int) -> None:
-        if root is None:
-            return
+            nodes[level].append(node.val)
+            recurse(node.left, level + 1)
+            recurse(node.right, level + 1)
 
-        self.nodes[level] = self.nodes.get(level, [])
-        self.nodes[level].append(root.val)
-        self.recurse(root.left, level + 1)
-        self.recurse(root.right, level + 1)
+        recurse(root, 0)
+
+        return list(nodes.values())
 
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         if root is None:
@@ -34,6 +35,6 @@ class Solution:
         nodes = [root]
         while nodes:
             level.append([node.val for node in nodes])
-            nodes = [n for node in nodes for n in (node.left, node.right) if n is not None]
+            nodes = [child for node in nodes for child in (node.left, node.right) if child is not None]
 
         return level

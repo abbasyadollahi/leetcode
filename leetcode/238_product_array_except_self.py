@@ -5,10 +5,11 @@ from typing import List
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
+        product = [1] * len(nums)
+
         p = 1
-        product = []
         for i in range(len(nums)):
-            product.append(p)
+            product[i] *= p
             p *= nums[i]
 
         p = 1

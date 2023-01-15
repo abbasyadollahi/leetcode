@@ -2,25 +2,19 @@
 
 class Trie:
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.eof = '#'
+        """Initialize your data structure here."""
+        self.eof = None
         self.letters = {}
 
     def insert(self, word: str) -> None:
-        """
-        Inserts a word into the trie.
-        """
+        """Inserts a word into the trie."""
         level = self.letters
         for letter in word:
             level = level.setdefault(letter, {})
         level[self.eof] = None
 
     def search(self, word: str) -> bool:
-        """
-        Returns if the word is in the trie.
-        """
+        """Returns if the word is in the trie."""
         level = self.letters
         for letter in word:
             if letter in level:
@@ -30,9 +24,7 @@ class Trie:
         return self.eof in level
 
     def startsWith(self, prefix: str) -> bool:
-        """
-        Returns if there is any word in the trie that starts with the given prefix.
-        """
+        """Returns if there is any word in the trie that starts with the given prefix."""
         level = self.letters
         for letter in prefix:
             if letter in level:

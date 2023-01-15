@@ -1,5 +1,8 @@
 # https://leetcode.com/problems/intersection-of-two-linked-lists/
 
+from typing import Optional
+
+
 class ListNode:
     def __init__(self, val: int = 0, next: 'ListNode' = None):
         self.val = val
@@ -7,13 +10,13 @@ class ListNode:
 
 
 class Solution:
-    def getIntersectionNode(self, head_a: ListNode, head_b: ListNode) -> ListNode:
-        if not head_a or not head_b:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        if not headA or not headB:
             return None
 
-        a, b = head_a, head_b
+        a, b = headA, headB
         while a is not b:
-            a = a.next if a else head_b
-            b = b.next if b else head_a
+            a = a.next if a else headB
+            b = b.next if b else headA
 
         return a

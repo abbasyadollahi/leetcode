@@ -8,7 +8,7 @@ class Solution:
         prev = set()
         for i, n in enumerate(nums):
             if target - n in prev:
-                return [nums.index(target-n), i]
+                return [nums.index(target - n), i]
             else:
                 prev.add(n)
 
