@@ -1,10 +1,9 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/932081/view
 
 import math
-from typing import List
 
 
-def connectedSum(graph_nodes: int, graph_from: List[int], graph_to: List[int]) -> int:
+def connectedSum(graph_nodes: int, graph_from: list[int], graph_to: list[int]) -> int:
     edges = [[] for _ in range(graph_nodes + 1)]
     for from_node, to_node in zip(graph_from, graph_to):
         edges[from_node].append(to_node)
@@ -19,7 +18,7 @@ def connectedSum(graph_nodes: int, graph_from: List[int], graph_to: List[int]) -
 
     return sum(map(math.ceil, map(math.sqrt, sizes)))
 
-def graph_size(node: int, edges: List[List[int]], seen: List[bool]) -> int:
+def graph_size(node: int, edges: list[list[int]], seen: list[bool]) -> int:
     size = 1
     nodes = edges[node]
     while nodes:

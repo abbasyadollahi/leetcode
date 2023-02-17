@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/rotting-oranges/
 
-from typing import List, Generator, Set, Tuple
-
-
 class Solution:
-    def orangesRotting(self, grid: List[List[int]]) -> int:
+    def orangesRotting(self, grid: list[list[int]]) -> int:
         m = len(grid)
         n = len(grid[0])
         fresh_oranges = set((i, j) for i in range(m) for j in range(n) if grid[i][j] == 1)

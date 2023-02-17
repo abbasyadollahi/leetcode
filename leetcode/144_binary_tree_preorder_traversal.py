@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/binary-tree-preorder-traversal/
 
-from typing import List, Optional
+from typing import Optional
 
 
 class TreeNode:
@@ -11,7 +11,7 @@ class TreeNode:
 
 
 class Solution:
-    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         if root is None:
             return []
 

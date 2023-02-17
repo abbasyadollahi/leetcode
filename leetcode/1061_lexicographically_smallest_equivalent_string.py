@@ -1,7 +1,6 @@
 # https://leetcode.com/problems/lexicographically-smallest-equivalent-string/
 
 import string
-from typing import Dict, List
 
 
 class Solution:
@@ -14,10 +13,10 @@ class Solution:
 
 class UnionFind:
 
-    items: Dict[str, int]
-    group_sizes: Dict[str, int]
+    items: dict[str, int]
+    group_sizes: dict[str, int]
 
-    def __init__(self, items: List[str]) -> None:
+    def __init__(self, items: list[str]) -> None:
         self.items = dict(zip(items, items))
         self.group_sizes = dict.fromkeys(items, 1)
 

@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/word-break/
 
-from typing import List
-
-
 class Solution:
-    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+    def wordBreak(self, s: str, wordDict: list[str]) -> bool:
         n = len(s)
         matches = [True] + [False] * n
         wordDict = set(wordDict)

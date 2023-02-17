@@ -1,13 +1,10 @@
 # https://leetcode.com/problems/zigzag-iterator/
 
-from typing import List, Tuple
-
-
 class Solution:
-    def __init__(self, *args: Tuple[List[int]]):
+    def __init__(self, *args: tuple[list[int]]):
         self.values = self.flattenLists(args)
 
-    def flattenLists(self, lists: Tuple[List[int]]) -> List[int]:
+    def flattenLists(self, lists: tuple[list[int]]) -> list[int]:
         values = []
         empty = False
         rows = len(lists)

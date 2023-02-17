@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/min-max-game/
 
-from typing import List
-
-
 class Solution:
-    def minMaxGame(self, nums: List[int]) -> int:
+    def minMaxGame(self, nums: list[int]) -> int:
         while len(nums) != 1:
             new_nums = []
             for i in range(len(nums) // 2):

@@ -1,7 +1,4 @@
-from typing import List
-
-
-def trafficRide(lights: List[int], cycles: List[int], destinations: List[int]) -> int:
+def trafficRide(lights: list[int], cycles: list[int], destinations: list[int]) -> int:
     time = 0
     location = 0
     lights_cycles = dict(zip(lights, cycles))

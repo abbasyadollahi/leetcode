@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/insert-interval/
 
-from typing import List
-
-
 class Solution:
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    def insert(self, intervals: list[list[int]], newInterval: list[int]) -> list[list[int]]:
         if not intervals:
             return [newInterval]
 
@@ -31,7 +28,7 @@ class Solution:
 
         return intervals
 
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    def insert(self, intervals: list[list[int]], newInterval: list[int]) -> list[list[int]]:
         start_index = 0
         end_index = 0
         new_start, new_end = newInterval

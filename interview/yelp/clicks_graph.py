@@ -1,5 +1,5 @@
 import random
-from typing import Dict, List, Tuple
+
 
 ORIGINAL_CLICKS = [
     ('A', 'B'),
@@ -27,7 +27,7 @@ A -> B -> C --> D -> E -> F (F)
 """
 
 
-def get_click_destination(clicks: List[Tuple[str, str]], origin: str) -> List[str]:
+def get_click_destination(clicks: list[tuple[str, str]], origin: str) -> list[str]:
     clicks_dict = {}
     for o, d in clicks:
         clicks_dict[o] = clicks_dict.get(o, []) + [d]
@@ -38,7 +38,7 @@ def get_click_destination(clicks: List[Tuple[str, str]], origin: str) -> List[st
     return destinations
 
 
-def raise_cycle(clicks_dict: Dict[str, List[str]], origin: str, seen: set) -> None:
+def raise_cycle(clicks_dict: dict[str, list[str]], origin: str, seen: set) -> None:
     destinations = clicks_dict[origin]
     if len(destinations) > 1:
         for d in destinations:
@@ -52,7 +52,7 @@ def raise_cycle(clicks_dict: Dict[str, List[str]], origin: str, seen: set) -> No
             raise_cycle(clicks_dict, d, seen)
 
 
-def recurse(clicks_dict: Dict[str, List[str]], origin: str) -> List[str]:
+def recurse(clicks_dict: dict[str, list[str]], origin: str) -> list[str]:
     if origin not in clicks_dict:
         return [origin]
     return [d for destination in clicks_dict[origin] for d in recurse(clicks_dict, destination)]

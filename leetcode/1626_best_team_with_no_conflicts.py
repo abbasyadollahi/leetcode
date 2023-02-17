@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/best-team-with-no-conflicts/
 
-from typing import List
-
-
 class Solution:
-    def bestTeamScore(self, scores: List[int], ages: List[int]) -> int:
+    def bestTeamScore(self, scores: list[int], ages: list[int]) -> int:
         max_age = max(ages)
         max_score = max(scores)
         players = sorted(zip(ages, scores))
@@ -20,7 +17,7 @@ class Solution:
 
         return dp[-1][-1]
 
-    def bestTeamScore(self, scores: List[int], ages: List[int]) -> int:
+    def bestTeamScore(self, scores: list[int], ages: list[int]) -> int:
         players = sorted(zip(ages, scores))
         dp = [score for _, score in players]
 

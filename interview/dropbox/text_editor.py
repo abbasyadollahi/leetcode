@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Dict, Generic, List, Optional, Tuple, TypeVar, Union
+from typing import Generic, Optional, TypeVar, Union
 
 H = TypeVar('H')
 
@@ -22,8 +22,8 @@ class Clipboard:
 @dataclass
 class History(Generic[H]):
 
-    past: List[H] = field(default_factory=list)
-    future: List[H] = field(default_factory=list)
+    past: list[H] = field(default_factory=list)
+    future: list[H] = field(default_factory=list)
 
     def snapshot(self, item: H) -> None:
         self.past.append(item)
@@ -60,8 +60,8 @@ class Editor:
         self.cursor: int = 0
         self.cursor_history: History[int] = History()
 
-        self.selection: Tuple[int, int] = ()
-        self.selection_history: History[Tuple[int, int]] = History()
+        self.selection: tuple[int, int] = ()
+        self.selection_history: History[tuple[int, int]] = History()
 
         self.actions = {
             'APPEND': self.append,
@@ -74,7 +74,7 @@ class Editor:
             'REDO': self.redo,
         }
 
-    def action(self, action: str, *args: List[str]) -> Optional[str]:
+    def action(self, action: str, *args: list[str]) -> Optional[str]:
         return self.actions[action](*args)
 
     def append(self, text: str) -> str:
@@ -168,16 +168,16 @@ class IDE:
     def __init__(self) -> None:
         self.clipboard: Clipboard = Clipboard()
         self.active: Editor = Editor(name='', clipboard=self.clipboard)
-        self.editors: Dict[str, Editor] = {self.active.name: self.active}
-        self.active_history: Dict[str, None] = {}
-        self.outputs: List[str] = []
+        self.editors: dict[str, Editor] = {self.active.name: self.active}
+        self.active_history: dict[str, None] = {}
+        self.outputs: list[str] = []
 
         self.actions = {
             'OPEN': self.open,
             'CLOSE': self.close,
         }
 
-    def action(self, action: str, *args: List[str]) -> None:
+    def action(self, action: str, *args: list[str]) -> None:
         if action in self.actions:
             self.actions[action](*args)
         else:
@@ -200,10 +200,10 @@ class IDE:
         name, _ = self.active_history.popitem()
         self.active = self.editors[name]
 
-    def get_outputs(self) -> List[str]:
+    def get_outputs(self) -> list[str]:
         return self.outputs
 
-def textEditor(queries: List[List[str]]) -> List[str]:
+def textEditor(queries: list[list[str]]) -> list[str]:
     ide = IDE()
 
     for query in queries:

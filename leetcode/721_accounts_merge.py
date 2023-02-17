@@ -1,7 +1,6 @@
 # https://leetcode.com/problems/accounts-merge/
 
 from collections import defaultdict
-from typing import List
 
 
 class EmailNode:
@@ -11,7 +10,7 @@ class EmailNode:
 
 
 class Solution:
-    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
+    def accountsMerge(self, accounts: list[list[str]]) -> list[list[str]]:
         nodes = {}
         for account in accounts:
             name, *emails = account
@@ -41,7 +40,7 @@ class Solution:
 
         return merged_accounts
 
-    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
+    def accountsMerge(self, accounts: list[list[str]]) -> list[list[str]]:
         union_find = UnionFind(list(range(len(accounts))))
 
         ownership = {}
@@ -61,10 +60,10 @@ class Solution:
 
 class UnionFind:
 
-    items: List[int]
-    group_sizes: List[int]
+    items: list[int]
+    group_sizes: list[int]
 
-    def __init__(self, items: List[int]) -> None:
+    def __init__(self, items: list[int]) -> None:
         self.items = items
         self.group_sizes = [1] * len(items)
 

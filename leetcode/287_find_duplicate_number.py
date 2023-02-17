@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/find-the-duplicate-number/
 
-from typing import List
-
-
 class Solution:
-    def findDuplicate(self, nums: List[int]) -> int:
+    def findDuplicate(self, nums: list[int]) -> int:
         index = 0
         while nums[index]:
             old_index = index

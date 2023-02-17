@@ -1,21 +1,24 @@
-from typing import List, Optional
+"""
+Size needs to be valid
+Return the person that's been waiting the longest
+Remove that person from the reservations
 
-# Size needs to be valid
-# Return the person that's been waiting the longest
-# Remove that person from the reservations
+-----------------------------------------------------------
 
-# -----------------------------------------------------------
+Given `large` take any valid size,
+otherwise, only take exact matches for size
 
-# Given `large` take any valid size,
-# otherwise, only take exact matches for size,
-#
-# If a person has been waiting for over 1800 seconds,
-# they get priority and should addressed first
-#
-# Queue above 1800 overrides any other rule (small or large)
+If a person has been waiting for over 1800 seconds,
+they get priority and should addressed first
+
+Queue above 1800 overrides any other rule (small or large)
+"""
 
 
-def get_next_in_line(reservations: List[dict], table_size: int, large: bool) -> Optional[str]:
+from typing import Optional
+
+
+def get_next_in_line(reservations: list[dict], table_size: int, large: bool) -> Optional[str]:
     index = None
     max_queue_time = -1
 

@@ -1,11 +1,10 @@
 # https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
 import math
-from typing import List
 
 
 class Solution:
-    def searchRange(self, nums: List[int], target: int) -> List[int]:
+    def searchRange(self, nums: list[int], target: int) -> list[int]:
         l = 0
         r = len(nums) - 1
         while l < r:

@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/house-robber/
 
-from typing import List
-
-
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: list[int]) -> int:
         n = len(nums)
         dp = [[0] * (n + 1) for _ in range(n + 1)]
 

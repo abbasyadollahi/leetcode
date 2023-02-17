@@ -34,7 +34,6 @@ Servers Endpoints
 
 
 import datetime
-from typing import List
 
 
 class User:
@@ -54,12 +53,12 @@ class Flight:
     arrival_time: datetime.datetime
     source: str
     destination: str
-    seat_states: List['SeatState']
+    seat_states: list['SeatState']
 
 class Plane:
 
     id: int
-    seats: List['Seat']
+    seats: list['Seat']
     accessibility: dict
 
 

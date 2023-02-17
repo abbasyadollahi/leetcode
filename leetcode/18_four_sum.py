@@ -1,12 +1,9 @@
 # https://leetcode.com/problems/4sum/
 
-from typing import List, Set, Tuple
-
-
 class Solution:
-    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
-        def three_sum(nums: List[int], target: int) -> Set[Tuple[int, int, int]]:
-            def two_sum(nums: List[int], target: int) -> Set[Tuple[int, int]]:
+    def fourSum(self, nums: list[int], target: int) -> list[list[int]]:
+        def three_sum(nums: list[int], target: int) -> set[tuple[int, int, int]]:
+            def two_sum(nums: list[int], target: int) -> set[tuple[int, int]]:
                 seen = set()
                 doubles = set()
                 for num in nums:

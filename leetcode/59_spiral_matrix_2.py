@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/spiral-matrix-ii/
 
-from typing import List
-
-
 class Solution:
-    def generateMatrix(self, n: int) -> List[List[int]]:
+    def generateMatrix(self, n: int) -> list[list[int]]:
         self.num = 1
         self.matrix = [[None] * n for _ in range(n)]
         self.min_row = 0

@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/set-matrix-zeroes/
 
-from typing import List, Tuple
-
-
 class Solution:
-    def setZeroes(self, matrix: List[List[int]]) -> None:
+    def setZeroes(self, matrix: list[list[int]]) -> None:
         zero_rows = set()
         zero_cols = set()
 
@@ -19,7 +16,7 @@ class Solution:
                 if i in zero_rows or j in zero_cols:
                     matrix[i][j] = 0
 
-    def setZeroes(self, matrix: List[List[int]]) -> None:
+    def setZeroes(self, matrix: list[list[int]]) -> None:
         for i, row in enumerate(matrix):
             for j, col in enumerate(row):
                 if col == 0:
@@ -30,7 +27,7 @@ class Solution:
                 if col is None:
                     matrix[i][j] = 0
 
-    def recurse(self, i: int, j: int, matrix: List[List[int]]) -> None:
+    def recurse(self, i: int, j: int, matrix: list[list[int]]) -> None:
         matrix[i][j] = None
         for jj in range(len(matrix[0])):
             if matrix[i][jj] == 0:

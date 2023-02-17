@@ -1,9 +1,6 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/111168/view
 
-from typing import List
-
-
-def stockPairs(stocksProfit: List[int], target: int) -> int:
+def stockPairs(stocksProfit: list[int], target: int) -> int:
     count = {}
     for profit in stocksProfit:
         count[profit] = count.get(profit, 0) + 1

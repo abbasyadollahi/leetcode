@@ -37,7 +37,6 @@ Servers Endpoints
 
 
 import datetime
-from typing import List
 
 
 # POST /api/reservation
@@ -90,7 +89,7 @@ class Restaurant:
 
     id: str
     location: Location
-    table_ids: List[Table]
+    table_ids: list[Table]
 
 class Reservation:
 

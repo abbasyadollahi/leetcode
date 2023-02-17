@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 
-from typing import List
-
-
 class Solution:
-    def findMin(self, nums: List[int]) -> int:
+    def findMin(self, nums: list[int]) -> int:
         if not nums:
             return None
         if len(nums) == 1:
@@ -23,7 +20,7 @@ class Solution:
 
         return nums[l]
 
-    def findMin(self, nums: List[int]) -> int:
+    def findMin(self, nums: list[int]) -> int:
         l = 0
         r = len(nums) - 1
         m = (l + r) // 2

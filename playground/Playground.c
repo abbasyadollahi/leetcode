@@ -1,9 +1,9 @@
 # include <stdio.h>
 
 void newline() {
-  printf("\n");
+    printf("\n");
 };
 
 int main() {
-  return 0;
+    return 0;
 }

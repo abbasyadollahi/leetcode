@@ -1,11 +1,10 @@
 # https://leetcode.com/problems/single-threaded-cpu/
 
 import heapq
-from typing import List
 
 
 class Solution:
-    def getOrder(self, tasks: List[List[int]]) -> List[int]:
+    def getOrder(self, tasks: list[list[int]]) -> list[int]:
         time = 1
         order = []
 
@@ -29,7 +28,7 @@ class Solution:
 
         return order
 
-    def getOrder(self, tasks: List[List[int]]) -> List[int]:
+    def getOrder(self, tasks: list[list[int]]) -> list[int]:
         time = 1
         order = []
         available = []

@@ -1,13 +1,10 @@
 # https://leetcode.com/problems/flatten-2d-vector/
 
-from typing import List
-
-
 class Solution:
-    def __init__(self, vector: List[List[int]]):
+    def __init__(self, vector: list[list[int]]):
         self.values = self.flattenLists(vector)
 
-    def flattenLists(self, lists: List[List[int]]) -> List[int]:
+    def flattenLists(self, lists: list[list[int]]) -> list[int]:
         values = []
         for row in lists:
             values += row

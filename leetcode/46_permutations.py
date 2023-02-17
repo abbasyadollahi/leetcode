@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/permutations/
 
-from typing import List
-
-
 class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
+    def permute(self, nums: list[int]) -> list[list[int]]:
         if not nums or len(nums) == 1:
             return [nums]
 
@@ -21,8 +18,8 @@ class Solution:
 
         return permutations
 
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        def generate_permutations(permutation: List[int], choices: List[int]) -> List[List[int]]:
+    def permute(self, nums: list[int]) -> list[list[int]]:
+        def generate_permutations(permutation: list[int], choices: list[int]) -> list[list[int]]:
             permutations = []
             for i, choice in enumerate(choices):
                 permutations.extend(generate_permutations([*permutation, choice], [*choices[:i], *choices[i+1:]]))

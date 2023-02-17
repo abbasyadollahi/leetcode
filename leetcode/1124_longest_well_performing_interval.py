@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/longest-well-performing-interval/
 
-from typing import List
-
-
 class Solution:
-    def longestWPI(self, hours: List[int]) -> int:
+    def longestWPI(self, hours: list[int]) -> int:
         score = 0
         scores = []
         indexes = {}

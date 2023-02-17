@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/binary-tree-right-side-view/
 
-from typing import List, Optional
+from typing import Optional
 
 
 class TreeNode:
@@ -11,7 +11,7 @@ class TreeNode:
 
 
 class Solution:
-    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+    def rightSideView(self, root: Optional[TreeNode]) -> list[int]:
         nodes = []
         def traverse(node: Optional[TreeNode], depth: int) -> None:
             if node is None:

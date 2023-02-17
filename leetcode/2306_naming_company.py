@@ -1,11 +1,10 @@
 # https://leetcode.com/problems/naming-a-company/
 
 from collections import defaultdict
-from typing import List
 
 
 class Solution:
-    def distinctNames(self, ideas: List[str]) -> int:
+    def distinctNames(self, ideas: list[str]) -> int:
         initials = defaultdict(set)
         for idea in ideas:
             initials[idea[0]].add(idea[1:])

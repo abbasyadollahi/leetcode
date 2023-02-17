@@ -2,11 +2,11 @@
 # whether there's an overlap between the two ranges. If either of the input arguments are
 # invalid, the method will raise an appropriate exception.
 
-from typing import Tuple, Union
+from typing import Union
 
 # Custom Typing
 Number = Union[int, float]
-Coords = Tuple[Number, Number]
+Coords = tuple[Number, Number]
 
 
 class Solution:

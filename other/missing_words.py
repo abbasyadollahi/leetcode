@@ -1,8 +1,5 @@
-from typing import List
-
-
 class Solution:
-    def missingWords(self, s: str, t: str) -> List[str]:
+    def missingWords(self, s: str, t: str) -> list[str]:
         s = s.split(' ')
         t = t.split(' ')
         missing = []

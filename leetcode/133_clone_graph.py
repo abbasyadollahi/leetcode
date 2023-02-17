@@ -1,10 +1,10 @@
 # https://leetcode.com/problems/clone-graph/
 
-from typing import List, Optional
+from typing import Optional
 
 
 class GraphNode:
-    def __init__(self, val: int = 0, neighbors: List['GraphNode'] = None):
+    def __init__(self, val: int = 0, neighbors: list['GraphNode'] = None):
         self.val = val
         self.neighbors = neighbors or []
 

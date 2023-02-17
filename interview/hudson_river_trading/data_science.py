@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -10,7 +10,7 @@ class AnalysisDataAndFitLinearRegression:
     def __init__(self):
         self.version = 1
 
-    def analyse_and_fit_lrm(self, path: str) -> Dict[str, Dict[str, Dict]]:
+    def analyze_and_fit_lrm(self, path: str) -> dict[str, dict[str, dict]]:
         df = pd.read_csv(path)
 
         return {
@@ -18,14 +18,14 @@ class AnalysisDataAndFitLinearRegression:
             'regression_dict': self.get_regression_dict(df.dropna()),
         }
 
-    def get_summary_dict(self, df: pd.DataFrame) -> Dict[str, Any]:
+    def get_summary_dict(self, df: pd.DataFrame) -> dict[str, Any]:
         return {
             'statistics': self.get_statistics(df),
             'data_frame': self.get_data_frame(df),
             'number_of_observations': self.get_number_of_observations(df),
         }
 
-    def get_statistics(self, df: pd.DataFrame) -> List[float]:
+    def get_statistics(self, df: pd.DataFrame) -> list[float]:
         df = df[(df['Bathroom'] == 2) & (df['Bedroom'] == 4)]
         tax = df['Tax']
         return [
@@ -45,7 +45,7 @@ class AnalysisDataAndFitLinearRegression:
         df = df[df['Lot'] >= df['Lot'].quantile(4/5)]
         return len(df)
 
-    def get_regression_dict(self, df: pd.DataFrame) -> Dict[str, Any]:
+    def get_regression_dict(self, df: pd.DataFrame) -> dict[str, Any]:
         lrm = self.train_lrm(df)
         return {
             'model_parameters': self.get_model_parameters(lrm),
@@ -57,7 +57,7 @@ class AnalysisDataAndFitLinearRegression:
         y = df['Price'].to_numpy()
         return LinearRegression().fit(X, y)
 
-    def get_model_parameters(self, lrm: LinearRegression) -> Dict[str, float]:
+    def get_model_parameters(self, lrm: LinearRegression) -> dict[str, float]:
         intercept = lrm.intercept_
         coefficients = lrm.coef_
         return {
@@ -77,8 +77,8 @@ class AnalysisDataAndFitLinearRegression:
         test = np.array([
             [3, 1500, 8, 40, 1000, 2, 1, 0]
         ])
-        preds = lrm.predict(test)
-        return preds[0]
+        predictions = lrm.predict(test)
+        return predictions[0]
 
 sol = AnalysisDataAndFitLinearRegression()
-print(sol.analyse_and_fit_lrm('./data/realest.csv'))
+print(sol.analyze_and_fit_lrm('./data/realest.csv'))

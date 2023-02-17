@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/range-addition
 
-from typing import List
-
-
 class Solution:
-    def getModifiedArray(self, length: int, updates: List[int]) -> int:
+    def getModifiedArray(self, length: int, updates: list[int]) -> int:
         array = [0] * length
 
         for left, right, amount in updates:

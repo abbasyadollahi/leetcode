@@ -1,5 +1,4 @@
 import math
-from typing import List
 
 
 def main() -> None:
@@ -9,7 +8,7 @@ def main() -> None:
     list(map(print, z))
 
 
-def split_into_words(s: str) -> List[str]:
+def split_into_words(s: str) -> list[str]:
     n = len(s)
     i = j = 0
     words = []
@@ -31,7 +30,7 @@ def split_into_words(s: str) -> List[str]:
     return words
 
 
-def split_into_table(words: List[str], n: int) -> List[str]:
+def split_into_table(words: list[str], n: int) -> list[str]:
     """
     Equation
     --------

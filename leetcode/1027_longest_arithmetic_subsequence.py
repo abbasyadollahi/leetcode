@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/longest-arithmetic-subsequence/
 
-from typing import List
-
-
 class Solution:
-    def longestArithSeqLength(self, nums: List[int]) -> int:
+    def longestArithSeqLength(self, nums: list[int]) -> int:
         las = 0
         index_diffs = {i: {} for i in range(len(nums))}
 

@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/group-anagrams/
 
-from typing import List
-
-
 class Solution:
-    def groupAnagrams(self, words: List[str]) -> List[List[str]]:
+    def groupAnagrams(self, words: list[str]) -> list[list[str]]:
         groupings = {}
         for word in words:
             anagram = ''.join(sorted(word))

@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/spiral-matrix/
 
-from typing import List
-
-
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         self.nums = []
         self.min_row = 0
         self.min_col = 0

@@ -1,8 +1,5 @@
 # https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 
-from typing import List
-
-
 class TreeNode:
     def __init__(self, val: int = 0, left: 'TreeNode' = None, right: 'TreeNode' = None):
         self.val = val
@@ -11,7 +8,7 @@ class TreeNode:
 
 
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+    def buildTree(self, preorder: list[int], inorder: list[int]) -> TreeNode:
         self.order = iter(preorder)
         root = TreeNode(next(self.order))
         node_index = inorder.index(root.val)

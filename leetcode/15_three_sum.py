@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/3sum/
 
-from typing import List, Set, Tuple
-
-
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums: list[int]) -> list[list[int]]:
         nums.sort()
         prev = None
         combinations = []
@@ -33,8 +30,8 @@ class Solution:
                         r -= 1
         return combinations
 
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-        def two_sum(nums: List[int], target: int) -> Set[Tuple[int, int]]:
+    def threeSum(self, nums: list[int]) -> list[list[int]]:
+        def two_sum(nums: list[int], target: int) -> set[tuple[int, int]]:
             seen = set()
             doubles = set()
             for num in nums:

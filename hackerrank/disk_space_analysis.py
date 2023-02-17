@@ -1,10 +1,9 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/716477/view
 
 import collections
-from typing import List
 
 
-def segment(x: int, space: List[int]) -> int:
+def segment(x: int, space: list[int]) -> int:
     queue = collections.deque(maxlen=x)
     queue.extend(space[:x])
 
@@ -18,7 +17,7 @@ def segment(x: int, space: List[int]) -> int:
     return max(mins)
 
 
-def segment(x: int, space: List[int]) -> int:
+def segment(x: int, space: list[int]) -> int:
     queue = collections.deque(maxlen=x)
     queue.extend(space[:x])
 

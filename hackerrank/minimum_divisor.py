@@ -1,10 +1,9 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/463595/view
 
 import math
-from typing import List
 
 
-def minimumDivisor(arr: List[int], threshold: int) -> int:
+def minimumDivisor(arr: list[int], threshold: int) -> int:
     l = 1
     r = len(arr) * 10 ** 9
     while l <= r:

@@ -1,29 +1,36 @@
 from functools import wraps
 from inspect import getfullargspec
-from typing import Any, Callable, Dict
+from typing import Any, Callable, ParamSpec, TypeVar
 
 
-def provide(**provide_kwargs):
-    def decorator(fun: Callable):
+P = ParamSpec('P')
+R = TypeVar('R')
+OriginalFunction = Callable[P, R]
+DecoratedFunction = Callable[P, R]
+
+
+def provide(**provide_kwargs) -> Callable[[OriginalFunction], DecoratedFunction]:
+    def decorator(fun: OriginalFunction) -> DecoratedFunction:
         fun_fullargspec = getfullargspec(fun)
         fun_args = fun_fullargspec.args
         fun_has_kwargs = fun_fullargspec.varkw is not None
 
         # Keep only the matching kwargs (Example 5)
-        initial_kwargs = {}
-        for arg_name, arg_value in provide_kwargs.items():
-            if fun_has_kwargs or arg_name in fun_args:
-                initial_kwargs[arg_name] = arg_value
+        initial_kwargs = {
+            arg_name: arg_value
+            for arg_name, arg_value in provide_kwargs.items()
+            if fun_has_kwargs or arg_name in fun_args
+        }
 
         @wraps(fun)
-        def decorated(*args, **kwargs):
+        def decorated(*args: P.args, **kwargs: P.kwargs) -> R:
             # Allow overrides through args/kwargs (Example 4)
-            kwargs = {**initial_kwargs, **kwargs}
+            merged_kwargs = {**initial_kwargs, **kwargs}
             for arg_name, _ in zip(fun_args, args):
-                if arg_name in kwargs:
-                    del kwargs[arg_name]
+                if arg_name in merged_kwargs:
+                    del merged_kwargs[arg_name]
 
-            return fun(*args, **kwargs)
+            return fun(*args, **merged_kwargs)
 
         return decorated
 
@@ -44,6 +51,7 @@ def add(a: int, b: int) -> int:
 
 try:
     add(3)
+    raise AssertionError
 except TypeError:
     ...
 
@@ -63,21 +71,13 @@ assert add(3, 4) == 7
 assert add(a=3, b=4) == 7
 
 print('---------- Example 5 ----------')
-@provide(nonexistent=123, b=1)
+@provide(ignore=123, b=1)
 def add(a: int, b: int) -> int:
     return a + b
 
-assert add(4) == 5  # 'nonexistent' is ignored
+assert add(4) == 5
 
 print('---------- Example 6 ----------')
-@provide(a=1, b=2)
-def add(**kwargs) -> Dict[str, Any]:
-    return kwargs
-
-assert add(c=3) == {'a': 1, 'b': 2, 'c': 3}
-assert add(a=3, b=4) == {'a': 3, 'b': 4}
-
-print('---------- Example 7 ----------')
 @provide(a=2)
 def add(a: int, b: int) -> int:
     """This adds 2 numbers."""
@@ -85,3 +85,11 @@ def add(a: int, b: int) -> int:
 
 assert add.__name__ == 'add'
 assert add.__doc__ == 'This adds 2 numbers.'
+
+print('---------- Example 7 ----------')
+@provide(a=1, b=2)
+def add(**kwargs) -> dict[str, Any]:
+    return kwargs
+
+assert add(c=3) == {'a': 1, 'b': 2, 'c': 3}
+assert add(a=3, b=4) == {'a': 3, 'b': 4}

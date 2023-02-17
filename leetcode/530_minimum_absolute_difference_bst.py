@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/minimum-absolute-difference-in-bst/
 
-from typing import List, Optional
+from typing import Optional
 
 
 class TreeNode:
@@ -12,7 +12,7 @@ class TreeNode:
 
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
-        def inorder_traversal(node: Optional[TreeNode]) -> List[int]:
+        def inorder_traversal(node: Optional[TreeNode]) -> list[int]:
             if not node:
                 return []
 

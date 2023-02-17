@@ -1,11 +1,10 @@
 # https://leetcode.com/problems/fruit-into-baskets/
 
 from collections import defaultdict
-from typing import List
 
 
 class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:
+    def totalFruit(self, fruits: list[int]) -> int:
         fruit_pairs = {}
         for first, second in zip(fruits, [*fruits, -1][1:]):
             if first != second and first not in fruit_pairs:

@@ -1,11 +1,10 @@
 # https://leetcode.com/problems/01-matrix/
 
 from collections import deque
-from typing import List
 
 
 class Solution:
-    def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
+    def updateMatrix(self, mat: list[list[int]]) -> list[list[int]]:
         rows = range(len(mat))
         cols = range(len(mat[0]))
 
@@ -29,7 +28,7 @@ class Solution:
 
         return [[traverse(i, j) for j, num in enumerate(row)] for i, row in enumerate(mat)]
 
-    def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
+    def updateMatrix(self, mat: list[list[int]]) -> list[list[int]]:
         m = len(mat)
         n = len(mat[0])
 

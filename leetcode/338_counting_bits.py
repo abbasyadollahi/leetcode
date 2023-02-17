@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/counting-bits/
 
-from typing import List
-
-
 class Solution:
-    def countBits(self, num: int) -> List[int]:
+    def countBits(self, num: int) -> list[int]:
         nums = [0] * (num + 1)
         bits = 1
         index = 1

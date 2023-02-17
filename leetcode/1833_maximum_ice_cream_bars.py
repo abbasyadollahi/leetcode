@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/maximum-ice-cream-bars/
 
-from typing import List
-
-
 class Solution:
-    def maxIceCream(self, costs: List[int], coins: int) -> int:
+    def maxIceCream(self, costs: list[int], coins: int) -> int:
         dp = [[0] * (coins + 1) for _ in range(len(costs) + 1)]
 
         for i, cost in enumerate(costs, 1):
@@ -16,7 +13,7 @@ class Solution:
 
         return dp[len(costs)][coins]
 
-    def maxIceCream(self, costs: List[int], coins: int) -> int:
+    def maxIceCream(self, costs: list[int], coins: int) -> int:
         ice_creams = 0
         for cost in sorted(costs):
             if coins < cost:

@@ -3,7 +3,6 @@ import datetime
 import functools
 import math
 import re
-from typing import List, Tuple
 
 
 def main() -> bool:

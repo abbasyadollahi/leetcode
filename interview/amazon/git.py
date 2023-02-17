@@ -1,7 +1,7 @@
 import hashlib
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Optional
 
 
 @dataclass
@@ -25,7 +25,7 @@ class CommitNode:
 
 class Git:
 
-    history: Dict[str, CommitNode] = {}
+    history: dict[str, CommitNode] = {}
     head_commit_node: CommitNode = None
 
     def commit(self, commit: Commit) -> str:
@@ -46,7 +46,7 @@ class Git:
     def checkout(self, commit_hash: str) -> Commit:
         return self._get_commit_node_by_hash(commit_hash).current
 
-    def log(self, start_commit_hash: str, end_commit_hash: str) -> List[Commit]:
+    def log(self, start_commit_hash: str, end_commit_hash: str) -> list[Commit]:
         start_commit_node = self._get_commit_node_by_hash(start_commit_hash)
         end_commit_node = self._get_commit_node_by_hash(end_commit_hash)
 

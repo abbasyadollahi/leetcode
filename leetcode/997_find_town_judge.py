@@ -1,11 +1,10 @@
 # https://leetcode.com/problems/find-the-town-judge/
 
 from collections import defaultdict
-from typing import List
 
 
 class Solution:
-    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+    def findJudge(self, n: int, trust: list[list[int]]) -> int:
         trusts = defaultdict(set)
         for person, trusted in trust:
             trusts[person].add(trusted)
@@ -21,7 +20,7 @@ class Solution:
         else:
             return -1
 
-    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+    def findJudge(self, n: int, trust: list[list[int]]) -> int:
         trust_count = dict.fromkeys(range(1, n + 1), 0)
         for person, trusted in trust:
             trust_count[person] -= 1

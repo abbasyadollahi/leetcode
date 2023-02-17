@@ -1,8 +1,5 @@
 # https://leetcode.com/problems/palindromic-substrings/
 
-from typing import List
-
-
 class Solution:
     def countSubstrings(self, s: str) -> int:
         self.n = len(s)

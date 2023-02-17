@@ -1,11 +1,10 @@
 # https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/
 
 from collections import defaultdict, deque
-from typing import List
 
 
 class Solution:
-    def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
+    def minTime(self, n: int, edges: list[list[int]], hasApple: list[bool]) -> int:
         apples = {i for i, has_apple in enumerate(hasApple) if has_apple}
         connections = defaultdict(set)
         for a, b in edges:
@@ -26,7 +25,7 @@ class Solution:
 
         return 2 * (len(visited) - 1)
 
-    def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
+    def minTime(self, n: int, edges: list[list[int]], hasApple: list[bool]) -> int:
         if not any(hasApple):
             return 0
 

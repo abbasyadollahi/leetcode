@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/meeting-rooms-ii/
 
-from typing import List
-
-
 class Solution:
-    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+    def minMeetingRooms(self, intervals: list[list[int]]) -> int:
         if not intervals:
             return 0
 

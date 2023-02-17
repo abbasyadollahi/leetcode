@@ -1,8 +1,5 @@
 # https://leetcode.com/problems/binary-tree-maximum-path-sum/
 
-from typing import Tuple
-
-
 class TreeNode:
     def __init__(self, val: int = 0, left: 'TreeNode' = None, right: 'TreeNode' = None):
         self.val = val
@@ -14,7 +11,7 @@ class Solution:
     def maxPathSum(self, root: TreeNode) -> int:
         return max(self.recurse(root))
 
-    def recurse(self, root: TreeNode) -> Tuple[int, int]:
+    def recurse(self, root: TreeNode) -> tuple[int, int]:
         if root is None:
             return float('-inf'), float('-inf')
 

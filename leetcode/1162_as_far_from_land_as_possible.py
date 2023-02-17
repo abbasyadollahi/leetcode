@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/as-far-from-land-as-possible/
 
-from typing import List
-
-
 class Solution:
-    def maxDistance(self, grid: List[List[int]]) -> int:
+    def maxDistance(self, grid: list[list[int]]) -> int:
         m = len(grid)
         n = len(grid[0])
 

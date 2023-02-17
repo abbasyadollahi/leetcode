@@ -1,13 +1,10 @@
 # https://leetcode.com/problems/generate-parentheses/
 
-from typing import List
-
-
 class Solution:
-    def generateParenthesis(self, n: int) -> List[str]:
+    def generateParenthesis(self, n: int) -> list[str]:
         return self.generate('(', n - 1, 1)
 
-    def generate(self, parentheses: str, n: int, opened: int) -> List[str]:
+    def generate(self, parentheses: str, n: int, opened: int) -> list[str]:
         new = []
         if n:
             new.extend(self.generate(parentheses + '(', n - 1, opened + 1))

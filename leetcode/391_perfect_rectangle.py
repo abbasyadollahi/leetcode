@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/perfect-rectangle/
 
-from typing import List
-
-
 class Solution:
-    def isRectangleCover(self, rectangles: List[List[int]]) -> bool:
+    def isRectangleCover(self, rectangles: list[list[int]]) -> bool:
         top_right_x = float('-inf')
         top_right_y = float('-inf')
         bottom_left_x = float('inf')

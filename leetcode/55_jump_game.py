@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/jump-game/
 
-from typing import List
-
-
 class Solution:
-    def canJump(self, nums: List[int]) -> bool:
+    def canJump(self, nums: list[int]) -> bool:
         i = 0
         length = len(nums) - 1
 
@@ -14,7 +11,7 @@ class Solution:
             i = self.bestJump(nums, i)
         return True
 
-    def bestJump(self, nums: List[int], index: int) -> int:
+    def bestJump(self, nums: list[int], index: int) -> int:
         jumps = range(index + 1, index + nums[index] + 1)
         best = 0
         jump = index
@@ -24,7 +21,7 @@ class Solution:
                 best = nums[i] + bonus
         return jump
 
-    def canJump(self, nums: List[int]) -> bool:
+    def canJump(self, nums: list[int]) -> bool:
         jumps = nums[0]
         for i in range(1, len(nums)):
             if not jumps:

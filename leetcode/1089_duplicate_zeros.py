@@ -1,11 +1,10 @@
 # https://leetcode.com/problems/duplicate-zeros/
 
 from queue import Queue
-from typing import List
 
 
 class Solution:
-    def duplicateZeros(self, nums: List[int]) -> None:
+    def duplicateZeros(self, nums: list[int]) -> None:
         i = 0
         l = len(nums)
         q = Queue(maxsize=l)
@@ -21,7 +20,7 @@ class Solution:
                 nums[i] = 0
             i += 1
 
-    def duplicateZeros(self, nums: List[int]) -> None:
+    def duplicateZeros(self, nums: list[int]) -> None:
         i = 0
         l = len(nums)
         copy = []
@@ -35,7 +34,7 @@ class Solution:
 
         nums[:l] = copy[:l]
 
-    def duplicateZeros(self, nums: List[int]) -> None:
+    def duplicateZeros(self, nums: list[int]) -> None:
         count = 0
         l = len(nums)
         lacking = False

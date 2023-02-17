@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/word-search/
 
-from typing import List
-
-
 class Solution:
-    def exist(self, board: List[List[str]], word: str) -> bool:
+    def exist(self, board: list[list[str]], word: str) -> bool:
         self.board = board
         self.m = len(board)
         self.n = len(board[0])

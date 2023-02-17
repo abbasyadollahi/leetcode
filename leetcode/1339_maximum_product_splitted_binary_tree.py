@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/maximum-product-of-splitted-binary-tree/
 
-from typing import Optional, Tuple
+from typing import Optional
 
 
 class TreeNode:
@@ -22,7 +22,7 @@ class Solution:
         else:
             return 0
 
-    def product(self, root: Optional[TreeNode], total: int) -> Tuple[int, int]:
+    def product(self, root: Optional[TreeNode], total: int) -> tuple[int, int]:
         if root:
             total_left, max_left = self.product(root.left, total)
             total_right, max_right = self.product(root.right, total)

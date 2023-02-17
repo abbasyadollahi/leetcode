@@ -1,14 +1,11 @@
-from typing import List
-
-
 class Solution:
-    def prime_permutations(self, num: int) -> List[int]:
+    def prime_permutations(self, num: int) -> list[int]:
         digits = self.digitize(num)
         perms = self.permutations(digits)
         primes = list(filter(self.is_prime, perms))
         return list(set(primes))
 
-    def digitize(self, num: int) -> List[int]:
+    def digitize(self, num: int) -> list[int]:
         digits = []
         tmp_num = num
         while tmp_num != 0:
@@ -16,17 +13,17 @@ class Solution:
             tmp_num //= 10
         return digits[::-1]
 
-    def numerize(self, digits: List[int]) -> int:
+    def numerize(self, digits: list[int]) -> int:
         num = 0
         for digit in digits:
             num *= 10
             num += digit
         return num
 
-    def permutations(self, digits: List[int]) -> List[int]:
+    def permutations(self, digits: list[int]) -> list[int]:
         perms = []
 
-        def permute(perm: List[int], choices: List[int]) -> None:
+        def permute(perm: list[int], choices: list[int]) -> None:
             for i, choice in enumerate(choices):
                 permute([*perm, choice], [*choices[:i], *choices[i+1:]])
             if not choices:

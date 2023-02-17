@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/three-consecutive-odds/
 
-from typing import List
-
-
 class Solution:
-    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+    def threeConsecutiveOdds(self, arr: list[int]) -> bool:
         odds_count = 0
         window_start = 0
         window_end = 2

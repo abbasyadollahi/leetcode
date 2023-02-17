@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/add-to-array-form-of-integer/
 
-from typing import List
-
-
 class Solution:
-    def addToArrayForm(self, num: List[int], k: int) -> List[int]:
+    def addToArrayForm(self, num: list[int], k: int) -> list[int]:
         i = len(num) - 1
         carry = 0
         total = []

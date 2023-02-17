@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/keys-and-rooms/
 
-from typing import List
-
-
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         num_rooms = len(rooms)
         to_visit = [0]
         visited = [False] * num_rooms

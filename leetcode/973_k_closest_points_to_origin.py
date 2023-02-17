@@ -2,18 +2,17 @@
 
 import heapq
 import math
-from typing import List, Tuple
 
 
 class Solution:
-    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
-        def calculate_distance(point: Tuple[int, int]) -> int:
+    def kClosest(self, points: list[list[int]], k: int) -> list[list[int]]:
+        def calculate_distance(point: tuple[int, int]) -> int:
             x, y = point
             return math.sqrt(x ** 2 + y ** 2)
 
         return sorted(points, key=calculate_distance)[:k]
 
-    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+    def kClosest(self, points: list[list[int]], k: int) -> list[list[int]]:
         max_heap = []
         for x, y in points:
             distance = math.sqrt(x ** 2 + y ** 2)

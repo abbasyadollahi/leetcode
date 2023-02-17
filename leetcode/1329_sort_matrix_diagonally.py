@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/sort-the-matrix-diagonally/
 
-from typing import List
-
-
 class Solution:
-    def diagonalSort(self, matrix: List[List[int]]) -> List[List[int]]:
+    def diagonalSort(self, matrix: list[list[int]]) -> list[list[int]]:
         if not matrix:
             return matrix
 
@@ -21,7 +18,7 @@ class Solution:
 
         return matrix
 
-    def sort(self, matrix: List[List[int]], num_row: int, num_col: int, i: int, j: int) -> None:
+    def sort(self, matrix: list[list[int]], num_row: int, num_col: int, i: int, j: int) -> None:
         nums = []
 
         ii, jj = i, j

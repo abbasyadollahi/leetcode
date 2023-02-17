@@ -1,9 +1,6 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/466953/view
 
-from typing import List
-
-
-def droppedRequests(requestTime: List[int]) -> int:
+def droppedRequests(requestTime: list[int]) -> int:
     dropped = 0
 
     for i, time in enumerate(requestTime):

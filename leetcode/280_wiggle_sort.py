@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/wiggle-sort/
 
-from typing import List
-
-
 class Solution:
-    def wiggleSort(self, nums: List[int]) -> List[int]:
+    def wiggleSort(self, nums: list[int]) -> list[int]:
         max_index = len(nums) - 2
         for i, num in enumerate(nums):
             if i == max_index:

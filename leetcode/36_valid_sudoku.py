@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/valid-sudoku/
 
-from typing import List
-
-
 class Solution:
-    def isValidSudoku(self, board: List[List[str]]) -> bool:
+    def isValidSudoku(self, board: list[list[str]]) -> bool:
         for i, row in enumerate(board):
             for j, field in enumerate(row):
                 if (
@@ -18,13 +15,13 @@ class Solution:
 
         return True
 
-    def is_valid_row(self, field: str, row: List[str]) -> bool:
+    def is_valid_row(self, field: str, row: list[str]) -> bool:
         return row.count(field) == 1
 
-    def is_valid_column(self, board: List[List[str]], field: str, j: int) -> bool:
+    def is_valid_column(self, board: list[list[str]], field: str, j: int) -> bool:
         return [row[j] for row in board].count(field) == 1
 
-    def is_valid_grid(self, board: List[List[str]], field: str, i: int, j: int) -> bool:
+    def is_valid_grid(self, board: list[list[str]], field: str, i: int, j: int) -> bool:
         i_start = (i // 3) * 3
         i_end = i_start + 3
         j_start = (j // 3) * 3

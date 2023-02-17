@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/merge-intervals/
 
-from typing import List
-
-
 class Solution:
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+    def merge(self, intervals: list[list[int]]) -> list[list[int]]:
         if not intervals:
             return []
 
@@ -29,7 +26,7 @@ class Solution:
         merged.append(interval)
         return merged
 
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+    def merge(self, intervals: list[list[int]]) -> list[list[int]]:
         merge_index_start = None
         merge_index_end = None
         max_end = 0
@@ -58,7 +55,7 @@ class Solution:
 
         return intervals
 
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+    def merge(self, intervals: list[list[int]]) -> list[list[int]]:
         intervals.sort()
         merged_intervals = []
 

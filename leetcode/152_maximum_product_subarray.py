@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/maximum-product-subarray/
 
-from typing import List
-
-
 class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
+    def maxProduct(self, nums: list[int]) -> int:
         mx = float('-inf')
         sub = []
         switch = False
@@ -30,7 +27,7 @@ class Solution:
 
         return max(mx, self.compute_max(product, left, right, sub))
 
-    def compute_max(self, product: int, left: int, right: int, sub: List[int]) -> int:
+    def compute_max(self, product: int, left: int, right: int, sub: list[int]) -> int:
         if len(sub) == 0:
             return float('-inf')
         if len(sub) == 1:

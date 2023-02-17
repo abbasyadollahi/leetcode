@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/maximum-sum-circular-subarray/
 
-from typing import List
-
-
 class Solution:
-    def maxSubarraySumCircular(self, nums: List[int]) -> int:
+    def maxSubarraySumCircular(self, nums: list[int]) -> int:
         current = 0
         minimum = float('inf')
         for num in nums:

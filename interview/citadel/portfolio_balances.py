@@ -1,9 +1,6 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/138976/view
 
-from typing import List
-
-
-def maxValue(n: int, rounds: List[int]) -> int:
+def maxValue(n: int, rounds: list[int]) -> int:
     investments = [0] * n
 
     for left, right, contribution in rounds:

@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/rotate-image/
 
-from typing import List
-
-
 class Solution:
-    def rotate(self, matrix: List[List[int]]) -> None:
+    def rotate(self, matrix: list[list[int]]) -> None:
         n = len(matrix)
 
         for i in range(n):
@@ -23,7 +20,7 @@ class Solution:
                 l += 1
                 r -= 1
 
-    def rotate(self, matrix: List[List[int]]) -> None:
+    def rotate(self, matrix: list[list[int]]) -> None:
         matrix.reverse()
 
         n = len(matrix)

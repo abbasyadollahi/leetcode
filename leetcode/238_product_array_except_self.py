@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/product-of-array-except-self/
 
-from typing import List
-
-
 class Solution:
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
+    def productExceptSelf(self, nums: list[int]) -> list[int]:
         product = [1] * len(nums)
 
         p = 1
@@ -19,7 +16,7 @@ class Solution:
 
         return product
 
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
+    def productExceptSelf(self, nums: list[int]) -> list[int]:
         zeros = 0
         product = 1
         non_zero = False

@@ -1,9 +1,6 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/433457/view
 
-from typing import List, Tuple
-
-
-def getUnallottedUsers(bids: List[Tuple[int, int, int, int]], totalShares: int) -> List[int]:
+def getUnallottedUsers(bids: list[tuple[int, int, int, int]], totalShares: int) -> list[int]:
     UID, SHARES, PRICE, TIME = range(4)
 
     bids.sort(reverse=True, key=lambda bid: [bid[PRICE], -bid[TIME]])

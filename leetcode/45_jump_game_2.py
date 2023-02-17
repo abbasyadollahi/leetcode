@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/jump-game-ii/
 
-from typing import List
-
-
 class Solution:
-    def jump(self, nums: List[int]) -> int:
+    def jump(self, nums: list[int]) -> int:
         def best_jump(index: int) -> int:
             best = 0
             jump = index
@@ -23,7 +20,7 @@ class Solution:
             count += 1
         return count
 
-    def jump(self, nums: List[int]) -> int:
+    def jump(self, nums: list[int]) -> int:
         count = 0
         l = r = best = 0
         length = len(nums) - 1
@@ -36,7 +33,7 @@ class Solution:
             l += 1
         return count
 
-    def jump(self, nums: List[int]) -> int:
+    def jump(self, nums: list[int]) -> int:
         dp = [float('inf')] * len(nums)
         dp[0] = 0
 

@@ -1,17 +1,14 @@
 # https://leetcode.com/problems/combination-sum/
 
-from typing import List
-
-
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
         combinations = []
         candidates.sort()
         self.recurse(candidates, target, [], combinations)
         return combinations
 
 
-    def recurse(self, candidates: List[int], target: int, path: List[int], combinations: List[List[int]]) -> None:
+    def recurse(self, candidates: list[int], target: int, path: list[int], combinations: list[list[int]]) -> None:
         if target < 0:
             return
         if target == 0:

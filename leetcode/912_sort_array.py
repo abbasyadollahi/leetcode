@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/sort-an-array/
 
-from typing import List
-
-
 class Solution:
-    def mergeSort(self, nums: List[int]) -> List[int]:
+    def mergeSort(self, nums: list[int]) -> list[int]:
         list_length = len(nums)
 
         if list_length == 1:
@@ -18,7 +15,7 @@ class Solution:
 
         return self.merge(list1, list2)
 
-    def merge(self, list1: List[int], list2: List[int]) -> List[int]:
+    def merge(self, list1: list[int], list2: list[int]) -> list[int]:
         sorted_list = []
 
         while len(list1) != 0 and len(list2) != 0:

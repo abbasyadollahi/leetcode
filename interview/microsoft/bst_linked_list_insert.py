@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Node:
     def __init__(self, value: int):
         self.value = value
@@ -45,7 +42,7 @@ class Solution:
 
         return root
 
-    def inorder_traversal(self, root: Node) -> List[int]:
+    def inorder_traversal(self, root: Node) -> list[int]:
         values = []
         if root:
             values = self.inorder_traversal(root.left)
@@ -53,7 +50,7 @@ class Solution:
             values = values + self.inorder_traversal(root.right)
         return values
 
-    def next_traversal(self, root: Node) -> List[int]:
+    def next_traversal(self, root: Node) -> list[int]:
         values = []
         min_node = self.get_min_node(root)
         while min_node:

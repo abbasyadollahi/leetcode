@@ -1,9 +1,6 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/618520/view
 
-from typing import List
-
-
-def countAnalogousArrays(consecutiveDifference: List[int], lowerBound: int, upperBound: int) -> int:
+def countAnalogousArrays(consecutiveDifference: list[int], lowerBound: int, upperBound: int) -> int:
     lowest = 0
     highest = 0
     total = 0

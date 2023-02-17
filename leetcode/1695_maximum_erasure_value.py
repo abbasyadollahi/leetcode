@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/maximum-erasure-value/
 
-from typing import List
-
-
 class Solution:
-    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+    def maximumUniqueSubarray(self, nums: list[int]) -> int:
         tail = 0
         current = 0
         largest = 0

@@ -1,13 +1,10 @@
 # https://leetcode.com/problems/missing-ranges/
 
-from typing import List
-
-
 class Solution:
     def strRange(self, start: int, end: int) -> str:
         return f'{start + 1}->{end - 1}' if end - start != 2 else str(start + 1)
 
-    def missingRanges(self, nums: List[int], lower: int, upper: int) -> List[str]:
+    def missingRanges(self, nums: list[int], lower: int, upper: int) -> list[str]:
         if lower == upper:
             return []
         if not nums:

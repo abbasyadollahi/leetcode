@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/two-sum/
 
-from typing import List
-
-
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
         prev = set()
         for i, n in enumerate(nums):
             if target - n in prev:

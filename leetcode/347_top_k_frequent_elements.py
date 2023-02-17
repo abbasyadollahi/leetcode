@@ -2,14 +2,13 @@
 
 import heapq
 from collections import Counter
-from typing import List
 
 
 class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
         return [num for num, _ in Counter(nums).most_common(k)]
 
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
         frequencies = [[] for _ in range(len(nums) + 1)]
         for num, frequency in Counter(nums).items():
             frequencies[frequency].append(num)
@@ -21,7 +20,7 @@ class Solution:
 
         return top_k
 
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
         top_k = []
         for num, count in Counter(nums).items():
             if len(top_k) == k:

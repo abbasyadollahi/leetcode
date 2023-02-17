@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/longest-increasing-subsequence/
 
-from typing import List
-
-
 class Solution:
-    def lengthOfLIS(self, nums: List[int]) -> int:
+    def lengthOfLIS(self, nums: list[int]) -> int:
         lis = [0] * len(nums)
 
         for i, num in enumerate(nums):

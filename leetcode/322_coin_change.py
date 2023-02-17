@@ -1,10 +1,7 @@
 # https://leetcode.com/problems/coin-change/
 
-from typing import List
-
-
 class Solution:
-    def coinChange(self, coins: List[int], amount: int) -> int:
+    def coinChange(self, coins: list[int], amount: int) -> int:
         dp = [0] + [float('inf')] * amount
 
         for total in range(amount + 1):

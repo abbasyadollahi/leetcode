@@ -1,14 +1,11 @@
 # https://leetcode.com/problems/flood-fill/
 
-from typing import List
-
-
 class Solution:
-    def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
+    def floodFill(self, image: list[list[int]], sr: int, sc: int, color: int) -> list[list[int]]:
         self.fill(image, sr, sc, image[sr][sc], color)
         return image
 
-    def fill(self, image: List[List[int]], r: int, c: int, original: int, color: int) -> None:
+    def fill(self, image: list[list[int]], r: int, c: int, original: int, color: int) -> None:
         if r not in range(0, len(image)):
             return
         if c not in range(0, len(image[0])):

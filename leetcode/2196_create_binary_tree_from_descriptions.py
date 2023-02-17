@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/create-binary-tree-from-descriptions/
 
-from typing import List, Optional
+from typing import Optional
 
 
 class TreeNode:
@@ -11,7 +11,7 @@ class TreeNode:
 
 
 class Solution:
-    def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
+    def createBinaryTree(self, descriptions: list[list[int]]) -> Optional[TreeNode]:
         nodes = {}
         children = set()
         parents = set()

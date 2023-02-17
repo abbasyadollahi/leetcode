@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/maximum-difference-between-root-and-ancestor/
 
-from typing import List, Optional
+from typing import Optional
 
 
 class TreeNode:
@@ -17,7 +17,7 @@ class Solution:
             self.traverse(root.right, [root], [root])
         )
 
-    def traverse(self, root: Optional[TreeNode], min_ancestors: List[TreeNode], max_ancestors: List[TreeNode]) -> int:
+    def traverse(self, root: Optional[TreeNode], min_ancestors: list[TreeNode], max_ancestors: list[TreeNode]) -> int:
         if root is None:
             return 0
 

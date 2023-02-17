@@ -1,10 +1,10 @@
 # https://leetcode.com/problems/pacific-atlantic-water-flow/
 
-from typing import Callable, List
+from typing import Callable
 
 
 class Solution:
-    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+    def pacificAtlantic(self, heights: list[list[int]]) -> list[list[int]]:
         self.coords = []
         self.m = len(heights)
         self.n = len(heights[0])
