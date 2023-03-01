@@ -49,8 +49,7 @@ class History(Generic[H]):
 
 
 class Editor:
-
-    def __init__(self, name: str, clipboard: Clipboard) -> None:
+    def __init__(self, name: str, clipboard: Clipboard):
         self.name: str = name
         self.clipboard: Clipboard = clipboard
 
@@ -164,8 +163,7 @@ class Editor:
 
 
 class IDE:
-
-    def __init__(self) -> None:
+    def __init__(self):
         self.clipboard: Clipboard = Clipboard()
         self.active: Editor = Editor(name='', clipboard=self.clipboard)
         self.editors: dict[str, Editor] = {self.active.name: self.active}

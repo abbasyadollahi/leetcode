@@ -48,11 +48,7 @@ class Solution:
 
 
 class UnionFind:
-
-    items: dict[int, int]
-    group_sizes: dict[int, int]
-
-    def __init__(self, items: list[int]) -> None:
+    def __init__(self, items: list[int]):
         self.items = dict(zip(items, items))
         self.group_sizes = dict.fromkeys(items, 1)
 

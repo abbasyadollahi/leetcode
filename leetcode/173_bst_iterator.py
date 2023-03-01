@@ -8,7 +8,7 @@ class TreeNode:
 
 
 class BSTIterator:
-    def __init__(self, root: TreeNode) -> None:
+    def __init__(self, root: TreeNode):
         self.root = root
         self.parents = []
 

@@ -12,11 +12,7 @@ class Solution:
         return ''.join(map(union_find.find, baseStr))
 
 class UnionFind:
-
-    items: dict[str, int]
-    group_sizes: dict[str, int]
-
-    def __init__(self, items: list[str]) -> None:
+    def __init__(self, items: list[str]):
         self.items = dict(zip(items, items))
         self.group_sizes = dict.fromkeys(items, 1)
 

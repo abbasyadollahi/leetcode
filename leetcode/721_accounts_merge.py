@@ -4,7 +4,7 @@ from collections import defaultdict
 
 
 class EmailNode:
-    def __init__(self, email: str) -> None:
+    def __init__(self, email: str):
         self.email = email
         self.connections = set()
 
@@ -59,11 +59,7 @@ class Solution:
 
 
 class UnionFind:
-
-    items: list[int]
-    group_sizes: list[int]
-
-    def __init__(self, items: list[int]) -> None:
+    def __init__(self, items: list[int]):
         self.items = items
         self.group_sizes = [1] * len(items)
 
