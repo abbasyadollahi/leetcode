@@ -2,11 +2,14 @@
 
 function twoSum(nums: number[], target: number): number[] {
     let seen = {};
-    for (let [index, num] of nums.entries()) {
+
+    let num, i;
+    for ([i, num] of nums.entries()) {
         if (target - num in seen) {
-            return [seen[target - num], index];
-        } else {
-            seen[num] = index;
+            break;
         }
+        seen[num] = i;
     }
+
+    return [seen[target - num], i];
 };

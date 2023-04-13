@@ -17,9 +17,9 @@ class TimeMap:
         if key in self.store and timestamp in self.store[key]['keys']:
             return self.store[key]['keys'].get(timestamp)
         elif key in self.store:
-            return self.store[key]['keys'].get(self._find_closest_timestamp(timestamp, self.store[key]['timestamps']), "")
+            return self.store[key]['keys'].get(self._find_closest_timestamp(timestamp, self.store[key]['timestamps']), '')
         else:
-            return ""
+            return ''
 
     def _find_closest_timestamp(self, timestamp: int, timestamps: list[int]) -> Optional[int]:
         index = bisect.bisect_right(timestamps, timestamp) - 1

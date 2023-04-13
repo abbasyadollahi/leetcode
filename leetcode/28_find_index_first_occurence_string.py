@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/implement-strstr/
+# https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
 
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
@@ -10,10 +10,3 @@ class Solution:
                 return i
 
         return -1
-
-
-sol = Solution()
-print(sol.strStr('hello', 'll'))
-print(sol.strStr('hello', 'hell'))
-print(sol.strStr('abdullah abu butata', 'bu'))
-print(sol.strStr('snakes', ''))
