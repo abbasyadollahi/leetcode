@@ -16,7 +16,7 @@ class Solution:
             if i == words_len - ana_len - 1:
                 break
 
-            str_list = words[i:i+ana_len]
+            str_list = words[i : i + ana_len]
 
             if not str_list.strip(anagram):
                 good = True
@@ -26,4 +26,4 @@ class Solution:
                         break
 
                 if good:
-                    print('Found one: {}'.format(str_list))
+                    print(f"Found one: {str_list}")

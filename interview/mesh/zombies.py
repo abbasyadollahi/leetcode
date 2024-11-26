@@ -15,13 +15,7 @@ For now let's focus on these two questions.
 """
 
 # (zombie, victim)
-attackers = [
-    (0, 1),
-    (0, 2),
-    (1, 3),
-    (3, 4),
-    (4, 5)
-]
+attackers = [(0, 1), (0, 2), (1, 3), (3, 4), (4, 5)]
 
 
 def victims(attackers: list[tuple[int, int]]) -> dict[int, set[int]]:
@@ -70,6 +64,7 @@ def cure_generations(attackers: list[tuple[int, int]], generations: int) -> set[
         generation += 1
 
     return cured_zombies
+
 
 print(cure_generations(attackers, 2))
 print(cure_generations(attackers, 3))

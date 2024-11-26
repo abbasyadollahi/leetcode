@@ -1,17 +1,33 @@
 # https://leetcode.com/problems/count-subarrays-with-fixed-bounds/
 
-from collections import defaultdict, deque
-
 
 class Solution:
     def countSubarrays(self, nums: list[int], minK: int, maxK: int) -> int:
-        def shrink(l: int, r: int, min_count: int, max_count: int, visited: set[tuple[int, int]]) -> int:
+        def shrink(
+            l: int,
+            r: int,
+            min_count: int,
+            max_count: int,
+            visited: set[tuple[int, int]],
+        ) -> int:
             if not min_count or not max_count or (l, r) in visited:
                 return 0
 
             visited.add((l, r))
-            start = shrink(l + 1, r, min_count - (nums[l] == minK), max_count - (nums[l] == maxK), visited)
-            end = shrink(l, r - 1, min_count - (nums[r] == minK), max_count - (nums[r] == maxK), visited)
+            start = shrink(
+                l + 1,
+                r,
+                min_count - (nums[l] == minK),
+                max_count - (nums[l] == maxK),
+                visited,
+            )
+            end = shrink(
+                l,
+                r - 1,
+                min_count - (nums[r] == minK),
+                max_count - (nums[r] == maxK),
+                visited,
+            )
             return 1 + start + end
 
         l = 0

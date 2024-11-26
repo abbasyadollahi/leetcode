@@ -10,7 +10,7 @@ class Solution:
 
         def traverse(i: int, j: int) -> int:
             visited = set()
-            queue = deque([(i, j, int())])
+            queue = deque([(i, j, 0)])
 
             while queue:
                 i, j, count = queue.popleft()
@@ -35,15 +35,15 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if mat[i][j]:
-                    top = mat[i-1][j] if i > 0 else float('inf')
-                    left = mat[i][j-1] if j > 0 else float('inf')
+                    top = mat[i - 1][j] if i > 0 else float("inf")
+                    left = mat[i][j - 1] if j > 0 else float("inf")
                     mat[i][j] = min(top, left) + 1
 
         for i in reversed(range(m)):
             for j in reversed(range(n)):
                 if mat[i][j]:
-                    bottom = mat[i+1][j] if i < m - 1 else float('inf')
-                    right = mat[i][j+1] if j < n - 1 else float('inf')
+                    bottom = mat[i + 1][j] if i < m - 1 else float("inf")
+                    right = mat[i][j + 1] if j < n - 1 else float("inf")
                     mat[i][j] = min(bottom + 1, right + 1, mat[i][j])
 
         return mat

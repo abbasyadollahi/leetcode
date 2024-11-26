@@ -35,6 +35,7 @@ class Solution:
             connections[b].add(a)
 
         visited = set()
+
         def traverse(node: int) -> int:
             visited.add(node)
             count = sum(map(traverse, connections[node] - visited))

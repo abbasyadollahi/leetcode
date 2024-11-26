@@ -32,12 +32,10 @@ Servers Endpoints
     -x Flight cancelled (410)
 """
 
-
 import datetime
 
 
 class User:
-
     id: int
     first_name: str
     last_name: str
@@ -45,40 +43,39 @@ class User:
     phone_number: str
     address: str
 
-class Flight:
 
+class Flight:
     id: int
     plane_id: int
     departure_time: datetime.datetime
     arrival_time: datetime.datetime
     source: str
     destination: str
-    seat_states: list['SeatState']
+    seat_states: list["SeatState"]
+
 
 class Plane:
-
     id: int
-    seats: list['Seat']
+    seats: list["Seat"]
     accessibility: dict
 
 
 class Seat:
-
     id: int
     plane_id: int
-    type: str # {window, isle, middle, other}
+    type: str  # {window, isle, middle, other}
     row: str
     column: str
 
-class SeatState:
 
+class SeatState:
     id: int
     flight_id: int
     seat_id: int
-    state: str # {unavailable, available, pending, taken}
+    state: str  # {unavailable, available, pending, taken}
+
 
 class Booking:
-
     id: int
     user_id: int
     flight_id: int

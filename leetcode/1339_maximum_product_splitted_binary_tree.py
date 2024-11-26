@@ -4,7 +4,7 @@ from typing import Optional
 
 
 class TreeNode:
-    def __init__(self, val: int = 0, left: 'TreeNode' = None, right: 'TreeNode' = None):
+    def __init__(self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None) -> None:
         self.val = val
         self.left = left
         self.right = right
@@ -14,7 +14,7 @@ class Solution:
     def maxProduct(self, root: Optional[TreeNode]) -> int:
         total = self.traverse(root)
         _, max_product = self.product(root, total)
-        return max_product % (10 ** 9 + 7)
+        return max_product % (10**9 + 7)
 
     def traverse(self, root: Optional[TreeNode]) -> int:
         if root:

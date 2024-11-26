@@ -5,7 +5,6 @@ Yes I can buy the R card, spending 3G tokens and using the 2G cards I own as dis
 After purchasing, I have 2G, 1R cards and a bank of 4B.
 """
 
-
 from dataclasses import dataclass
 from enum import Enum
 
@@ -23,7 +22,7 @@ class Card:
 
 
 class User:
-    def __init__(self, cards: list[Card], wallet: dict[Color, int]):
+    def __init__(self, cards: list[Card], wallet: dict[Color, int]) -> None:
         self.cards = cards
         self.coupons = dict.fromkeys(list(Color), 0)
         self.wallet = dict.fromkeys(list(Color), 0)
@@ -35,10 +34,7 @@ class User:
             self.wallet[color] += count
 
     def afford_card(self, card: Card) -> bool:
-        for color, cost in card.cost.items():
-            if cost > self.wallet[color] + self.coupons[color]:
-                return False
-        return True
+        return all(cost <= self.wallet[color] + self.coupons[color] for color, cost in card.cost.items())
 
     def purchase_card(self, card: Card) -> bool:
         if not self.afford_card(card):
@@ -57,14 +53,11 @@ class User:
 
 
 # Abbas
-abbas = User(
-    cards=[],
-    wallet={Color.RED: 5}
-)
+abbas = User(cards=[], wallet={Color.RED: 5})
 
 card1 = Card(Color.BLUE, {Color.RED: 2, Color.GREEN: 2})
 
-assert abbas.purchase_card(card1) == False
+assert abbas.purchase_card(card1) is False
 assert card1 not in abbas.cards
 assert abbas.coupons == {Color.RED: 0, Color.GREEN: 0, Color.BLUE: 0}
 assert abbas.wallet == {Color.RED: 5, Color.GREEN: 0, Color.BLUE: 0}
@@ -72,18 +65,18 @@ assert abbas.wallet == {Color.RED: 5, Color.GREEN: 0, Color.BLUE: 0}
 # John
 john = User(
     cards=[Card(Color.GREEN, {}), Card(Color.GREEN, {})],
-    wallet={Color.GREEN: 3, Color.BLUE: 4}
+    wallet={Color.GREEN: 3, Color.BLUE: 4},
 )
 
 card2 = Card(Color.RED, {Color.GREEN: 5})
 card3 = Card(Color.RED, {Color.GREEN: 2})
 
-assert john.purchase_card(card2) == True
+assert john.purchase_card(card2) is True
 assert card2 in john.cards
 assert john.coupons == {Color.RED: 1, Color.GREEN: 2, Color.BLUE: 0}
 assert john.wallet == {Color.RED: 0, Color.GREEN: 0, Color.BLUE: 4}
 
-assert john.purchase_card(card3) == True
+assert john.purchase_card(card3) is True
 assert card3 in john.cards
 assert john.coupons == {Color.RED: 2, Color.GREEN: 2, Color.BLUE: 0}
 assert john.wallet == {Color.RED: 0, Color.GREEN: 0, Color.BLUE: 4}

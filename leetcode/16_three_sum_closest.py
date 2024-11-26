@@ -1,10 +1,11 @@
 # https://leetcode.com/problems/3sum-closest/
 
+
 class Solution:
     def threeSumClosest(self, nums: list[int], target: int) -> int:
         nums.sort()
         prev = None
-        closest = float('inf')
+        closest = float("inf")
         length = len(nums) - 1
 
         for i, c in enumerate(nums):

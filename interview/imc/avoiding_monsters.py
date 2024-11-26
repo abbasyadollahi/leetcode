@@ -6,13 +6,7 @@ def avoidMonsters(
     monsters: list[tuple[int, int]],
 ) -> int:
     grid = [
-        [
-            min(
-                distance(i, j, monster_i, monster_j)
-                for monster_i, monster_j in monsters
-            )
-            for j in range(n)
-        ]
+        [min(distance(i, j, monster_i, monster_j) for monster_i, monster_j in monsters) for j in range(n)]
         for i in range(m)
     ]
 
@@ -49,9 +43,7 @@ def traverse(
     maximum = max((grid[ii][jj] for ii, jj in options), default=None)
     for ii, jj in options:
         if grid[ii][jj] == maximum:
-            distances.extend(
-                traverse(grid, ii, jj, end, min(minimum, maximum), visited)
-            )
+            distances.extend(traverse(grid, ii, jj, end, min(minimum, maximum), visited))
             visited.remove((ii, jj))
 
     return distances

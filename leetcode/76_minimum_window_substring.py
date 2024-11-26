@@ -10,8 +10,8 @@ class Solution:
         count.subtract(Counter(t))
 
         l = 0
-        substring = ''
-        length = float('inf')
+        substring = ""
+        length = float("inf")
 
         for r, c in enumerate(s):
             if c not in count:
@@ -28,7 +28,7 @@ class Solution:
 
             if length > (r - l) and len(-count) == 0:
                 l = seen[0][0]
-                substring = s[l:r+1]
+                substring = s[l : r + 1]
                 length = len(substring)
 
         return substring

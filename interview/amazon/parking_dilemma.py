@@ -1,5 +1,6 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/616680/view
 
+
 def carParkingRoof(cars: list[int], k: int) -> int:
     cars.sort()
     num_cars = len(cars)

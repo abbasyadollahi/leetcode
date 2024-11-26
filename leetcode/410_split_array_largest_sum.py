@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/split-array-largest-sum/
 
+
 class Solution:
     def splitArray(self, nums: list[int], k: int) -> int:
         maximum = max(nums)

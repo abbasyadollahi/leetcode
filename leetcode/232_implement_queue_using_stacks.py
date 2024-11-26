@@ -1,7 +1,8 @@
 # https://leetcode.com/problems/implement-queue-using-stacks/
 
+
 class MyQueue:
-    def __init__(self):
+    def __init__(self) -> None:
         self.push_stack = []
         self.pop_stack = []
 
@@ -19,7 +20,7 @@ class MyQueue:
     def empty(self) -> bool:
         return not self.push_stack and not self.pop_stack
 
-    def _switch(self):
+    def _switch(self) -> None:
         if not self.pop_stack:
             while self.push_stack:
                 self.pop_stack.append(self.push_stack.pop())

@@ -16,4 +16,4 @@ class Solution:
             power //= 2
 
         bits = [0] * (32 - len(bits)) + bits
-        return sum(bit * 2 ** i for i, bit in enumerate(bits))
+        return sum(bit * 2**i for i, bit in enumerate(bits))

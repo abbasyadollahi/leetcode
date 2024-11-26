@@ -1,12 +1,11 @@
 from dataclasses import dataclass, field
 from typing import Generic, Optional, TypeVar, Union
 
-H = TypeVar('H')
+H = TypeVar("H")
 
 
 @dataclass
 class Clipboard:
-
     clipboard: str = field(default_factory=str)
 
     def copy(self, text: str) -> None:
@@ -21,7 +20,6 @@ class Clipboard:
 
 @dataclass
 class History(Generic[H]):
-
     past: list[H] = field(default_factory=list)
     future: list[H] = field(default_factory=list)
 
@@ -40,7 +38,7 @@ class History(Generic[H]):
         else:
             return current
 
-    def redo(self, current) -> H:
+    def redo(self, current: H) -> H:
         if self.future:
             self.past.append(current)
             return self.future.pop()
@@ -49,11 +47,11 @@ class History(Generic[H]):
 
 
 class Editor:
-    def __init__(self, name: str, clipboard: Clipboard):
+    def __init__(self, name: str, clipboard: Clipboard) -> None:
         self.name: str = name
         self.clipboard: Clipboard = clipboard
 
-        self.text: str = ''
+        self.text: str = ""
         self.text_history: History[str] = History()
 
         self.cursor: int = 0
@@ -63,14 +61,14 @@ class Editor:
         self.selection_history: History[tuple[int, int]] = History()
 
         self.actions = {
-            'APPEND': self.append,
-            'DELETE': self.delete,
-            'MOVE': self.move,
-            'SELECT': self.select,
-            'COPY': self.copy,
-            'PASTE': self.paste,
-            'UNDO': self.undo,
-            'REDO': self.redo,
+            "APPEND": self.append,
+            "DELETE": self.delete,
+            "MOVE": self.move,
+            "SELECT": self.select,
+            "COPY": self.copy,
+            "PASTE": self.paste,
+            "UNDO": self.undo,
+            "REDO": self.redo,
         }
 
     def action(self, action: str, *args: list[str]) -> Optional[str]:
@@ -84,7 +82,7 @@ class Editor:
             self.text = self._delete_between(*self.selection)
             self.move(self.selection[0])
 
-        self.text = self.text[:self.cursor] + text + self.text[self.cursor:]
+        self.text = self.text[: self.cursor] + text + self.text[self.cursor :]
         self.cursor = self.cursor + len(text)
 
         return self._get_output()
@@ -97,7 +95,7 @@ class Editor:
             self.text = self._delete_between(*self.selection)
             self.move(self.selection[0])
         else:
-            self.text = self.text[:self.cursor] + self.text[self.cursor+1:]
+            self.text = self.text[: self.cursor] + self.text[self.cursor + 1 :]
 
         return self._get_output()
 
@@ -163,16 +161,16 @@ class Editor:
 
 
 class IDE:
-    def __init__(self):
+    def __init__(self) -> None:
         self.clipboard: Clipboard = Clipboard()
-        self.active: Editor = Editor(name='', clipboard=self.clipboard)
+        self.active: Editor = Editor(name="", clipboard=self.clipboard)
         self.editors: dict[str, Editor] = {self.active.name: self.active}
         self.active_history: dict[str, None] = {}
         self.outputs: list[str] = []
 
         self.actions = {
-            'OPEN': self.open,
-            'CLOSE': self.close,
+            "OPEN": self.open,
+            "CLOSE": self.close,
         }
 
     def action(self, action: str, *args: list[str]) -> None:
@@ -200,6 +198,7 @@ class IDE:
 
     def get_outputs(self) -> list[str]:
         return self.outputs
+
 
 def textEditor(queries: list[list[str]]) -> list[str]:
     ide = IDE()

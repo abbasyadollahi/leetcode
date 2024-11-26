@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/spiral-matrix/
 
+
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         self.nums = []
@@ -22,16 +23,16 @@ class Solution:
 
     def traverse_row(self, increasing: bool) -> None:
         if increasing:
-            self.nums += self.matrix[self.min_row][self.min_col:self.max_col]
+            self.nums += self.matrix[self.min_row][self.min_col : self.max_col]
             self.min_row += 1
         else:
-            self.nums += reversed(self.matrix[self.max_row-1][self.min_col:self.max_col])
+            self.nums += reversed(self.matrix[self.max_row - 1][self.min_col : self.max_col])
             self.max_row -= 1
 
     def traverse_col(self, increasing: bool) -> None:
         if increasing:
-            self.nums += [row[self.max_col-1] for row in self.matrix[self.min_row:self.max_row]]
+            self.nums += [row[self.max_col - 1] for row in self.matrix[self.min_row : self.max_row]]
             self.max_col -= 1
         else:
-            self.nums += reversed([row[self.min_col] for row in self.matrix[self.min_row:self.max_row]])
+            self.nums += reversed([row[self.min_col] for row in self.matrix[self.min_row : self.max_row]])
             self.min_col += 1

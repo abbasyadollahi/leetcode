@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/palindrome-pairs/
 
+
 class Solution:
     def palindromePairs(self, words: list[str]) -> list[list[int]]:
         def is_palindrome(s: str) -> bool:

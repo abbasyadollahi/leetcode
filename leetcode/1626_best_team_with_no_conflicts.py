@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/best-team-with-no-conflicts/
 
+
 class Solution:
     def bestTeamScore(self, scores: list[int], ages: list[int]) -> int:
         max_age = max(ages)
@@ -13,7 +14,10 @@ class Solution:
                 while i < len(players) and players[i][0] <= age and players[i][1] <= score:
                     dp[age][score] += players[i][1]
                     i += 1
-                dp[age][score] = max(dp[age][score] + dp[age-1][score], dp[age][score] + dp[age][score-1])
+                dp[age][score] = max(
+                    dp[age][score] + dp[age - 1][score],
+                    dp[age][score] + dp[age][score - 1],
+                )
 
         return dp[-1][-1]
 

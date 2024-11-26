@@ -18,6 +18,7 @@ def connectedSum(graph_nodes: int, graph_from: list[int], graph_to: list[int]) -
 
     return sum(map(math.ceil, map(math.sqrt, sizes)))
 
+
 def graph_size(node: int, edges: list[list[int]], seen: list[bool]) -> int:
     size = 1
     nodes = edges[node]

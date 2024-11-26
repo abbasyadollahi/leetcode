@@ -1,12 +1,13 @@
 # https://leetcode.com/problems/sort-an-array/
 
+
 class Solution:
     def sortArray(self, nums: list[int]) -> list[int]:
         if len(nums) == 1:
             return nums
 
-        list1 = self.sortArray(nums[:len(nums)//2])
-        list2 = self.sortArray(nums[len(nums)//2:])
+        list1 = self.sortArray(nums[: len(nums) // 2])
+        list2 = self.sortArray(nums[len(nums) // 2 :])
 
         return self.merge(list1, list2)
 

@@ -7,11 +7,7 @@ Output: ['Charles II', 'Louis VIII', 'Louis IX']
 
 
 def roman_to_number(roman: str) -> int:
-    value = {
-        'I': 1,
-        'V': 5,
-        'X': 10
-    }
+    value = {"I": 1, "V": 5, "X": 10}
 
     number = 0
     for i, letter in enumerate(roman):
@@ -32,4 +28,8 @@ def sort_kings(kings: list[str]) -> list[str]:
     return sorted(kings, key=sort_king)
 
 
-assert sort_kings(['Louis IX', 'Louis VIII', 'Charles II']) == ['Charles II', 'Louis VIII', 'Louis IX']
+assert sort_kings(["Louis IX", "Louis VIII", "Charles II"]) == [
+    "Charles II",
+    "Louis VIII",
+    "Louis IX",
+]

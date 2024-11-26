@@ -8,7 +8,7 @@ class Request:
     Each request is directed to a main server which will handle the request.
     """
 
-    def __init__(self, server: Server, region: str, resource: str, cached: bool = True):
+    def __init__(self, server: Server, region: str, resource: str, cached: bool = True) -> None:
         self.server = server
         self.region = region
         self.resource = resource

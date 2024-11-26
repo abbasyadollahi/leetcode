@@ -1,7 +1,8 @@
 # https://www.geeksforgeeks.org/maximum-sum-tree-adjacent-levels-not-allowed/
 
+
 class Node:
-    def __init__(self, value: int):
+    def __init__(self, value: int) -> None:
         self.value = value
         self.left = None
         self.right = None

@@ -23,7 +23,8 @@ As a user:
   - subscribe to an event and be notified when it happens
 
 How are notifications triggered?
-Events get sent to a message queue (e.g. kafka), which gets sent to all subscribers (subscribers consume from the message queue, and publish to users)
+Events get sent to a message queue (e.g. kafka), which gets sent to all subscribers.
+Subscribers consume from the message queue, and publish to users.
 
 https://en.wikipedia.org/wiki/Push_technology#Long_polling
 https://systeminterview.com/scale-from-zero-to-millions-of-users.php

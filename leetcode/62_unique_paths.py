@@ -19,6 +19,6 @@ class Solution:
         dp = [1] * n
         for _ in range(1, m):
             for j in range(1, n):
-                dp[j] = dp[j] + dp[j-1]
+                dp[j] = dp[j] + dp[j - 1]
 
-        return dp[n-1]
+        return dp[n - 1]

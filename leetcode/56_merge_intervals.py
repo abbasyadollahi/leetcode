@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/merge-intervals/
 
+
 class Solution:
     def merge(self, intervals: list[list[int]]) -> list[list[int]]:
         if not intervals:
@@ -51,7 +52,7 @@ class Solution:
             merges.append([merge_index_start, merge_index_end, max_end])
 
         for start, end, max_end in reversed(merges):
-            intervals[start:end+1] = [[intervals[start][0], max_end]]
+            intervals[start : end + 1] = [[intervals[start][0], max_end]]
 
         return intervals
 

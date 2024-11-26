@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks/
 
+
 class Solution:
     def maximumBags(self, capacity: list[int], rocks: list[int], additionalRocks: int) -> int:
         bags = 0

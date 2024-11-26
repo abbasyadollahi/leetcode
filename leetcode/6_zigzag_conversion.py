@@ -10,14 +10,14 @@ class Solution:
 
         i = 0
         step = 1
-        rows = [''] * numRows
+        rows = [""] * numRows
         for c in s:
             rows[i] += c
             if (step < 0 and i == 0) or (step > 0 and i == numRows - 1):
                 step = -step
             i += step
 
-        return ''.join(rows)
+        return "".join(rows)
 
     def convert(self, s: str, numRows: int) -> str:
         rows = [None] * numRows
@@ -27,8 +27,13 @@ class Solution:
             first_slice = slice(i, None, step)
             if 0 < i < numRows - 1:
                 second_slice = slice(i + step - (2 * i), None, step)
-                rows[i] = ''.join(map(''.join, zip_longest(s[first_slice], s[second_slice], fillvalue='')))
+                rows[i] = "".join(
+                    map(
+                        "".join,
+                        zip_longest(s[first_slice], s[second_slice], fillvalue=""),
+                    )
+                )
             else:
                 rows[i] = s[first_slice]
 
-        return ''.join(rows)
+        return "".join(rows)

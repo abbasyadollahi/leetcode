@@ -1,7 +1,11 @@
 # https://leetcode.com/problems/reorder-list/
 
+
+from typing import Optional
+
+
 class ListNode:
-    def __init__(self, val: int = 0, next: 'ListNode' = None):
+    def __init__(self, val: int = 0, next: Optional["ListNode"] = None) -> None:
         self.val = val
         self.next = next
 
@@ -14,7 +18,7 @@ class Solution:
             stack.append(node)
             node = node.next
 
-        stack = stack[len(stack)//2:]
+        stack = stack[len(stack) // 2 :]
         root = head
         while stack:
             node = stack.pop()

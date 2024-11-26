@@ -1,10 +1,11 @@
 # https://leetcode.com/problems/design-add-and-search-words-data-structure/
 
+
 class WordDictionary:
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize your data structure here."""
-        self.any = '.'
-        self.eof = '#'
+        self.any = "."
+        self.eof = "#"
         self.letters = {}
 
     def addWord(self, word: str) -> None:

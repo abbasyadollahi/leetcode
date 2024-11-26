@@ -28,7 +28,7 @@ def segment(x: int, space: list[int]) -> int:
         out = queue.popleft()
         if new <= mins[-1]:
             queue.clear()
-            queue.extend(space[i:i+x])
+            queue.extend(space[i : i + x])
             mins.append(new)
             i += x
         elif out == mins[-1]:

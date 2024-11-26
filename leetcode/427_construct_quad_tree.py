@@ -8,10 +8,10 @@ class Node:
         self,
         val: int,
         isLeaf: bool,
-        topLeft: Optional['Node'] = None,
-        topRight: Optional['Node'] = None,
-        bottomLeft: Optional['Node'] = None,
-        bottomRight: Optional['Node'] = None
+        topLeft: Optional["Node"] = None,
+        topRight: Optional["Node"] = None,
+        bottomLeft: Optional["Node"] = None,
+        bottomRight: Optional["Node"] = None,
     ):
         self.val = val
         self.isLeaf = isLeaf
@@ -25,7 +25,7 @@ class Solution:
     def construct(self, grid: list[list[int]]) -> Node:
         n = len(grid)
         node = Node(grid[0][0], False)
-        if sum(num for row in grid for num in row) in {0, n ** 2}:
+        if sum(num for row in grid for num in row) in {0, n**2}:
             node.isLeaf = True
         else:
             mid = n // 2

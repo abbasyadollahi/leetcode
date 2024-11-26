@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/counting-bits/
 
+
 class Solution:
     def countBits(self, num: int) -> list[int]:
         nums = [0] * (num + 1)

@@ -13,6 +13,7 @@ class Solution:
         group1 = set()
         group2 = set()
         visited = [False] * (n + 1)
+
         def traverse(me: int, enemies: set[int], my_group: set[int], other_group: set[int]) -> bool:
             if visited[me]:
                 return me not in other_group
@@ -20,16 +21,9 @@ class Solution:
             visited[me] = True
             my_group.add(me)
 
-            return all(
-                traverse(enemy, haters[enemy], other_group, my_group)
-                for enemy in enemies
-            )
+            return all(traverse(enemy, haters[enemy], other_group, my_group) for enemy in enemies)
 
-        return all(
-            traverse(person, hates, group1, group2)
-            for person, hates in haters.items()
-            if not visited[person]
-        )
+        return all(traverse(person, hates, group1, group2) for person, hates in haters.items() if not visited[person])
 
     def possibleBipartition(self, n: int, dislikes: list[list[int]]) -> bool:
         haters = defaultdict(set)
@@ -48,7 +42,7 @@ class Solution:
 
 
 class UnionFind:
-    def __init__(self, items: list[int]):
+    def __init__(self, items: list[int]) -> None:
         self.items = dict(zip(items, items))
         self.group_sizes = dict.fromkeys(items, 1)
 

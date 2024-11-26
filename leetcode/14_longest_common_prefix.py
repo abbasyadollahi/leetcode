@@ -1,12 +1,13 @@
 # https://leetcode.com/problems/longest-common-prefix/
 
+
 class Solution:
     def longestCommonPrefix(self, strs: list[str]) -> str:
         if not strs:
-            return ''
+            return ""
 
         i = 0
-        prefix = ''
+        prefix = ""
         min_length = min(map(len, strs))
 
         while i < min_length:

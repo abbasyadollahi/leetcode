@@ -1,10 +1,11 @@
 # https://leetcode.com/problems/subtree-of-another-tree/
 
 from collections import deque
+from typing import Optional
 
 
 class TreeNode:
-    def __init__(self, val: int = 0, left: 'TreeNode' = None, right: 'TreeNode' = None):
+    def __init__(self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None) -> None:
         self.val = val
         self.left = left
         self.right = right
@@ -34,7 +35,7 @@ class Solution:
             return False
         else:
             return (
-                root.val == sub_root.val and
-                self.verify_trees(root.left, sub_root.left) and
-                self.verify_trees(root.right, sub_root.right)
+                root.val == sub_root.val
+                and self.verify_trees(root.left, sub_root.left)
+                and self.verify_trees(root.right, sub_root.right)
             )

@@ -25,7 +25,7 @@ class Solution:
 
         def permute(perm: list[int], choices: list[int]) -> None:
             for i, choice in enumerate(choices):
-                permute([*perm, choice], [*choices[:i], *choices[i+1:]])
+                permute([*perm, choice], [*choices[:i], *choices[i + 1 :]])
             if not choices:
                 perms.append(self.numerize(perm))
 

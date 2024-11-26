@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/3sum/
 
+
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         nums.sort()
@@ -43,7 +44,5 @@ class Solution:
             return doubles
 
         return {
-            tuple(sorted([num, *combo]))
-            for i, num in enumerate(nums[:-2])
-            for combo in two_sum(nums[i+1:], -num)
+            tuple(sorted([num, *combo])) for i, num in enumerate(nums[:-2]) for combo in two_sum(nums[i + 1 :], -num)
         }

@@ -14,7 +14,6 @@ they get priority and should addressed first
 Queue above 1800 overrides any other rule (small or large)
 """
 
-
 from typing import Optional
 
 
@@ -30,7 +29,11 @@ def get_next_in_line(reservations: list[dict], table_size: int, large: bool) -> 
         if reservation["queue_time"] > max_queue_time and (override or reservation["size"] == table_size):
             index = i
             max_queue_time = reservation["queue_time"]
-        elif reservation["queue_time"] == max_queue_time and reservation["size"] > reservations[index]["size"] and override:
+        elif (
+            reservation["queue_time"] == max_queue_time
+            and reservation["size"] > reservations[index]["size"]
+            and override
+        ):
             index = i
 
         if index is None:

@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/permutations/
 
+
 class Solution:
     def permute(self, nums: list[int]) -> list[list[int]]:
         if not nums or len(nums) == 1:
@@ -22,7 +23,7 @@ class Solution:
         def generate_permutations(permutation: list[int], choices: list[int]) -> list[list[int]]:
             permutations = []
             for i, choice in enumerate(choices):
-                permutations.extend(generate_permutations([*permutation, choice], [*choices[:i], *choices[i+1:]]))
+                permutations.extend(generate_permutations([*permutation, choice], [*choices[:i], *choices[i + 1 :]]))
             if not choices:
                 permutations.append(permutation)
             return permutations

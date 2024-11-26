@@ -1,14 +1,13 @@
 import random
 
-
 ORIGINAL_CLICKS = [
-    ('A', 'B'),
-    ('B', 'C'),
-    ('B', 'BC'),
-    ('C', 'D'),
-    ('D', 'E'),
-    ('E', 'F'),     # Destination 2
-    ('BC', 'BD'),   # Destination 1
+    ("A", "B"),
+    ("B", "C"),
+    ("B", "BC"),
+    ("C", "D"),
+    ("D", "E"),
+    ("E", "F"),  # Destination 2
+    ("BC", "BD"),  # Destination 1
     # ('F', 'B'),     # Creates error
     # ('BD', 'B'),    # Creates error
 ]
@@ -46,7 +45,7 @@ def raise_cycle(clicks_dict: dict[str, list[str]], origin: str, seen: set) -> No
     else:
         d = destinations[0]
         if d in seen:
-            raise ValueError(f'The origin and destination pair ({origin}, {d}) creates a cycle')
+            raise ValueError(f"The origin and destination pair ({origin}, {d}) creates a cycle")
         elif d in clicks_dict:
             seen.add(d)
             raise_cycle(clicks_dict, d, seen)
@@ -58,4 +57,4 @@ def recurse(clicks_dict: dict[str, list[str]], origin: str) -> list[str]:
     return [d for destination in clicks_dict[origin] for d in recurse(clicks_dict, destination)]
 
 
-print(get_click_destination(CLICKS, 'A'))
+print(get_click_destination(CLICKS, "A"))

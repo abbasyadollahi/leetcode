@@ -40,12 +40,10 @@ import datetime
 from typing import Callable
 
 
-def authenticate(func: Callable) -> Callable:
-    ...
+def authenticate(func: Callable) -> Callable: ...
 
 
-def emit_metrics(func: Callable) -> Callable:
-    ...
+def emit_metrics(func: Callable) -> Callable: ...
 
 
 class Event:
@@ -55,8 +53,7 @@ class Event:
     timestamp: datetime.datetime
 
 
-class State:
-    ...
+class State: ...
 
 
 class ATM:
@@ -66,8 +63,7 @@ class ATM:
 
     @authenticate
     @emit_metrics
-    def read_account(self, bank_details: str, timestamp: datetime.datetime) -> str:
-        ...
+    def read_account(self, bank_details: str, timestamp: datetime.datetime) -> str: ...
 
     @authenticate
     @emit_metrics
@@ -94,8 +90,7 @@ class ATM:
         # give next state given that
         ...
 
-    def event_dump(self) -> None:
-        ...
+    def event_dump(self) -> None: ...
 
     def check_cash(self) -> int:
         return self.amount

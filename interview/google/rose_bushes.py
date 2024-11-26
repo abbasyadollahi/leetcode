@@ -3,8 +3,8 @@ class Solution:
         a_len = len(a)
         days = [1] * a_len
 
-        for day, i in enumerate(a[-1:k*m-a_len-1:-1]):
-            days[i-1] = 0
+        for day, i in enumerate(a[-1 : k * m - a_len - 1 : -1]):
+            days[i - 1] = 0
 
             k_count = 0
             m_count = 0
@@ -27,6 +27,6 @@ class Solution:
 
 
 sol = Solution()
-print(sol.latestBushGroup([1,4,3,2,5], 1, 3))
-print(sol.latestBushGroup([1,2,7,6,4,3,5], 2, 2))
-print(sol.latestBushGroup([1,2,3,5,6,7,4], 3, 2))
+print(sol.latestBushGroup([1, 4, 3, 2, 5], 1, 3))
+print(sol.latestBushGroup([1, 2, 7, 6, 4, 3, 5], 2, 2))
+print(sol.latestBushGroup([1, 2, 3, 5, 6, 7, 4], 3, 2))

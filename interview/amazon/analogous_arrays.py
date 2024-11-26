@@ -1,5 +1,6 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/618520/view
 
+
 def countAnalogousArrays(consecutiveDifference: list[int], lowerBound: int, upperBound: int) -> int:
     lowest = 0
     highest = 0

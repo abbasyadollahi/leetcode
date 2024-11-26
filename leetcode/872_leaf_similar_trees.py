@@ -4,17 +4,17 @@ from typing import Optional
 
 
 class TreeNode:
-    def __init__(self, val: int = 0, left: 'TreeNode' = None, right: 'TreeNode' = None):
+    def __init__(self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None) -> None:
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+    def leafSimilar(self, root1: TreeNode | None, root2: TreeNode | None) -> bool:
         return self.traverse(root1) == self.traverse(root2)
 
-    def traverse(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+    def traverse(self, root: TreeNode | None) -> TreeNode | None:
         if not root:
             return []
 

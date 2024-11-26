@@ -1,5 +1,6 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/433457/view
 
+
 def getUnallottedUsers(bids: list[tuple[int, int, int, int]], totalShares: int) -> list[int]:
     UID, SHARES, PRICE, TIME = range(4)
 

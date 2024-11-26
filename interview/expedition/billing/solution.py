@@ -31,7 +31,11 @@ class Subscription(TypedDict):
     """Price per active user per month"""
 
 
-def monthly_charge(month: Annotated[str, "YYYY-MM format"], subscription: Optional[Subscription], users: list[User]) -> int:
+def monthly_charge(
+    month: Annotated[str, "YYYY-MM format"],
+    subscription: Optional[Subscription],
+    users: list[User],
+) -> int:
     """
     Computes the monthly charge for a given subscription.
 
@@ -46,19 +50,19 @@ def monthly_charge(month: Annotated[str, "YYYY-MM format"], subscription: Option
         return 0
 
     total_charge = 0
-    month_start = datetime.datetime.strptime(month, '%Y-%m').date()
+    month_start = datetime.datetime.strptime(month, "%Y-%m").date()
     month_end = last_day_of_month(month_start)
 
     for user in users:
-        if user['customer_id'] != subscription['customer_id']:
+        if user["customer_id"] != subscription["customer_id"]:
             continue
-        if user['activated_on'] > month_end:
+        if user["activated_on"] > month_end:
             continue
-        if user['deactivated_on'] is not None and user['deactivated_on'] < month_start:
+        if user["deactivated_on"] is not None and user["deactivated_on"] < month_start:
             continue
 
-        activated_on = user['activated_on']
-        deactivated_on = user['deactivated_on'] or month_end
+        activated_on = user["activated_on"]
+        deactivated_on = user["deactivated_on"] or month_end
 
         activated_dates = min(deactivated_on, month_end) - max(activated_on, month_start)
         activated_dates += datetime.timedelta(days=1)
@@ -68,7 +72,7 @@ def monthly_charge(month: Annotated[str, "YYYY-MM format"], subscription: Option
 
         percentage_of_activation = activated_dates / total_dates
 
-        total_charge += (percentage_of_activation * subscription['monthly_price_in_cents'])
+        total_charge += percentage_of_activation * subscription["monthly_price_in_cents"]
 
     return round(total_charge)
 
@@ -77,7 +81,7 @@ def monthly_charge(month: Annotated[str, "YYYY-MM format"], subscription: Option
 # Helper functions #
 ####################
 
-D = TypeVar('D', datetime.datetime, datetime.date)
+D = TypeVar("D", datetime.datetime, datetime.date)
 
 
 def first_day_of_month(date: D) -> D:

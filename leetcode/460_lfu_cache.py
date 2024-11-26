@@ -1,7 +1,11 @@
 # https://leetcode.com/problems/lfu-cache/
 
+
+from typing import Optional
+
+
 class CacheNode:
-    def __init__(self, value: int, next: 'CacheNode' = None, previous: 'CacheNode' = None):
+    def __init__(self, value: int, next: Optional["CacheNode"] = None, previous: Optional["CacheNode"] = None) -> None:
         self.count = 1
         self.value = value
         self.next = next
@@ -9,7 +13,7 @@ class CacheNode:
 
 
 class LFUCache:
-    def __init__(self, capacity: int):
+    def __init__(self, capacity: int) -> None:
         self.cache = {}
         self.lru_node = None
         self.capacity = capacity

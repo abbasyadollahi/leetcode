@@ -1,11 +1,10 @@
 data = {
     # Timestamp Team        Market      Ticker          PnL
-    (123456789, "TEAM A",   "NYSE",     "GME"       ):  123.123,
-    (123456789, "TEAM B",   "NASDAQ",   "AMC"       ):  123000.123,
-    (123456790, "TEAM A",   "TSX",      "AAPL"      ):  12.12,
-    (123456791, "TEAM C",   "NYSE",     "BB"        ):  1.0,
-    ...
-    (123456800, "TEAM B",   "HKEX",     "CHINA#1"   ):  0.0,
+    (123456789, "TEAM A", "NYSE", "GME"): 123.123,
+    (123456789, "TEAM B", "NASDAQ", "AMC"): 123000.123,
+    (123456790, "TEAM A", "TSX", "AAPL"): 12.12,
+    (123456791, "TEAM C", "NYSE", "BB"): 1.0,
+    ...(123456800, "TEAM B", "HKEX", "CHINA#1"): 0.0,
 }
 # O(N), where N = number of rows
 
@@ -36,8 +35,4 @@ data = {
 # "TEAM B,NASDAQ,AMC" -> 222
 
 # Query all PnL for a given time range?
-data = {
-    123456789: [
-        111, 222
-    ]
-}
+data = {123456789: [111, 222]}

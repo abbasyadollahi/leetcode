@@ -1,7 +1,11 @@
 # https://leetcode.com/problems/merge-k-sorted-lists/
 
+
+from typing import Optional
+
+
 class ListNode:
-    def __init__(self, val: int = 0, next: 'ListNode' = None):
+    def __init__(self, val: int = 0, next: Optional["ListNode"] = None) -> None:
         self.val = val
         self.next = next
 
@@ -31,8 +35,8 @@ class Solution:
         if k == 1:
             return lists[0]
 
-        l1 = self.mergeKLists(lists[:k//2])
-        l2 = self.mergeKLists(lists[k//2:])
+        l1 = self.mergeKLists(lists[: k // 2])
+        l2 = self.mergeKLists(lists[k // 2 :])
 
         return self.mergeTwoLists(l1, l2)
 

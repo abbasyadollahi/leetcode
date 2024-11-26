@@ -7,6 +7,6 @@ class Resource:
     data (an integer between 0 and 1000000) for a resource.
     """
 
-    def __init__(self, key: str):
+    def __init__(self, key: str) -> None:
         self.key = key
         self.value = random.randint(0, 1000000)

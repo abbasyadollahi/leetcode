@@ -10,9 +10,9 @@ class Solution:
         num_set = set(num_list)
         for i, value in enumerate(num_list):
             if (target - value) in num_set:
-                return [i, num_list.index(target-value)]
+                return [i, num_list.index(target - value)]
         return [0, 0]
 
 
 sol = Solution()
-assert sol.sumIndices([1,2,3,4,5,6], 5) == [0, 3]
+assert sol.sumIndices([1, 2, 3, 4, 5, 6], 5) == [0, 3]

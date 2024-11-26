@@ -16,12 +16,12 @@ class Server:
     resource is located in and update that value to match the one stored in database.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.db = Database.instance()
         self.machines = defaultdict(list)
         self.resource_lru_cache_map = {}
 
-    def addMachine(self, lru_cache: LRUCache):
+    def addMachine(self, lru_cache: LRUCache) -> None:
         for region in lru_cache.regions:
             self.machines[region].append(lru_cache.rid)
 
@@ -44,9 +44,9 @@ class Server:
             if value is not None:
                 Thread(target=self.updateLRUCache, args=(request, value)).start()
         if value is None:
-            warn('Resource does not exist.')
+            warn("Resource does not exist.")
         return value
 
-    def updateLRUCache(self, request: Request, value: int):
+    def updateLRUCache(self, request: Request, value: int) -> None:
         lru_cache = self.getNearestLRUCache(request)
         lru_cache.updateResource(request.resource, value)

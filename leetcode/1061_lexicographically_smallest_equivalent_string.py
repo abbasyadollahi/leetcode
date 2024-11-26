@@ -9,10 +9,11 @@ class Solution:
         for letter1, letter2 in zip(s1, s2):
             union_find.union(letter1, letter2)
 
-        return ''.join(map(union_find.find, baseStr))
+        return "".join(map(union_find.find, baseStr))
+
 
 class UnionFind:
-    def __init__(self, items: list[str]):
+    def __init__(self, items: list[str]) -> None:
         self.items = dict(zip(items, items))
         self.group_sizes = dict.fromkeys(items, 1)
 

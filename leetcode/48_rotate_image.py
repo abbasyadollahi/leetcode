@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/rotate-image/
 
+
 class Solution:
     def rotate(self, matrix: list[list[int]]) -> None:
         n = len(matrix)

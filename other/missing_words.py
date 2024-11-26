@@ -1,7 +1,7 @@
 class Solution:
     def missingWords(self, s: str, t: str) -> list[str]:
-        s = s.split(' ')
-        t = t.split(' ')
+        s = s.split(" ")
+        t = t.split(" ")
         missing = []
 
         t_index = 0
@@ -17,4 +17,8 @@ class Solution:
 
 
 sol = Solution()
-assert sol.missingWords('I am using hackerrank to improve programming', 'am hackerrank to improve') == ['I', 'using', 'programming']
+assert sol.missingWords("I am using hackerrank to improve programming", "am hackerrank to improve") == [
+    "I",
+    "using",
+    "programming",
+]

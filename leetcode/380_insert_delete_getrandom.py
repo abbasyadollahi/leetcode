@@ -1,10 +1,10 @@
-# # https://leetcode.com/problems/insert-delete-getrandom-o1/
+# https://leetcode.com/problems/insert-delete-getrandom-o1/
 
 import random
 
 
 class RandomizedSet:
-    def __init__(self):
+    def __init__(self) -> None:
         self.size = 0
         self.index_to_numbers = {}
         self.numbers_to_index = {}

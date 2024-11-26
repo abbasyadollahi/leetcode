@@ -33,16 +33,22 @@ import logging
 from abc import ABC
 from dataclasses import dataclass
 from functools import wraps
-from typing import Any, Callable
+from typing import Any, Callable, ParamSpec, TypeVar
+
+P = ParamSpec("P")
+R = TypeVar("R")
+OriginalFunction = Callable[P, R]
+DecoratedFunction = Callable[P, R]
 
 
 class Decorators:
-    def create_cache(fun: Callable) -> Callable:
+    @staticmethod
+    def create_cache(fun: OriginalFunction) -> DecoratedFunction:
         """Injects a cache into the first argument for series operations."""
         cache = {}
 
         @wraps(fun)
-        def decorated(*args, **kwargs):
+        def decorated(*args: P.args, **kwargs: P.kwargs) -> R:
             n, series, operation = args
             metrics = {"series": series, "operation": operation, "n": n}
             if n in cache:
@@ -57,11 +63,12 @@ class Decorators:
 
         return decorated
 
-    def emit_request_metrics(fun: Callable) -> Callable:
+    @staticmethod
+    def emit_request_metrics(fun: OriginalFunction) -> DecoratedFunction:
         """Emits metrics for series requests."""
 
         @wraps(fun)
-        def decorated(*args, **kwargs):
+        def decorated(*args: P.args, **kwargs: P.kwargs) -> R:
             _, n, series, operation = args
             logging.info({"series": series, "operation": operation, "n": n})
             return fun(*args, **kwargs)
@@ -70,13 +77,16 @@ class Decorators:
 
 
 class Series(ABC):
-    def getNth(n) -> int:
+    @staticmethod
+    def getNth(n: int) -> int:
         pass
 
-    def isMember(n) -> bool:
+    @staticmethod
+    def isMember(n: int) -> bool:
         pass
 
-    def smallestMember(n) -> int:
+    @staticmethod
+    def smallestMember(n: int) -> int:
         pass
 
 
@@ -104,8 +114,7 @@ class Fibonacci(Series):
         return current
 
 
-class Prime(Series):
-    ...
+class Prime(Series): ...
 
 
 @dataclass(frozen=True)
@@ -116,20 +125,13 @@ class Response:
 
 
 class Backend:
-    SERIES = {
-        "fibonacci": Fibonacci,
-        "prime": Prime
-    }
+    SERIES = {"fibonacci": Fibonacci, "prime": Prime}
 
     @classmethod
     @Decorators.emit_request_metrics
     def getResultFromSeriesAndOperation(cls, n: int, series: str, operation: str) -> Response:
         result = getattr(cls.SERIES[series], operation)(n)
-        return Response(
-            200,
-            {"n": n, "result": result},
-            {"n": int, "result": int}
-        )
+        return Response(200, {"n": n, "result": result}, {"n": int, "result": int})
 
 
 Backend.getResultFromSeriesAndOperation(5, "fibonacci", "getNth")

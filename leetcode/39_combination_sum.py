@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/combination-sum/
 
+
 class Solution:
     def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
         combinations = []
@@ -7,8 +8,13 @@ class Solution:
         self.recurse(candidates, target, [], combinations)
         return combinations
 
-
-    def recurse(self, candidates: list[int], target: int, path: list[int], combinations: list[list[int]]) -> None:
+    def recurse(
+        self,
+        candidates: list[int],
+        target: int,
+        path: list[int],
+        combinations: list[list[int]],
+    ) -> None:
         if target < 0:
             return
         if target == 0:

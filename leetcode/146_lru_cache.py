@@ -1,7 +1,8 @@
 # https://leetcode.com/problems/lru-cache/
 
+
 class LRUCache:
-    def __init__(self, capacity: int):
+    def __init__(self, capacity: int) -> None:
         self.cache = {}
         self.capacity = capacity
 

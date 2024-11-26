@@ -22,11 +22,7 @@ class Solution:
 
                 visited.add(i)
 
-                next_queue.extend(
-                    index
-                    for index in connected_indexes[arr[i]]
-                    if index not in visited
-                )
+                next_queue.extend(index for index in connected_indexes[arr[i]] if index not in visited)
                 connected_indexes[arr[i]].clear()
                 if i > 0 and i - 1 not in visited:
                     next_queue.append(i - 1)

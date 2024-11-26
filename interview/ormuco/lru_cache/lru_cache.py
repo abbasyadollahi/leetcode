@@ -1,6 +1,7 @@
 import gc
 import sys
 import types
+from collections.abc import Callable
 from threading import Thread
 from warnings import warn
 
@@ -20,21 +21,21 @@ class LRUCache:
 
     NODE_SIZE = sys.getsizeof(DLLNode)
 
-    def __init__(self, db: Database, rid: int, regions: str, max_size: int):
-        self.db = db                            # Persistent database
-        self.rid = rid                          # LRU Cache's region ID
-        self.regions = regions                  # LRU Cache's service regions
-        self.cache = {}                         # LRU Cache
-        self.rhead = None                       # Head node of LRU queue
-        self.rtail = None                       # Tail node of LRU queue
-        self.max_size = max_size                # Max byte size of LRU Cache
-        self.size = sys.getsizeof(self.cache)   # Current byte size of LRU Cache
+    def __init__(self, db: Database, rid: int, regions: str, max_size: int) -> None:
+        self.db = db  # Persistent database
+        self.rid = rid  # LRU Cache's region ID
+        self.regions = regions  # LRU Cache's service regions
+        self.cache = {}  # LRU Cache
+        self.rhead = None  # Head node of LRU queue
+        self.rtail = None  # Tail node of LRU queue
+        self.max_size = max_size  # Max byte size of LRU Cache
+        self.size = sys.getsizeof(self.cache)  # Current byte size of LRU Cache
 
-    def __getattribute__(self, attr):
+    def __getattribute__(self, attr) -> Callable:
         method = object.__getattribute__(self, attr)
         if not method:
-            raise Exception(f'Method {attr} not implemented.')
-        if type(method) == types.MethodType:
+            raise Exception(f"Method {attr} not implemented.")
+        if isinstance(method, types.MethodType):
             self.size = sys.getsizeof(self.cache)
             print(types.MethodType)
         return method
@@ -48,9 +49,9 @@ class LRUCache:
             Thread(target=self.addResource, args=(resource, value)).start()
             return value
 
-    def addResource(self, resource: str, value: int):
+    def addResource(self, resource: str, value: int) -> None:
         if value is None:
-            warn('Resource does not exist.')
+            warn("Resource does not exist.")
         else:
             node = DLLNode(resource, value)
             node.value = value
@@ -63,7 +64,7 @@ class LRUCache:
                     self.removeLRU()
                 self.rtail.next = self.rtail = node
 
-    def renewResource(self, resource: str):
+    def renewResource(self, resource: str) -> None:
         node = self.cache[resource]
         p, n = node.prev, node.next
 
@@ -78,14 +79,14 @@ class LRUCache:
             node.prev = self.rtail
             self.rtail.next = self.rtail = node
 
-    def updateResource(self, resource: str, value: int):
+    def updateResource(self, resource: str, value: int) -> None:
         if resource in self.cache:
             self.cache[resource].value = value
             self.renewResource(resource)
         else:
             self.addResource(resource, value)
 
-    def removeLRU(self):
+    def removeLRU(self) -> None:
         if self.rhead is None:
             pass
 
@@ -95,11 +96,11 @@ class LRUCache:
             old_head.next.prev = old_head.next = None
         else:
             self.rtail = None
-        del old_head
         del self.cache[old_head.key]
+        del old_head
         gc.collect()
 
-    def clear(self):
+    def clear(self) -> None:
         self.cache = {}
         self.rhead = self.rtail = None
         gc.collect()

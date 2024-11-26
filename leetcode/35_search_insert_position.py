@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/search-insert-position/
 
+
 class Solution:
     def searchInsert(self, nums: list[int], target: int) -> int:
         l = 0

@@ -1,11 +1,12 @@
 # https://leetcode.com/problems/perfect-rectangle/
 
+
 class Solution:
     def isRectangleCover(self, rectangles: list[list[int]]) -> bool:
-        top_right_x = float('-inf')
-        top_right_y = float('-inf')
-        bottom_left_x = float('inf')
-        bottom_left_y = float('inf')
+        top_right_x = float("-inf")
+        top_right_y = float("-inf")
+        bottom_left_x = float("inf")
+        bottom_left_y = float("inf")
 
         area = 0
         corners = set()
@@ -17,14 +18,27 @@ class Solution:
 
             area += (t_r_x - b_l_x) * (t_r_y - b_l_y)
 
-            for corner in [(b_l_x, b_l_y), (b_l_x, t_r_y), (t_r_x, b_l_y), (t_r_x, t_r_y)]:
+            for corner in [
+                (b_l_x, b_l_y),
+                (b_l_x, t_r_y),
+                (t_r_x, b_l_y),
+                (t_r_x, t_r_y),
+            ]:
                 if corner in corners:
                     corners.remove(corner)
                 else:
                     corners.add(corner)
 
         return (
-            len(corners) == 4 and
-            all(corner in corners for corner in [(bottom_left_x, bottom_left_y), (bottom_left_x, top_right_y), (top_right_x, bottom_left_y), (top_right_x, top_right_y)]) and
-            area == (top_right_x - bottom_left_x) * (top_right_y - bottom_left_y)
+            len(corners) == 4
+            and all(
+                corner in corners
+                for corner in [
+                    (bottom_left_x, bottom_left_y),
+                    (bottom_left_x, top_right_y),
+                    (top_right_x, bottom_left_y),
+                    (top_right_x, top_right_y),
+                ]
+            )
+            and area == (top_right_x - bottom_left_x) * (top_right_y - bottom_left_y)
         )

@@ -1,7 +1,11 @@
 # https://leetcode.com/problems/reverse-linked-list/
 
+
+from typing import Optional
+
+
 class ListNode:
-    def __init__(self, val: int = 0, next: 'ListNode' = None):
+    def __init__(self, val: int = 0, next: Optional["ListNode"] = None) -> None:
         self.val = val
         self.next = next
 
@@ -19,7 +23,7 @@ class Solution:
             return None
 
         prev = None
-        while head != None:
+        while head is not None:
             nxt = head.next
             head.next = prev
             prev = head

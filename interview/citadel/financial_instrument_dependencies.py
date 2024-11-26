@@ -41,11 +41,15 @@ We additionally wish to expose an endpoint which allows users to register a new 
 Implement the new endpoint with the same requirements of 'Task 1'.
 """
 
-
 from collections import defaultdict
 from functools import wraps
 from pprint import pprint
-from typing import Callable
+from typing import Callable, ParamSpec, TypeVar
+
+P = ParamSpec("P")
+R = TypeVar("R")
+OriginalFunction = Callable[P, R]
+DecoratedFunction = Callable[P, R]
 
 DATA = [
     ("A", "B"),
@@ -97,11 +101,11 @@ dependents = fetch_dependents("F", dependencies)
 print(dependents)
 
 
-def cacheable(fun: Callable) -> Callable:
+def cacheable(fun: OriginalFunction) -> DecoratedFunction:
     cache = {}
 
     @wraps(fun)
-    def decorated(*args, **kwargs):
+    def decorated(*args: P.args, **kwargs: P.kwargs) -> R:
         p_id = args[0]
         if p_id not in cache:
             print(f"Cache miss: {p_id}")

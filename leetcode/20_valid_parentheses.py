@@ -1,10 +1,11 @@
 # https://leetcode.com/problems/valid-parentheses/
 
+
 class Solution:
     def isValid(self, s: str) -> bool:
         brackets = []
-        opening = list('[{(')
-        closing = list(']})')
+        opening = list("[{(")
+        closing = list("]})")
         for bracket in s:
             if bracket in opening:
                 brackets.append(bracket)
@@ -14,7 +15,7 @@ class Solution:
 
     def isValid(self, s: str) -> bool:
         opened = []
-        brackets = dict(zip('[{(', ']})'))
+        brackets = dict(zip("[{(", "]})"))
         for bracket in s:
             if bracket in brackets:
                 opened.append(bracket)

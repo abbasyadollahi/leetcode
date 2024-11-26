@@ -1,7 +1,8 @@
 # https://leetcode.com/problems/snapshot-array/
 
+
 class SnapshotArray:
-    def __init__(self, length: int):
+    def __init__(self, length: int) -> None:
         self.snapshot = 0
         self.array = [{self.snapshot: 0} for _ in range(length)]
 

@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/remove-element/
 
+
 class Solution:
     def removeElement(self, nums: list[int], val: int) -> int:
         start = 0

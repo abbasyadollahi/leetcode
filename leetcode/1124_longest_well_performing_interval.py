@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/longest-well-performing-interval/
 
+
 class Solution:
     def longestWPI(self, hours: list[int]) -> int:
         score = 0

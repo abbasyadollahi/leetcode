@@ -11,6 +11,7 @@ class Solution:
             graph[prerequisite].append(course)
 
         done = [False] * numCourses
+
         def cyclic(course: int, seen: set[int]) -> bool:
             if course in seen:
                 seen.remove(course)
@@ -39,6 +40,7 @@ class Solution:
             course_prerequisites[course].add(prerequisite)
 
         visited = [False] * numCourses
+
         def cyclic(course: int, seen: set[int]) -> bool:
             if visited[course]:
                 return False
@@ -47,8 +49,7 @@ class Solution:
 
             seen.add(course)
             if course in course_prerequisites and any(
-                cyclic(prerequisite, seen)
-                for prerequisite in course_prerequisites[course]
+                cyclic(prerequisite, seen) for prerequisite in course_prerequisites[course]
             ):
                 return True
             else:

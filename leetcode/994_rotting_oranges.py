@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/rotting-oranges/
 
+
 class Solution:
     def orangesRotting(self, grid: list[list[int]]) -> int:
         m = len(grid)

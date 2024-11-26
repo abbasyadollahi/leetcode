@@ -1,7 +1,8 @@
 # https://leetcode.com/problems/moving-average-from-data-stream/
 
+
 class Solution:
-    def __init__(self, size: int):
+    def __init__(self, size: int) -> None:
         self.size = size
         self.nums = []
 

@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/first-bad-version/
 
+
 def isBadVersion(version: int) -> bool:
     """The isBadVersion API is already defined for you."""
     ...

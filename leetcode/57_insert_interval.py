@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/insert-interval/
 
+
 class Solution:
     def insert(self, intervals: list[list[int]], newInterval: list[int]) -> list[list[int]]:
         if not intervals:
@@ -24,7 +25,7 @@ class Solution:
         else:
             first = indexes[0]
             last = indexes[-1]
-            intervals[first:last+1] = [[min(start, intervals[first][0]), max(end, intervals[last][1])]]
+            intervals[first : last + 1] = [[min(start, intervals[first][0]), max(end, intervals[last][1])]]
 
         return intervals
 
@@ -43,7 +44,7 @@ class Solution:
         else:
             min_start = new_start
         if end_index in range(1, len(intervals) + 1):
-            max_end = max(new_end, intervals[end_index-1][1])
+            max_end = max(new_end, intervals[end_index - 1][1])
         else:
             max_end = new_end
 

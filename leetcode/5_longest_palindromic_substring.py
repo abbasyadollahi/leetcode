@@ -1,9 +1,10 @@
 # https://leetcode.com/problems/longest-palindromic-substring/
 
+
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         if not s:
-            return ''
+            return ""
         if len(s) == 1:
             return s
         if len(s) == 2:
@@ -21,7 +22,7 @@ class Solution:
         l = i - 1
         r = i + 1
         best = s[i]
-        pair = s[i] == s[i+1]
+        pair = s[i] == s[i + 1]
 
         while l >= 0 and r < len(s):
             if s[l] == s[r]:
@@ -40,14 +41,9 @@ class Solution:
     def longestPalindrome(self, s: str) -> str:
         self.n = len(s)
 
-        longest = ''
+        longest = ""
         for i in range(self.n):
-            longest = max(
-                longest,
-                self.expand(s, i, i),
-                self.expand(s, i, i + 1),
-                key=len
-            )
+            longest = max(longest, self.expand(s, i, i), self.expand(s, i, i + 1), key=len)
 
         return longest
 
@@ -55,15 +51,15 @@ class Solution:
         while l >= 0 and r < self.n and s[l] == s[r]:
             l -= 1
             r += 1
-        return s[l+1:r]
+        return s[l + 1 : r]
 
 
 sol = Solution()
-print(sol.longestPalindrome('babad'))
-print(sol.longestPalindrome('a'))
-print(sol.longestPalindrome('abc'))
-print(sol.longestPalindrome('abba'))
-print(sol.longestPalindrome('abbas'))
-print(sol.longestPalindrome('babababab'))
-print(sol.longestPalindrome('ssssssssssssssss'))
-print(sol.longestPalindrome('aaaaaa'))
+print(sol.longestPalindrome("babad"))
+print(sol.longestPalindrome("a"))
+print(sol.longestPalindrome("abc"))
+print(sol.longestPalindrome("abba"))
+print(sol.longestPalindrome("abbas"))
+print(sol.longestPalindrome("babababab"))
+print(sol.longestPalindrome("ssssssssssssssss"))
+print(sol.longestPalindrome("aaaaaa"))

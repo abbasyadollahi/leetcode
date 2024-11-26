@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/cheapest-flights-within-k-stops/
 
-import heapq
 from collections import defaultdict
 
 
@@ -10,7 +9,7 @@ class Solution:
         for source, destination, price in flights:
             connections[source].append((destination, price))
 
-        prices = [float('inf')] * n
+        prices = [float("inf")] * n
         prices[src] = 0
 
         queue = [(src, 0)]
@@ -24,7 +23,7 @@ class Solution:
                         next_queue.append((destination, prices[destination]))
             queue = next_queue
 
-        if prices[dst] < float('inf'):
+        if prices[dst] < float("inf"):
             return prices[dst]
         else:
             return -1

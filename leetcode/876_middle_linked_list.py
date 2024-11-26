@@ -4,13 +4,13 @@ from typing import Optional
 
 
 class ListNode:
-    def __init__(self, val: int = 0, next: 'ListNode' = None):
+    def __init__(self, val: int = 0, next: Optional["ListNode"] = None) -> None:
         self.val = val
         self.next = next
 
 
 class Solution:
-    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def middleNode(self, head: ListNode | None) -> ListNode | None:
         single = head
         double = head
 

@@ -1,20 +1,27 @@
 # https://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array/
 
+
 class Solution:
     def findMissing(self, nums: list[int]) -> int:
         j = 0
         for i in range(len(nums)):
-            if (nums[i] <= 0):
+            if nums[i] <= 0:
                 nums[i], nums[j] = nums[j], nums[i]
                 j += 1
 
         positive_nums = nums[j:]
         for num in nums[j:]:
             i = abs(num) - 1
-            if (i < len(positive_nums) and num > 0 and positive_nums[i] > 0):
+            if i < len(positive_nums) and num > 0 and positive_nums[i] > 0:
                 positive_nums[i] = -positive_nums[i]
 
-        return next((i for i, num in enumerate(positive_nums) if num > 0), len(positive_nums)) + 1
+        return (
+            next(
+                (i for i, num in enumerate(positive_nums) if num > 0),
+                len(positive_nums),
+            )
+            + 1
+        )
 
     def findMissing(self, nums: list[int]) -> int:
         nums = set(nums)

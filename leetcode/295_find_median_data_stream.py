@@ -4,7 +4,7 @@ import heapq
 
 
 class MedianFinder:
-    def __init__(self):
+    def __init__(self) -> None:
         self.nums = []
 
     def addNum(self, num: int) -> None:
@@ -17,11 +17,11 @@ class MedianFinder:
         if n % 2:
             return self.nums[mid]
         else:
-            return (self.nums[mid-1] + self.nums[mid]) / 2
+            return (self.nums[mid - 1] + self.nums[mid]) / 2
 
 
 class MedianFinder:
-    def __init__(self):
+    def __init__(self) -> None:
         self.max_heap = []
         self.min_heap = []
 
@@ -33,6 +33,6 @@ class MedianFinder:
 
     def findMedian(self) -> float:
         if len(self.max_heap) == len(self.min_heap):
-            return (self.min_heap[0] -self.max_heap[0]) / 2
+            return (self.min_heap[0] - self.max_heap[0]) / 2
         else:
             return self.min_heap[0]

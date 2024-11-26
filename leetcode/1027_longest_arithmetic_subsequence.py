@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/longest-arithmetic-subsequence/
 
+
 class Solution:
     def longestArithSeqLength(self, nums: list[int]) -> int:
         las = 0

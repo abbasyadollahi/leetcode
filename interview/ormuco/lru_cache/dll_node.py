@@ -5,7 +5,7 @@ class DLLNode:
     and the tail is the most recently used. Each node stores the data associated to its resource.
     """
 
-    def __init__(self, key: str, value: int):
+    def __init__(self, key: str, value: int) -> None:
         self.key = key
         self.value = value
         self.prev = None

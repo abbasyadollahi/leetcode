@@ -1,5 +1,6 @@
 # https://www.hackerrank.com/x/library/hackerrank/all/questions/111168/view
 
+
 def stockPairs(stocksProfit: list[int], target: int) -> int:
     count = {}
     for profit in stocksProfit:
@@ -10,7 +11,7 @@ def stockPairs(stocksProfit: list[int], target: int) -> int:
     if not odd and count.pop(half, 0) >= 2:
         distinct += 2
 
-    for profit in count.keys():
+    for profit in count:
         diff = target - profit
         if diff in count:
             distinct += 1

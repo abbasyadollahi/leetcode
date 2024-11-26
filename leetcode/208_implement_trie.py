@@ -1,7 +1,8 @@
 # https://leetcode.com/problems/implement-trie-prefix-tree/
 
+
 class Trie:
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize your data structure here."""
         self.eof = None
         self.letters = {}

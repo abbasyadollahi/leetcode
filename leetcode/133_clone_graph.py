@@ -1,20 +1,19 @@
 # https://leetcode.com/problems/clone-graph/
 
-from typing import Optional
-
 
 class GraphNode:
-    def __init__(self, val: int = 0, neighbors: list['GraphNode'] = None):
+    def __init__(self, val: int = 0, neighbors: list["GraphNode"] | None = None) -> None:
         self.val = val
         self.neighbors = neighbors or []
 
 
 class Solution:
-    def cloneGraph(self, node: Optional[GraphNode]) -> Optional[GraphNode]:
+    def cloneGraph(self, node: GraphNode | None) -> GraphNode | None:
         if not node:
             return None
 
         seen = {}
+
         def traverse(n: GraphNode) -> GraphNode:
             new_node = GraphNode(n.val)
             seen[new_node.val] = new_node

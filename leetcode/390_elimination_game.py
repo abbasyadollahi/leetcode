@@ -1,12 +1,13 @@
 # https://leetcode.com/problems/elimination-game/
 
+
 class Solution:
     def lastRemaining(self, n: int) -> int:
         nums = list(range(n))
 
         left_to_right = True
         while len(nums) > 1:
-            nums = nums[1 if left_to_right else len(nums) % 2::2]
+            nums = nums[1 if left_to_right else len(nums) % 2 :: 2]
             left_to_right = not left_to_right
 
         return nums.pop() + 1

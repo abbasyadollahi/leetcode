@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/three-consecutive-odds/
 
+
 class Solution:
     def threeConsecutiveOdds(self, arr: list[int]) -> bool:
         odds_count = 0

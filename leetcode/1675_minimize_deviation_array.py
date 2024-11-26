@@ -9,7 +9,7 @@ class Solution:
         heapq.heapify(max_heap)
 
         minimum = -max(max_heap)
-        min_deviation = float('inf')
+        min_deviation = float("inf")
         while True:
             maximum = -max_heap[0]
             min_deviation = min(min_deviation, maximum - minimum)

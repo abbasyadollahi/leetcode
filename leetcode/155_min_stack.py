@@ -1,8 +1,9 @@
 # https://leetcode.com/problems/min-stack/
 
+
 class MinStack:
-    def __init__(self):
-        self.stack = [(float('inf'), float('inf'))]
+    def __init__(self) -> None:
+        self.stack = [(float("inf"), float("inf"))]
 
     def push(self, val: int) -> None:
         self.stack.append((val, min(val, self.stack[-1][1])))
@@ -18,9 +19,9 @@ class MinStack:
 
 
 class MinStack:
-    def __init__(self):
-        self.val_stack = [float('inf')]
-        self.min_stack = [float('inf')]
+    def __init__(self) -> None:
+        self.val_stack = [float("inf")]
+        self.min_stack = [float("inf")]
 
     def push(self, val: int) -> None:
         self.val_stack.append(val)

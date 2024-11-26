@@ -1,14 +1,14 @@
 # https://leetcode.com/problems/design-browser-history/
 
-class BrowserHistory:
 
-    def __init__(self, homepage: str):
+class BrowserHistory:
+    def __init__(self, homepage: str) -> None:
         self.history = [homepage]
         self.location = 0
 
     def visit(self, url: str) -> None:
         self.location += 1
-        self.history[self.location:] = [url]
+        self.history[self.location :] = [url]
 
     def back(self, steps: int) -> str:
         self.location = max(self.location - steps, 0)

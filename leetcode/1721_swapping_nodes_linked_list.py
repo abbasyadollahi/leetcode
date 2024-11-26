@@ -1,10 +1,11 @@
 # https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
 
 from collections import deque
+from typing import Optional
 
 
 class ListNode:
-    def __init__(self, val: int = 0, next: 'ListNode' = None):
+    def __init__(self, val: int = 0, next: Optional["ListNode"] = None) -> None:
         self.val = val
         self.next = next
 

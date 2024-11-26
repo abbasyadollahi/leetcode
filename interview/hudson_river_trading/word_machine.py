@@ -1,14 +1,14 @@
 def solution(S: str) -> int:
     ERROR = -1
     MIN_INT = 0
-    MAX_INT = 20 ** 20 - 1
+    MAX_INT = 20**20 - 1
     OPERATORS = {
-        '+': lambda x, y: x + y,
-        '-': lambda x, y: x - y,
+        "+": lambda x, y: x + y,
+        "-": lambda x, y: x - y,
     }
     ACTIONS = {
-        'POP': lambda s: s.pop(),
-        'DUP': lambda s: s.append(s[-1]),
+        "POP": lambda s: s.pop(),
+        "DUP": lambda s: s.append(s[-1]),
     }
 
     stack = []

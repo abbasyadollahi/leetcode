@@ -1,10 +1,11 @@
 # https://leetcode.com/problems/zigzag-iterator/
 
+
 class Solution:
-    def __init__(self, *args: tuple[list[int]]):
+    def __init__(self, *args: list[int]) -> None:
         self.values = self.flattenLists(args)
 
-    def flattenLists(self, lists: tuple[list[int]]) -> list[int]:
+    def flattenLists(self, lists: tuple[list[int], ...]) -> list[int]:
         values = []
         empty = False
         rows = len(lists)
@@ -18,7 +19,7 @@ class Solution:
 
         return values
 
-    def next(self) -> int:
+    def next(self) -> int | None:
         return self.values.pop(0) if self.hasNext() else None
 
     def hasNext(self) -> bool:

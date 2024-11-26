@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/non-overlapping-intervals/
 
+
 class Solution:
     def eraseOverlapIntervals(self, intervals: list[list[int]]) -> int:
         count = 0

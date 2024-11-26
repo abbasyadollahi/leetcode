@@ -1,30 +1,28 @@
+from collections.abc import Iterable
 from itertools import filterfalse, tee
-from typing import List, Optional
 
 
 class Order:
-    def __init__(self, is_buy: bool, qty: int, price: float):
+    def __init__(self, is_buy: bool, qty: int, price: float) -> None:
         self.is_buy = is_buy
         self.qty = qty
         self.price = price
 
     def __repr__(self) -> str:
-        return "{} {}@${:.1f}".format(
-            "buy" if self.is_buy else "sell", self.qty, self.price
-        )
+        return "{} {}@${:.1f}".format("buy" if self.is_buy else "sell", self.qty, self.price)
 
-    def __gt__(self, other: 'Order') -> bool:
+    def __gt__(self, other: "Order") -> bool:
         return self.price > other.price
 
 
 class OrderBook:
-    def __init__(self):
-        self._orders: List[Order] = []
+    def __init__(self) -> None:
+        self._orders: list[Order] = []
 
-    def __enter__(self):
+    def __enter__(self) -> "OrderBook":
         return self
 
-    def __exit__(self, *args):
+    def __exit__(self, *args) -> None:
         """
         Formats and prints the order book as the test cases expect.
         """
@@ -34,7 +32,7 @@ class OrderBook:
         for o in [*buys, *sells]:
             print(o)
 
-    def _split_into_buy_and_sell_orders(self):
+    def _split_into_buy_and_sell_orders(self) -> tuple[Iterable[Order], Iterable[Order]]:
         """
         Splits orders into buy and sell orders.
         Returns a pair of iterables:
@@ -86,7 +84,7 @@ class OrderBook:
                 self._orders.remove(other)
                 break
 
-    def _find_opposite_trade(self, order: Order) -> Optional[Order]:
+    def _find_opposite_trade(self, order: Order) -> Order | None:
         """
         Returns an order for the best "match" for a given order.
         For buy orders, this would be the lowest sell price.
@@ -105,7 +103,7 @@ class OrderBook:
         return trade
 
 
-def parse(order_book: OrderBook = OrderBook()) -> None:
+def parse(order_book: OrderBook) -> None:
     while True:
         line = input().strip().split()
         if line[0] == "end":

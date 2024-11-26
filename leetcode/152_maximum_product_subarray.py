@@ -1,8 +1,9 @@
 # https://leetcode.com/problems/maximum-product-subarray/
 
+
 class Solution:
     def maxProduct(self, nums: list[int]) -> int:
-        mx = float('-inf')
+        mx = float("-inf")
         sub = []
         switch = False
         product = left = right = 1
@@ -29,7 +30,7 @@ class Solution:
 
     def compute_max(self, product: int, left: int, right: int, sub: list[int]) -> int:
         if len(sub) == 0:
-            return float('-inf')
+            return float("-inf")
         if len(sub) == 1:
             return max(sub)
         if product > 0:

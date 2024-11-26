@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/string-compression/
 
+
 class Solution:
     def compress(self, chars: list[str]) -> int:
         i = 0

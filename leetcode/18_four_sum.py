@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/4sum/
 
+
 class Solution:
     def fourSum(self, nums: list[int], target: int) -> list[list[int]]:
         def three_sum(nums: list[int], target: int) -> set[tuple[int, int, int]]:
@@ -17,11 +18,11 @@ class Solution:
             return {
                 tuple(sorted([num, *combo]))
                 for i, num in enumerate(nums[:-2])
-                for combo in two_sum(nums[i+1:], target - num)
+                for combo in two_sum(nums[i + 1 :], target - num)
             }
 
         return {
             tuple(sorted([num, *combo]))
             for i, num in enumerate(nums[:-3])
-            for combo in three_sum(nums[i+1:], target - num)
+            for combo in three_sum(nums[i + 1 :], target - num)
         }

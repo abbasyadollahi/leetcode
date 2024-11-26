@@ -2,12 +2,12 @@ class Solution:
     def textQueries(self, sentences: str, queries: str) -> None:
         all_words = []
         for sentence in sentences:
-            all_words.append(set(sentence.split(' ')))
+            all_words.append(set(sentence.split(" ")))
 
         for query in queries:
             found = False
             for line, sentence in enumerate(all_words):
-                if all(word in sentence for word in query.split(' ')):
+                if all(word in sentence for word in query.split(" ")):
                     found = True
-                    print(line, end=' ')
-            print('' if found else -1)
+                    print(line, end=" ")
+            print("" if found else -1)

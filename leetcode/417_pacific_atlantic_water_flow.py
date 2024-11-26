@@ -11,10 +11,10 @@ class Solution:
         self.heights = heights
         self.visited = set()
         self.directions = [
-            [1, 0],     # down
-            [-1, 0],    # up
-            [0, 1],     # right
-            [0, -1],    # left
+            [1, 0],  # down
+            [-1, 0],  # up
+            [0, 1],  # right
+            [0, -1],  # left
         ]
 
         for i, row in enumerate(heights):

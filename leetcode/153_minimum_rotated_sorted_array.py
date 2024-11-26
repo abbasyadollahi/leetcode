@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 
+
 class Solution:
     def findMin(self, nums: list[int]) -> int:
         if not nums:
@@ -33,7 +34,7 @@ class Solution:
                 l = m
                 m = (l + r) // 2
             elif nums[l] > nums[r] and nums[l] == nums[m]:
-                return nums[l+1]
+                return nums[l + 1]
             else:
                 return nums[l]
 

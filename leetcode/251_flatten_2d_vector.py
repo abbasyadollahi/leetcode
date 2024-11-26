@@ -1,7 +1,8 @@
 # https://leetcode.com/problems/flatten-2d-vector/
 
+
 class Solution:
-    def __init__(self, vector: list[list[int]]):
+    def __init__(self, vector: list[list[int]]) -> None:
         self.values = self.flattenLists(vector)
 
     def flattenLists(self, lists: list[list[int]]) -> list[int]:
@@ -11,7 +12,7 @@ class Solution:
 
         return values
 
-    def next(self) -> int:
+    def next(self) -> int | None:
         return self.values.pop(0) if self.hasNext() else None
 
     def hasNext(self) -> bool:
@@ -19,5 +20,5 @@ class Solution:
 
 
 sol = Solution([[1, 2, 3], [4, 5, 6, 7], [8, 9]])
-sol = Solution([[1,2], [3], [4,5,6]])
+sol = Solution([[1, 2], [3], [4, 5, 6]])
 sol = Solution([])

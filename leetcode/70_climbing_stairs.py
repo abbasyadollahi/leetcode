@@ -1,10 +1,11 @@
 # https://leetcode.com/problems/climbing-stairs/
 
+
 class Solution:
     def climbStairs(self, n: int) -> int:
         base = list(range(n + 1))
         for i in range(3, n + 1):
-            base[i] = sum(base[i-2:i])
+            base[i] = sum(base[i - 2 : i])
 
         return base[n]
 

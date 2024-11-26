@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/jump-game-ii/
 
+
 class Solution:
     def jump(self, nums: list[int]) -> int:
         def best_jump(index: int) -> int:
@@ -34,7 +35,7 @@ class Solution:
         return count
 
     def jump(self, nums: list[int]) -> int:
-        dp = [float('inf')] * len(nums)
+        dp = [float("inf")] * len(nums)
         dp[0] = 0
 
         for i, num in enumerate(nums):

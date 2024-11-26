@@ -1,14 +1,18 @@
 # https://leetcode.com/problems/binary-search-tree-iterator/
 
+
+from typing import Optional
+
+
 class TreeNode:
-    def __init__(self, val: int = 0, left: 'TreeNode' = None, right: 'TreeNode' = None):
+    def __init__(self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None) -> None:
         self.val = val
         self.left = left
         self.right = right
 
 
 class BSTIterator:
-    def __init__(self, root: TreeNode):
+    def __init__(self, root: TreeNode) -> None:
         self.root = root
         self.parents = []
 

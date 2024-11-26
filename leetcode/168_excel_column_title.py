@@ -1,8 +1,9 @@
 # https://leetcode.com/problems/excel-sheet-column-title/
 
+
 class Solution:
     def convertToTitle(self, n: int) -> str:
-        col = ''
+        col = ""
         ascii = 65
         while n > 0:
             c = chr((n - 1) % 26 + ascii)

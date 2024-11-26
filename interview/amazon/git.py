@@ -6,7 +6,6 @@ from typing import Optional
 
 @dataclass
 class Commit:
-
     id: int
     hash: str
     author: str
@@ -17,14 +16,12 @@ class Commit:
 
 @dataclass
 class CommitNode:
-
     current: Commit
-    previous_node: Optional['CommitNode']
-    next_node: Optional['CommitNode']
+    previous_node: Optional["CommitNode"]
+    next_node: Optional["CommitNode"]
 
 
 class Git:
-
     history: dict[str, CommitNode] = {}
     head_commit_node: CommitNode = None
 

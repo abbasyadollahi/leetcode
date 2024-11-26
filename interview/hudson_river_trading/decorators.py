@@ -2,14 +2,13 @@ from functools import wraps
 from inspect import getfullargspec
 from typing import Any, Callable, ParamSpec, TypeVar
 
-
-P = ParamSpec('P')
-R = TypeVar('R')
+P = ParamSpec("P")
+R = TypeVar("R")
 OriginalFunction = Callable[P, R]
 DecoratedFunction = Callable[P, R]
 
 
-def provide(**provide_kwargs) -> Callable[[OriginalFunction], DecoratedFunction]:
+def provide(**provide_kwargs: int) -> Callable[[OriginalFunction], DecoratedFunction]:
     def decorator(fun: OriginalFunction) -> DecoratedFunction:
         fun_fullargspec = getfullargspec(fun)
         fun_args = fun_fullargspec.args
@@ -37,17 +36,23 @@ def provide(**provide_kwargs) -> Callable[[OriginalFunction], DecoratedFunction]
     return decorator
 
 
-print('---------- Example 1 ----------')
+print("---------- Example 1 ----------")
+
+
 @provide(a=2)
 def add(a: int, b: int) -> int:
     return a + b
+
 
 assert add(b=3) == 5
 
-print('---------- Example 2 ----------')
+print("---------- Example 2 ----------")
+
+
 @provide(a=2)
 def add(a: int, b: int) -> int:
     return a + b
+
 
 try:
     add(3)
@@ -55,41 +60,56 @@ try:
 except TypeError:
     ...
 
-print('---------- Example 3 ----------')
+print("---------- Example 3 ----------")
+
+
 @provide(b=2)
 def add(a: int, b: int) -> int:
     return a + b
 
+
 assert add(3) == 5
 
-print('---------- Example 4 ----------')
+print("---------- Example 4 ----------")
+
+
 @provide(a=2)
 def add(a: int, b: int) -> int:
     return a + b
 
+
 assert add(3, 4) == 7
 assert add(a=3, b=4) == 7
 
-print('---------- Example 5 ----------')
+print("---------- Example 5 ----------")
+
+
 @provide(ignore=123, b=1)
 def add(a: int, b: int) -> int:
     return a + b
 
+
 assert add(4) == 5
 
-print('---------- Example 6 ----------')
+print("---------- Example 6 ----------")
+
+
 @provide(a=2)
 def add(a: int, b: int) -> int:
     """This adds 2 numbers."""
     return a + b
 
-assert add.__name__ == 'add'
-assert add.__doc__ == 'This adds 2 numbers.'
 
-print('---------- Example 7 ----------')
+assert add.__name__ == "add"
+assert add.__doc__ == "This adds 2 numbers."
+
+print("---------- Example 7 ----------")
+
+
 @provide(a=1, b=2)
-def add(**kwargs) -> dict[str, Any]:
+def add(**kwargs: int) -> dict[str, Any]:
     return kwargs
 
-assert add(c=3) == {'a': 1, 'b': 2, 'c': 3}
-assert add(a=3, b=4) == {'a': 3, 'b': 4}
+
+assert add(c=3) == {"a": 1, "b": 2, "c": 3}
+assert add(a=3, b=4) == {"a": 3, "b": 4}

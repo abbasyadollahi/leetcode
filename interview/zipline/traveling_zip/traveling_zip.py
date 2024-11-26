@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-from typing import Dict, List, Literal, TextIO, Union
+from typing import TextIO
 
 # If you add or upgrade any pip packages, please specify in `requirements.txt`
 import yaml  # noqa
@@ -23,15 +23,16 @@ ZIP_MAX_CUMULATIVE_RANGE_M = 160 * 1000  # 160 km -> meters
 EMERGENCY = "Emergency"
 RESUPPLY = "Resupply"
 
+
 # You shouldn't need to modify this class
 class Hospital:
-    def __init__(self, name: str, north_m: int, east_m: int):
+    def __init__(self, name: str, north_m: int, east_m: int) -> None:
         self.name = name
         self.north_m = north_m
         self.east_m = east_m
 
     @staticmethod
-    def load_from_csv(f: TextIO) -> Dict[str, "Hospital"]:
+    def load_from_csv(f: TextIO) -> dict[str, "Hospital"]:
         """Reads and processes a CSV file object that conforms to the
         hospital.csv schema defined in README.md.
 
@@ -55,13 +56,13 @@ class Hospital:
 
 # You shouldn't need to modify this class
 class Order:
-    def __init__(self, time: int, hospital: Hospital, priority: str):
+    def __init__(self, time: int, hospital: Hospital, priority: str) -> None:
         self.time = time
         self.hospital = hospital
         self.priority = priority
 
     @staticmethod
-    def load_from_csv(f: TextIO, hospitals: Dict[str, Hospital]) -> List["Order"]:
+    def load_from_csv(f: TextIO, hospitals: dict[str, Hospital]) -> list["Order"]:
         """Reads and processes a CSV file object that conforms to the
         orders.csv schema defined in README.md.
         Ok to assume the orders are sorted.
@@ -88,7 +89,7 @@ class Order:
 
 # Feel free to extend as needed
 class Flight:
-    def __init__(self, launch_time: int, orders: List[Order]):
+    def __init__(self, launch_time: int, orders: list[Order]) -> None:
         self.launch_time = launch_time
         self.orders = orders
 
@@ -100,12 +101,12 @@ class Flight:
 class ZipScheduler:
     def __init__(
         self,
-        hospitals: Dict[str, Hospital],
+        hospitals: dict[str, Hospital],
         num_zips: int,
         max_packages_per_zip: int,
         zip_speed_mps: int,
         zip_max_cumulative_range_m: int,
-    ):
+    ) -> None:
         self.hospitals = hospitals
         self.num_zips = num_zips
         self.max_packages_per_zip = max_packages_per_zip
@@ -113,10 +114,10 @@ class ZipScheduler:
         self.zip_max_cumulative_range_m = zip_max_cumulative_range_m
 
         # Track which orders haven't been launched yet
-        self._unfulfilled_orders: List[Order] = []
+        self._unfulfilled_orders: list[Order] = []
 
     @property
-    def unfulfilled_orders(self) -> List[Order]:
+    def unfulfilled_orders(self) -> list[Order]:
         return self._unfulfilled_orders
 
     def queue_order(self, order: Order) -> None:
@@ -134,7 +135,7 @@ class ZipScheduler:
         # TODO: implement me!
         pass
 
-    def launch_flights(self, current_time: int) -> List[Flight]:
+    def launch_flights(self, current_time: int) -> list[Flight]:
         """Determines which flights should be launched right now.
         Each flight has an ordered list of Orders to serve.
 
@@ -158,11 +159,11 @@ class Runner:
     progressing.
     """
 
-    def __init__(self, hospitals_path: str, orders_path: str):
-        with open(hospitals_path, "r") as f:
+    def __init__(self, hospitals_path: str, orders_path: str) -> None:
+        with open(hospitals_path) as f:
             self.hospitals = Hospital.load_from_csv(f)
 
-        with open(orders_path, "r") as f:
+        with open(orders_path) as f:
             self.orders = Order.load_from_csv(f, self.hospitals)
 
         self.scheduler = ZipScheduler(
@@ -194,10 +195,7 @@ class Runner:
                 self.__update_launch_flights(sec_since_midnight)
 
         # These orders were not launched by midnight
-        print(
-            f"{len(self.scheduler.unfulfilled_orders)} unfulfilled orders at"
-            + "the end of the day"
-        )
+        print(f"{len(self.scheduler.unfulfilled_orders)} unfulfilled orders at" + "the end of the day")
 
     def __queue_pending_orders(self, sec_since_midnight: int) -> None:
         """Grab an order from the queue and queue it.

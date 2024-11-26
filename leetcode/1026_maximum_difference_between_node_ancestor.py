@@ -4,7 +4,7 @@ from typing import Optional
 
 
 class TreeNode:
-    def __init__(self, val: int = 0, left: 'TreeNode' = None, right: 'TreeNode' = None):
+    def __init__(self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None) -> None:
         self.val = val
         self.left = left
         self.right = right
@@ -14,10 +14,15 @@ class Solution:
     def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
         return max(
             self.traverse(root.left, [root], [root]),
-            self.traverse(root.right, [root], [root])
+            self.traverse(root.right, [root], [root]),
         )
 
-    def traverse(self, root: Optional[TreeNode], min_ancestors: list[TreeNode], max_ancestors: list[TreeNode]) -> int:
+    def traverse(
+        self,
+        root: Optional[TreeNode],
+        min_ancestors: list[TreeNode],
+        max_ancestors: list[TreeNode],
+    ) -> int:
         if root is None:
             return 0
 
@@ -41,5 +46,5 @@ class Solution:
             abs(root.val - min_ancestor.val),
             abs(root.val - max_ancestor.val),
             max_left,
-            max_right
+            max_right,
         )

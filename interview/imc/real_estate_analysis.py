@@ -40,7 +40,7 @@ def findValuation(reqArea: int, areas: list[int], prices: list[int]) -> int:
         i = bisect.bisect_right(areas, reqArea) - 1
 
     x1, y1 = areas[i], statistics.fmean(comparisons_by_area[areas[i]])
-    x2, y2 = areas[i+1], statistics.fmean(comparisons_by_area[areas[i+1]])
+    x2, y2 = areas[i + 1], statistics.fmean(comparisons_by_area[areas[i + 1]])
 
     return formalize_price(extrapolate(reqArea, x1, y1, x2, y2))
 
@@ -76,11 +76,7 @@ def generateCandidates(areas: list[int], prices: list[int]) -> dict[tuple[int, i
         analysis.absolute_difference = abs(price - analysis.average)
         analysis.outlier = analysis.absolute_difference > 3 * analysis.standard_deviation
 
-    candidates = {
-        house: analysis
-        for house, analysis in candidates.items()
-        if not analysis.outlier
-    }
+    candidates = {house: analysis for house, analysis in candidates.items() if not analysis.outlier}
 
     return candidates
 
@@ -98,8 +94,8 @@ def formalize_price(price: float) -> int:
     Round to nearest integer and limit to 10^3 and 10^6.
     """
 
-    price = max(price, 10 ** 3)
-    price = min(price, 10 ** 6)
+    price = max(price, 10**3)
+    price = min(price, 10**6)
     return round(price)
 
 

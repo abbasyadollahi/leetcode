@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/longest-consecutive-sequence/
 
+
 class Solution:
     def longestConsecutive(self, nums: list[int]) -> int:
         nums = set(nums)
@@ -23,7 +24,7 @@ class Solution:
         max_count = 0
         nums.sort()
         for i, num in enumerate(nums):
-            diff = num - nums[i-1]
+            diff = num - nums[i - 1]
             if diff == 1:
                 count += 1
             elif diff == 0:

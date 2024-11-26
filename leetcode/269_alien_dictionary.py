@@ -14,9 +14,9 @@ class Solution:
                     pre[b].add(a)
                     break
 
-        chars = set(''.join(words))
+        chars = set("".join(words))
         charToProcess = chars - set(pre)
-        order = ''
+        order = ""
         while charToProcess:
             ch = charToProcess.pop()
             order += ch
@@ -28,10 +28,4 @@ class Solution:
 
 
 sol = Solution()
-print(sol.alienOrder([
-  'wrt',
-  'wrf',
-  'er',
-  'ett',
-  'rftt'
-]))
+print(sol.alienOrder(["wrt", "wrf", "er", "ett", "rftt"]))
