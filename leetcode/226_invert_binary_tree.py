@@ -12,6 +12,18 @@ class TreeNode:
 
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        nodes = [root]
+        while nodes:
+            node = nodes.pop()
+            if node is None:
+                continue
+            node.left, node.right = node.right, node.left
+            nodes.append(node.left)
+            nodes.append(node.right)
+
+        return root
+
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if root is None:
             return root
 

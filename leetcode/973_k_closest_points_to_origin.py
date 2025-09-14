@@ -22,3 +22,7 @@ class Solution:
                 heapq.heappush(max_heap, (-distance, x, y))
 
         return [(x, y) for _, x, y in max_heap]
+
+    def kClosest(self, points: list[list[int]], k: int) -> list[list[int]]:
+        distances = [(math.dist((0, 0), point), point) for point in points]
+        return [point for _, point in heapq.nsmallest(k, distances)]

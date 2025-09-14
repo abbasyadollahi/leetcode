@@ -3,12 +3,12 @@
 
 class Solution:
     def groupAnagrams(self, words: list[str]) -> list[list[str]]:
-        groupings = {}
+        groups = {}
         for word in words:
             anagram = "".join(sorted(word))
-            groupings[anagram] = groupings.get(anagram, []) + [word]
+            groups[anagram] = groups.get(anagram, []) + [word]
 
-        return list(groupings.values())
+        return list(groups.values())
 
 
 sol = Solution()

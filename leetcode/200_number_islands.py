@@ -8,23 +8,15 @@ class Solution:
         n = len(grid[0])
 
         def clearIsland(i: int, j: int) -> None:
+            if not (0 <= i < m and 0 <= j < n) or grid[i][j] == "0":
+                return
+
             grid[i][j] = "0"
 
-            ii = i - 1
-            if ii >= 0 and grid[ii][j] == "1":
-                clearIsland(ii, j)
-
-            ii = i + 1
-            if ii < m and grid[ii][j] == "1":
-                clearIsland(ii, j)
-
-            jj = j - 1
-            if jj >= 0 and grid[i][jj] == "1":
-                clearIsland(i, jj)
-
-            jj = j + 1
-            if jj < n and grid[i][jj] == "1":
-                clearIsland(i, jj)
+            clearIsland(i - 1, j)
+            clearIsland(i + 1, j)
+            clearIsland(i, j - 1)
+            clearIsland(i, j + 1)
 
         for i in range(m):
             for j in range(n):

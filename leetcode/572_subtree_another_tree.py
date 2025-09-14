@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/subtree-of-another-tree/
 
-from collections import deque
 from typing import Optional
 
 
@@ -12,30 +11,25 @@ class TreeNode:
 
 
 class Solution:
-    def isSubtree(self, root: TreeNode, subRoot: TreeNode) -> bool:
-        queue = deque()
-        queue.append(root)
-
-        while len(queue):
-            node = queue.popleft()
-            if node.val == subRoot.val and self.verify_trees(node, subRoot):
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        def is_same_tree(p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+            if p is None and q is None:
                 return True
+            elif p is None or q is None:
+                return False
             else:
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
+                return p.val == q.val and is_same_tree(p.left, q.left) and is_same_tree(p.right, q.right)
 
-        return False
+        roots = []
 
-    def verify_trees(self, root: TreeNode, sub_root: TreeNode) -> bool:
-        if root is None and sub_root is None:
-            return True
-        elif root is None or sub_root is None:
-            return False
-        else:
-            return (
-                root.val == sub_root.val
-                and self.verify_trees(root.left, sub_root.left)
-                and self.verify_trees(root.right, sub_root.right)
-            )
+        nodes = [root]
+        while nodes:
+            node = nodes.pop()
+            if node is None:
+                continue
+            if node.val == subRoot.val:
+                roots.append(node)
+            nodes.append(node.left)
+            nodes.append(node.right)
+
+        return any(is_same_tree(root, subRoot) for root in roots)

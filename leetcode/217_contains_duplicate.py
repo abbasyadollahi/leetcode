@@ -9,6 +9,7 @@ class Solution:
                 return True
             else:
                 seen.add(num)
+        return False
 
     def containsDuplicate(self, nums: list[int]) -> bool:
         return len(nums) != len(set(nums))

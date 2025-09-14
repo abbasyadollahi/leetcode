@@ -43,3 +43,24 @@ class Solution:
             return next(filter(None, children), None)
 
         return traverse(root)
+
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        def flip_tree(parent: Optional['TreeNode'], node: Optional['TreeNode']) -> None:
+            if node is None:
+                return
+            flip_tree(node, node.left)
+            flip_tree(node, node.right)
+            node.left = parent
+            node.right = None
+
+        flip_tree(None, root)
+
+        p_stack = set()
+        while p:
+            p_stack.add(p)
+            p = p.left
+
+        while q not in p_stack:
+            q = q.left
+
+        return q
