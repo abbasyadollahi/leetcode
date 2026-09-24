@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/pacific-atlantic-water-flow/
 
-from typing import Callable
+from collections.abc import Callable
 
 
 class Solution:

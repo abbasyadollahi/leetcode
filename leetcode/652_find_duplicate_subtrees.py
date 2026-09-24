@@ -1,15 +1,14 @@
 # https://leetcode.com/problems/find-duplicate-subtrees/
 
 from collections import defaultdict
-from typing import Optional
 
 
 class TreeNode:
     def __init__(
         self,
         val: int = 0,
-        left: Optional["TreeNode"] = None,
-        right: Optional["TreeNode"] = None,
+        left: TreeNode | None = None,
+        right: TreeNode | None = None,
     ) -> None:
         self.val = val
         self.left = left
@@ -17,10 +16,10 @@ class TreeNode:
 
 
 class Solution:
-    def findDuplicateSubtrees(self, root: Optional[TreeNode]) -> list[TreeNode]:
+    def findDuplicateSubtrees(self, root: TreeNode | None) -> list[TreeNode]:
         subtrees = defaultdict(list)
 
-        def traverse(node: Optional[TreeNode]) -> str:
+        def traverse(node: TreeNode | None) -> str:
             if not node:
                 return "."
 

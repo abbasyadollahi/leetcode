@@ -1,7 +1,4 @@
 from dataclasses import dataclass, field
-from typing import Generic, Optional, TypeVar, Union
-
-H = TypeVar("H")
 
 
 @dataclass
@@ -19,7 +16,7 @@ class Clipboard:
 
 
 @dataclass
-class History(Generic[H]):
+class History[H]:
     past: list[H] = field(default_factory=list)
     future: list[H] = field(default_factory=list)
 
@@ -71,7 +68,7 @@ class Editor:
             "REDO": self.redo,
         }
 
-    def action(self, action: str, *args: list[str]) -> Optional[str]:
+    def action(self, action: str, *args: list[str]) -> str | None:
         return self.actions[action](*args)
 
     def append(self, text: str) -> str:
@@ -99,11 +96,11 @@ class Editor:
 
         return self._get_output()
 
-    def move(self, cursor: Union[str, int]) -> None:
+    def move(self, cursor: str | int) -> None:
         self.selection = ()
         self.cursor = self._restrict_cursor_bounds(int(cursor))
 
-    def select(self, start: Union[str, int], end: Union[str, int]) -> None:
+    def select(self, start: str | int, end: str | int) -> None:
         start = self._restrict_cursor_bounds(int(start))
         end = self._restrict_cursor_bounds(int(end))
         if start == end:
@@ -115,7 +112,7 @@ class Editor:
         if self.selection:
             self.clipboard.copy(self._get_between(*self.selection))
 
-    def paste(self) -> Optional[str]:
+    def paste(self) -> str | None:
         if self.clipboard.is_empty():
             return None
         else:

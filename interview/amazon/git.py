@@ -1,7 +1,6 @@
 import hashlib
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Optional
 
 
 @dataclass
@@ -17,8 +16,8 @@ class Commit:
 @dataclass
 class CommitNode:
     current: Commit
-    previous_node: Optional["CommitNode"]
-    next_node: Optional["CommitNode"]
+    previous_node: CommitNode | None
+    next_node: CommitNode | None
 
 
 class Git:

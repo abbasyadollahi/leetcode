@@ -1,18 +1,16 @@
 # https://leetcode.com/problems/construct-quad-tree/
 
-from typing import Optional
-
 
 class Node:
     def __init__(
         self,
         val: int,
         isLeaf: bool,
-        topLeft: Optional["Node"] = None,
-        topRight: Optional["Node"] = None,
-        bottomLeft: Optional["Node"] = None,
-        bottomRight: Optional["Node"] = None,
-    ):
+        topLeft: Node | None = None,
+        topRight: Node | None = None,
+        bottomLeft: Node | None = None,
+        bottomRight: Node | None = None,
+    ) -> None:
         self.val = val
         self.isLeaf = isLeaf
         self.topLeft = topLeft

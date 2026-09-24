@@ -1,10 +1,8 @@
 # https://leetcode.com/problems/reorder-list/
 
-from typing import Optional
-
 
 class ListNode:
-    def __init__(self, val: int = 0, next: Optional["ListNode"] = None) -> None:
+    def __init__(self, val: int = 0, next: ListNode | None = None) -> None:
         self.val = val
         self.next = next
 
@@ -28,12 +26,12 @@ class Solution:
 
 
 class Solution:
-    def reorderList(self, head: Optional[ListNode]) -> None:
+    def reorderList(self, head: ListNode | None) -> None:
         first_half = head
         second_half_reversed = self.reverseList(self.splitList(head))
         self.mergeTwoLists(first_half, second_half_reversed)
 
-    def splitList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def splitList(self, head: ListNode | None) -> ListNode | None:
         previous = None
         single = double = head
         while double and double.next:
@@ -48,13 +46,13 @@ class Solution:
 
         return split
 
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def reverseList(self, head: ListNode | None) -> ListNode | None:
         previous = None
         while head is not None:
             head.next, head, previous = previous, head.next, head
         return previous
 
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+    def mergeTwoLists(self, list1: ListNode | None, list2: ListNode | None) -> ListNode | None:
         dummy = head = ListNode()
         while list1 and list2:
             head.next, list1 = list1, list1.next

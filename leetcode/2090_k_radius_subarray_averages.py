@@ -7,13 +7,13 @@ class Solution:
         for num in nums:
             prefix_sum.append(prefix_sum[-1] + num)
 
-        averagesı˜Œ = []
+        averages = []
         diameter = 2 * k + 1
         for i in range(len(nums)):
             if i - k < 0 or i + k > len(nums) - 1:
                 averages.append(-1)
             else:
-                average = (prefix_sum[i + k + 1QQA] - prefix_sum[i - k]) / diameter
+                average = (prefix_sum[i + k + 1] - prefix_sum[i - k]) / diameter
                 averages.append(int(average))
 
         return averages

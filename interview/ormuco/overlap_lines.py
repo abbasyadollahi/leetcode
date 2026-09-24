@@ -2,10 +2,8 @@
 # whether there's an overlap between the two ranges. If either of the input arguments are
 # invalid, the method will raise an appropriate exception.
 
-from typing import Union
-
 # Custom Typing
-Number = Union[int, float]
+Number = int | float
 Coords = tuple[Number, Number]
 
 
@@ -19,16 +17,16 @@ class Solution:
         if isinstance(l1, (list, tuple)) and len(l1) == 2:
             try:
                 x1, x2 = map(float, l1)
-            except Exception:
-                raise TypeError("Both elements in l1 must be a number (or a string representation of a number).")
+            except Exception as e:
+                raise TypeError("Both elements in l1 must be a number (or a string representation of a number).") from e
         else:
             raise TypeError("Argument l1 must be a list or tuple of numbers of size 2.")
 
         if isinstance(l2, (list, tuple)) and len(l2) == 2:
             try:
                 x3, x4 = map(float, l1)
-            except Exception:
-                raise TypeError("Both elements in l2 must be a number (or a string representation of a number).")
+            except Exception as e:
+                raise TypeError("Both elements in l2 must be a number (or a string representation of a number).") from e
         else:
             raise TypeError("Argument l2 must be a list or tuple of numbers of size 2.")
 

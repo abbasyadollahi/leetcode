@@ -31,7 +31,7 @@ class LRUCache:
         self.max_size = max_size  # Max byte size of LRU Cache
         self.size = sys.getsizeof(self.cache)  # Current byte size of LRU Cache
 
-    def __getattribute__(self, attr) -> Callable:
+    def __getattribute__(self, attr: str) -> Callable:
         method = object.__getattribute__(self, attr)
         if not method:
             raise Exception(f"Method {attr} not implemented.")

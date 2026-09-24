@@ -1,21 +1,20 @@
 # https://leetcode.com/problems/binary-tree-level-order-traversal/
 
 from collections import defaultdict
-from typing import Optional
 
 
 class TreeNode:
-    def __init__(self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None) -> None:
+    def __init__(self, val: int = 0, left: TreeNode | None = None, right: TreeNode | None = None) -> None:
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> list[list[int]]:
+    def levelOrder(self, root: TreeNode | None) -> list[list[int]]:
         nodes = defaultdict(list)
 
-        def recurse(node: Optional[TreeNode], level: int) -> None:
+        def recurse(node: TreeNode | None, level: int) -> None:
             if node is None:
                 return
 

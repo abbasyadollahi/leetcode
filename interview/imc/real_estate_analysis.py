@@ -67,7 +67,7 @@ def generateCandidates(areas: list[int], prices: list[int]) -> dict[tuple[int, i
             if area == other_area and i != j:
                 candidates[(area, price)].comparisons.append(other_price)
 
-    for (area, price), analysis in candidates.items():
+    for (_, price), analysis in candidates.items():
         if not analysis.comparisons:
             continue
 

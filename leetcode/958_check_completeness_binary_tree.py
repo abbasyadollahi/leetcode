@@ -1,14 +1,12 @@
 # https://leetcode.com/problems/check-completeness-of-a-binary-tree/
 
-from typing import Optional
-
 
 class TreeNode:
     def __init__(
         self,
         val: int = 0,
-        left: Optional["TreeNode"] = None,
-        right: Optional["TreeNode"] = None,
+        left: TreeNode | None = None,
+        right: TreeNode | None = None,
     ) -> None:
         self.val = val
         self.left = left
@@ -16,7 +14,7 @@ class TreeNode:
 
 
 class Solution:
-    def isCompleteTree(self, root: Optional[TreeNode]) -> bool:
+    def isCompleteTree(self, root: TreeNode | None) -> bool:
         end = False
         queue = [root]
         while queue:

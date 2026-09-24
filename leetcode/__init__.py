@@ -1,8 +1,5 @@
-from typing import Optional
-
-
 class ListNode:
-    def __init__(self, val: int = 0, next: Optional["ListNode"] = None) -> None:
+    def __init__(self, val: int = 0, next: ListNode | None = None) -> None:
         self.val = val
         self.next = next
 
@@ -11,8 +8,8 @@ class TreeNode:
     def __init__(
         self,
         val: int = 0,
-        left: Optional["TreeNode"] = None,
-        right: Optional["TreeNode"] = None,
+        left: TreeNode | None = None,
+        right: TreeNode | None = None,
     ) -> None:
         self.val = val
         self.left = left
@@ -20,7 +17,7 @@ class TreeNode:
 
 
 class GraphNode:
-    def __init__(self, val: int = 0, neighbors: list["GraphNode"] | None = None) -> None:
+    def __init__(self, val: int = 0, neighbors: list[GraphNode] | None = None) -> None:
         self.val = val
         self.neighbors = neighbors or []
 
@@ -29,8 +26,8 @@ class RandomListNode:
     def __init__(
         self,
         val: int = 0,
-        next: Optional["RandomListNode"] = None,
-        random: Optional["RandomListNode"] = None,
+        next: RandomListNode | None = None,
+        random: RandomListNode | None = None,
     ) -> None:
         self.val = val
         self.next = next

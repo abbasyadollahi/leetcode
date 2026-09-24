@@ -30,10 +30,11 @@ APIs:
 
 
 import logging
-from abc import ABC
+from abc import ABC, abstractmethod
+from collections.abc import Callable
 from dataclasses import dataclass
 from functools import wraps
-from typing import Any, Callable, ParamSpec, TypeVar
+from typing import Any, ParamSpec, TypeVar
 
 P = ParamSpec("P")
 R = TypeVar("R")
@@ -78,14 +79,17 @@ class Decorators:
 
 class Series(ABC):
     @staticmethod
+    @abstractmethod
     def getNth(n: int) -> int:
         pass
 
     @staticmethod
+    @abstractmethod
     def isMember(n: int) -> bool:
         pass
 
     @staticmethod
+    @abstractmethod
     def smallestMember(n: int) -> int:
         pass
 

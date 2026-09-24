@@ -1,6 +1,6 @@
 import calendar
 import datetime
-from typing import Annotated, Optional, TypedDict, TypeVar
+from typing import Annotated, TypedDict
 
 
 class User(TypedDict):
@@ -16,7 +16,7 @@ class User(TypedDict):
     activated_on: datetime.date
     """When this user activated their subscription"""
 
-    deactivated_on: Optional[datetime.date]
+    deactivated_on: datetime.date | None
     """When this user deactivated their subscription (inclusive)"""
 
 
@@ -33,7 +33,7 @@ class Subscription(TypedDict):
 
 def monthly_charge(
     month: Annotated[str, "YYYY-MM format"],
-    subscription: Optional[Subscription],
+    subscription: Subscription | None,
     users: list[User],
 ) -> int:
     """
@@ -81,10 +81,8 @@ def monthly_charge(
 # Helper functions #
 ####################
 
-D = TypeVar("D", datetime.datetime, datetime.date)
 
-
-def first_day_of_month(date: D) -> D:
+def first_day_of_month[D: (datetime.datetime, datetime.date)](date: D) -> D:
     """
     Takes a datetime or date object and returns the same timestamp
     but with the day attribute changed to the first day of that month.
@@ -96,7 +94,7 @@ def first_day_of_month(date: D) -> D:
     return date.replace(day=1)
 
 
-def last_day_of_month(date: D) -> D:
+def last_day_of_month[D: (datetime.datetime, datetime.date)](date: D) -> D:
     """
     Takes a datetime or date object and returns the same timestamp
     but with the day attribute changed to last day of that month.
@@ -109,7 +107,7 @@ def last_day_of_month(date: D) -> D:
     return date.replace(day=last_day)
 
 
-def next_day(date: D) -> D:
+def next_day[D: (datetime.datetime, datetime.date)](date: D) -> D:
     """
     Takes a datetime or date object and returns the same timestamp
     but with one day added, which is the next day.

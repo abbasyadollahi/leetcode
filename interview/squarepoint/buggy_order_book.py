@@ -11,7 +11,7 @@ class Order:
     def __repr__(self) -> str:
         return "{} {}@${:.1f}".format("buy" if self.is_buy else "sell", self.qty, self.price)
 
-    def __gt__(self, other: "Order") -> bool:
+    def __gt__(self, other: Order) -> bool:
         return self.price > other.price
 
 
@@ -19,7 +19,7 @@ class OrderBook:
     def __init__(self) -> None:
         self._orders: list[Order] = []
 
-    def __enter__(self) -> "OrderBook":
+    def __enter__(self) -> OrderBook:
         return self
 
     def __exit__(self, *args) -> None:

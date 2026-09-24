@@ -1,15 +1,14 @@
 # https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
 
 from collections import deque
-from typing import Optional
 
 
 class TreeNode:
     def __init__(
         self,
         val: int = 0,
-        left: Optional["TreeNode"] = None,
-        right: Optional["TreeNode"] = None,
+        left: TreeNode | None = None,
+        right: TreeNode | None = None,
     ) -> None:
         self.val = val
         self.left = left
@@ -17,10 +16,10 @@ class TreeNode:
 
 
 class Solution:
-    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> list[list[int]]:
+    def zigzagLevelOrder(self, root: TreeNode | None) -> list[list[int]]:
         levels: list[deque] = []
 
-        def traverse(node: Optional[TreeNode], depth: int) -> None:
+        def traverse(node: TreeNode | None, depth: int) -> None:
             if not node:
                 return
             if depth == len(levels):

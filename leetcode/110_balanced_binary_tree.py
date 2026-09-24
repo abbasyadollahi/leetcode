@@ -1,18 +1,16 @@
 # https://leetcode.com/problems/balanced-binary-tree/
 
-from typing import Optional
-
 
 class TreeNode:
-    def __init__(self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None) -> None:
+    def __init__(self, val: int = 0, left: TreeNode | None = None, right: TreeNode | None = None) -> None:
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        def traverse(node: Optional[TreeNode], depth: int) -> int:
+    def isBalanced(self, root: TreeNode | None) -> bool:
+        def traverse(node: TreeNode | None, depth: int) -> int:
             if node is None:
                 return depth
 
@@ -26,8 +24,8 @@ class Solution:
 
         return traverse(root, 0) != -1
 
-    def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        def traverse(node: Optional[TreeNode]) -> tuple[bool, int]:
+    def isBalanced(self, root: TreeNode | None) -> bool:
+        def traverse(node: TreeNode | None) -> tuple[bool, int]:
             if node is None:
                 return True, 0
             left_valid, left = traverse(node.left)

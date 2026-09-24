@@ -32,7 +32,7 @@ class Hospital:
         self.east_m = east_m
 
     @staticmethod
-    def load_from_csv(f: TextIO) -> dict[str, "Hospital"]:
+    def load_from_csv(f: TextIO) -> dict[str, Hospital]:
         """Reads and processes a CSV file object that conforms to the
         hospital.csv schema defined in README.md.
 
@@ -62,7 +62,7 @@ class Order:
         self.priority = priority
 
     @staticmethod
-    def load_from_csv(f: TextIO, hospitals: dict[str, Hospital]) -> list["Order"]:
+    def load_from_csv(f: TextIO, hospitals: dict[str, Hospital]) -> list[Order]:
         """Reads and processes a CSV file object that conforms to the
         orders.csv schema defined in README.md.
         Ok to assume the orders are sorted.

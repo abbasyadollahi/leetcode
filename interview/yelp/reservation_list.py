@@ -14,10 +14,8 @@ they get priority and should addressed first
 Queue above 1800 overrides any other rule (small or large)
 """
 
-from typing import Optional
 
-
-def get_next_in_line(reservations: list[dict], table_size: int, large: bool) -> Optional[str]:
+def get_next_in_line(reservations: list[dict], table_size: int, large: bool) -> str | None:
     index = None
     max_queue_time = -1
 

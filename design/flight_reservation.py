@@ -51,12 +51,12 @@ class Flight:
     arrival_time: datetime.datetime
     source: str
     destination: str
-    seat_states: list["SeatState"]
+    seat_states: list[SeatState]
 
 
 class Plane:
     id: int
-    seats: list["Seat"]
+    seats: list[Seat]
     accessibility: dict
 
 

@@ -1,6 +1,4 @@
-from typing import Optional
-
-member_index: dict[str, "Member"] = {}
+member_index: dict[str, Member] = {}
 """Database with member id (key) to member instance (value)."""
 
 
@@ -22,7 +20,7 @@ class Member:
             if child_member:
                 self.children.append(child_member)
 
-    def find_name(self, name: str) -> Optional["Member"]:
+    def find_name(self, name: str) -> Member | None:
         """
         If the name matches the member's name, then return self.
         Otherwise, find any descendant member that matches the given name.
@@ -56,14 +54,14 @@ class Member:
             member.attach_children()
 
     @staticmethod
-    def member_index() -> dict[str, "Member"]:
+    def member_index() -> dict[str, Member]:
         global member_index
         if member_index is None:
             member_index = {}
         return member_index
 
     @staticmethod
-    def find(member_id: str) -> Optional["Member"]:
+    def find(member_id: str) -> Member | None:
         return Member.member_index().get(str(member_id))
 
 

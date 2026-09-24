@@ -2,7 +2,6 @@
 
 import bisect
 from collections import defaultdict
-from typing import Optional
 
 
 class TimeMap:
@@ -24,7 +23,7 @@ class TimeMap:
         else:
             return ""
 
-    def _find_closest_timestamp(self, timestamp: int, timestamps: list[int]) -> Optional[int]:
+    def _find_closest_timestamp(self, timestamp: int, timestamps: list[int]) -> int | None:
         index = bisect.bisect_right(timestamps, timestamp) - 1
         if timestamps[index] <= timestamp:
             return timestamps[index]

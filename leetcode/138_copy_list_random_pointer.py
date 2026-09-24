@@ -1,14 +1,12 @@
 # https://leetcode.com/problems/copy-list-with-random-pointer/
 
-from typing import Optional
-
 
 class RandomListNode:
     def __init__(
         self,
         val: int = 0,
-        next: Optional["RandomListNode"] = None,
-        random: Optional["RandomListNode"] = None,
+        next: RandomListNode | None = None,
+        random: RandomListNode | None = None,
     ) -> None:
         self.val = val
         self.next = next

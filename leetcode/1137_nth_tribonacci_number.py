@@ -11,7 +11,7 @@ class Solution:
         if n < 3:
             return [t_n_3, t_n_2, t_n_1][n]
 
-        for n in range(3, n):
+        for _ in range(3, n):
             t_n, t_n_1, t_n_2 = t_n + t_n_1 + t_n_2, t_n, t_n_1
 
         return t_n
@@ -21,7 +21,7 @@ class Solution:
         t_n_1 = 1
         t_n = t_n_1 + t_n_2
 
-        for n in range(n):
+        for _ in range(n):
             t_n, t_n_1, t_n_2 = t_n + t_n_1 + t_n_2, t_n, t_n_1
 
         return t_n_2

@@ -1,17 +1,15 @@
 # https://leetcode.com/problems/maximum-difference-between-root-and-ancestor/
 
-from typing import Optional
-
 
 class TreeNode:
-    def __init__(self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None) -> None:
+    def __init__(self, val: int = 0, left: TreeNode | None = None, right: TreeNode | None = None) -> None:
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
+    def maxAncestorDiff(self, root: TreeNode | None) -> int:
         return max(
             self.traverse(root.left, [root], [root]),
             self.traverse(root.right, [root], [root]),
@@ -19,7 +17,7 @@ class Solution:
 
     def traverse(
         self,
-        root: Optional[TreeNode],
+        root: TreeNode | None,
         min_ancestors: list[TreeNode],
         max_ancestors: list[TreeNode],
     ) -> int:

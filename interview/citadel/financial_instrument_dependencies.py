@@ -42,9 +42,10 @@ Implement the new endpoint with the same requirements of 'Task 1'.
 """
 
 from collections import defaultdict
+from collections.abc import Callable
 from functools import wraps
 from pprint import pprint
-from typing import Callable, ParamSpec, TypeVar
+from typing import ParamSpec, TypeVar
 
 P = ParamSpec("P")
 R = TypeVar("R")

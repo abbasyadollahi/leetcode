@@ -1,10 +1,8 @@
 # https://leetcode.com/problems/lfu-cache/
 
-from typing import Optional
-
 
 class CacheNode:
-    def __init__(self, value: int, next: Optional["CacheNode"] = None, previous: Optional["CacheNode"] = None) -> None:
+    def __init__(self, value: int, next: CacheNode | None = None, previous: CacheNode | None = None) -> None:
         self.count = 1
         self.value = value
         self.next = next

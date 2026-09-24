@@ -5,7 +5,7 @@ class Singleton:
     def __init__(self, decorated: type) -> None:
         self._decorated = decorated
 
-    def instance(self) -> "Singleton":
+    def instance(self) -> Singleton:
         try:
             return self._instance
         except AttributeError:
@@ -31,7 +31,7 @@ class Database:
         self.db = {}
 
     def getItem(self, key: str) -> int | None:
-        return self.db[key] if key in self.db else None
+        return self.db.get(key, None)
 
     def addItem(self, key: str, value: int) -> None:
         self.db[key] = value

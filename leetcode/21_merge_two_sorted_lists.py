@@ -1,16 +1,14 @@
 # https://leetcode.com/problems/merge-two-sorted-lists/
 
-from typing import Optional
-
 
 class ListNode:
-    def __init__(self, val: int = 0, next: Optional["ListNode"] = None) -> None:
+    def __init__(self, val: int = 0, next: ListNode | None = None) -> None:
         self.val = val
         self.next = next
 
 
 class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+    def mergeTwoLists(self, list1: ListNode | None, list2: ListNode | None) -> ListNode | None:
         dummy = current = ListNode()
         while list1 and list2:
             if list1.val < list2.val:

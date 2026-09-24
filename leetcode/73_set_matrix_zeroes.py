@@ -13,7 +13,7 @@ class Solution:
                     zero_cols.add(j)
 
         for i, row in enumerate(matrix):
-            for j, col in enumerate(row):
+            for j, _ in enumerate(row):
                 if i in zero_rows or j in zero_cols:
                     matrix[i][j] = 0
 

@@ -29,9 +29,8 @@ class Solution:
             return False
 
         for course in range(numCourses):
-            if not done[course]:
-                if cyclic(course, set()):
-                    return False
+            if not done[course] and cyclic(course, set()):
+                return False
         return True
 
     def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:

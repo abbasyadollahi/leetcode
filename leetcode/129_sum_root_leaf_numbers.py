@@ -1,14 +1,12 @@
 # https://leetcode.com/problems/sum-root-to-leaf-numbers/
 
-from typing import Optional
-
 
 class TreeNode:
     def __init__(
         self,
         val: int = 0,
-        left: Optional["TreeNode"] = None,
-        right: Optional["TreeNode"] = None,
+        left: TreeNode | None = None,
+        right: TreeNode | None = None,
     ) -> None:
         self.val = val
         self.left = left
@@ -16,8 +14,8 @@ class TreeNode:
 
 
 class Solution:
-    def sumNumbers(self, root: Optional[TreeNode]) -> int:
-        def traverse(node: Optional[TreeNode], total: int) -> int:
+    def sumNumbers(self, root: TreeNode | None) -> int:
+        def traverse(node: TreeNode | None, total: int) -> int:
             total *= 10
             total += node.val
 

@@ -1,6 +1,7 @@
+from collections.abc import Callable
 from functools import wraps
 from inspect import getfullargspec
-from typing import Any, Callable, ParamSpec, TypeVar
+from typing import Any, ParamSpec, TypeVar
 
 P = ParamSpec("P")
 R = TypeVar("R")

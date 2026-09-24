@@ -1,18 +1,16 @@
 # https://leetcode.com/problems/diameter-of-binary-tree/
 
-from typing import Optional
-
 
 class TreeNode:
-    def __init__(self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None) -> None:
+    def __init__(self, val: int = 0, left: TreeNode | None = None, right: TreeNode | None = None) -> None:
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        def traverse(node: Optional[TreeNode]) -> tuple[int, int]:
+    def diameterOfBinaryTree(self, root: TreeNode | None) -> int:
+        def traverse(node: TreeNode | None) -> tuple[int, int]:
             if node is None:
                 return 0, 0
 
