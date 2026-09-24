@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/inorder-successor-in-bst/
 
-
 from typing import Optional
 
 

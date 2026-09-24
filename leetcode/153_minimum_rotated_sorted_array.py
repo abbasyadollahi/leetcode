@@ -3,8 +3,6 @@
 
 class Solution:
     def findMin(self, nums: list[int]) -> int:
-        if not nums:
-            return None
         if len(nums) == 1:
             return nums[0]
 
@@ -37,5 +35,21 @@ class Solution:
                 return nums[l + 1]
             else:
                 return nums[l]
+
+        return nums[l]
+
+    def findMin(self, nums: list[int]) -> int:
+        if nums[0] < nums[-1]:
+            return nums[0]
+
+        l = 0
+        r = len(nums) - 1
+
+        while nums[l] != nums[r]:
+            m = (l + r) // 2
+            if nums[l] > nums[r] and nums[m] >= nums[l]:
+                l = m + 1
+            else:
+                r = m
 
         return nums[l]

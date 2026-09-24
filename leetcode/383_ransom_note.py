@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/ransom-note/
 
+import string
 from collections import Counter
 
 
@@ -8,3 +9,15 @@ class Solution:
         ransom_count = Counter(ransomNote)
         magazine_count = Counter(magazine)
         return all(count <= magazine_count.get(letter, 0) for letter, count in ransom_count.items())
+
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        counts = dict.fromkeys(string.ascii_lowercase, 0)
+        for letter in magazine:
+            counts[letter] += 1
+
+        for letter in ransomNote:
+            if counts[letter] > 0:
+                counts[letter] -= 1
+            else:
+                return False
+        return True

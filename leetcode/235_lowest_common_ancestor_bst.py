@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 
-
 from typing import Optional
 
 
@@ -44,8 +43,8 @@ class Solution:
 
         return traverse(root)
 
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        def flip_tree(parent: Optional['TreeNode'], node: Optional['TreeNode']) -> None:
+    def lowestCommonAncestor(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
+        def flip_tree(parent: Optional["TreeNode"], node: Optional["TreeNode"]) -> None:
             if node is None:
                 return
             flip_tree(node, node.left)

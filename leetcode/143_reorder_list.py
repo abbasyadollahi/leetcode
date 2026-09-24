@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/reorder-list/
 
-
 from typing import Optional
 
 

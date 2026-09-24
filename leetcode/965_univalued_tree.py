@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/univalued-binary-tree/
 
-
 from typing import Optional
 
 

@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/binary-tree-maximum-path-sum/
 
-
 from typing import Optional
 
 

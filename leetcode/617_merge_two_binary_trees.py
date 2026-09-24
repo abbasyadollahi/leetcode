@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/merge-two-binary-trees/
 
-
 from typing import Optional
 
 

@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/linked-list-cycle/
 
-
 from typing import Optional
 
 

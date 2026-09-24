@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/closest-binary-search-tree-value/
 
-
 from typing import Optional
 
 

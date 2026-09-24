@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/count-complete-tree-nodes/
 
-
 from typing import Optional
 
 

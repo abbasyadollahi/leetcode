@@ -22,5 +22,5 @@ class Solution:
         robbed[1] = nums[0]
         robbed[2] = nums[1]
         for i in range(3, len(nums) + 1):
-            robbed[i] = max(nums[i-1] + robbed[i - 3], nums[i-1] + robbed[i - 2], robbed[i - 1])
+            robbed[i] = max(nums[i - 1] + robbed[i - 3], nums[i - 1] + robbed[i - 2], robbed[i - 1])
         return robbed[-1]

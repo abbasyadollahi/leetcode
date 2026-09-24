@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/copy-list-with-random-pointer/
 
-
 from typing import Optional
 
 

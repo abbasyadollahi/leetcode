@@ -39,6 +39,6 @@ class Solution:
 
         for n1, n2 in zip(v1_multi, v2_multi):
             if n1.lstrip("0") != n2.lstrip("0"):
-                return f'{v1} is {"greater" if float(n1) > float(n2) else "less"} than {v2}.'
+                return f"{v1} is {'greater' if float(n1) > float(n2) else 'less'} than {v2}."
 
         return f"{v1} and {v2} are equal versions."

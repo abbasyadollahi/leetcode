@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/palindrome-linked-list/
 
-
 from typing import Optional
 
 
